@@ -26,7 +26,7 @@
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col sm="12" md="6">
+      <v-col sm="12" md="6" order="first" order-sm="last">
           <v-card flat width="100%" max-width="600" class="transparent">
             <v-img :src="top.pictureURL" max-width="750" class="mx-auto"></v-img>
           </v-card>
