@@ -1,5 +1,5 @@
 <template>
-<v-container fluid>
+<v-container>
   <v-system-bar app fixed color="primary" height="40" width="100%">
     <v-row d-flex align="center" justify="end" class="mr-10">
       <v-spacer class="d-none d-lg-flex d-xl-flex"></v-spacer>
@@ -47,7 +47,7 @@
               <v-list-item
                   v-for="(page, index) in pages"
                   :key="index"
-                  @click="$emit('update:page', mainNavSectors[index])"
+                  @click="$emit('update:page', mainNavSectors[index]); panel=false"
               >
                 <v-list-item-title class="main-menu-items">{{ page }}</v-list-item-title>
               </v-list-item>

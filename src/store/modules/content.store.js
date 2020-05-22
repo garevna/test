@@ -11,31 +11,34 @@ const state = {
     header: 'Get Ultra-Fast Fibre To Your Home',
     text: 'Turbocharge your home internet with a full-fibre connection. Up to 20x faster than Standard NBN copper or cable. With no evening congestion, dropouts and all the bandwidth, you need to flawlessly support every user and device under your roof and all for a crazy low price. ',
     button: 'Get in Touch',
-    pictureURL: 'https://pineapple-net-land.glitch.me/images/family-medium-1.png'
+    pictureURL: 'img/family-medium-1.png'
   },
   info: {
     header: 'Ultra-Fast Fibre To Your Home',
     text: 'Nothing beats fibre. Get the best internet connection for HD movies and 4K streams, remote-work and crystal clear video calls. Unwind with lag-free-games, and accelerated web-surfing. Now, you can feel good about your internet connection thanks to our superior-tech and the unrivalled reliability of ultra-fast fibre. ',
     offer: [
       {
-        blackText: 'Up to 1Gbps',
-        greenText: 'Speeds'
+        blackText: '1000Mbps',
+        greenText: 'Speeds Up to'
       },
       {
-        blackText: 'Business-worthy uploads',
-        greenText: 'Uploads'
+        blackText: 'Business-worthy',
+        greenText: 'uploads'
       },
       {
-        blackText: 'for every screen',
-        greenText: 'Bandwidth'
+        blackText: 'Crazy affordable',
+        greenText: 'prices'
       }
     ]
   },
   userForm: {
     title: 'Ask Questions Or Get Connected Today',
     messagePlaceholder: 'Enquiry*',
-    button: 'Ask Questions Or Get Connected',
-    fieldsToShow: ['name', 'email', 'phone', 'building', 'apptNumber', 'promocode', 'message']
+    button: 'Get Connected',
+    fieldsToShow: ['name', 'email', 'phone', 'building', 'apptNumber', 'promocode', 'message'],
+    states: ['VIC', 'NSW', 'ACT', 'QLD', 'SA', 'WA', 'TAS', 'NT'],
+    buildings: ['Aurora', 'QV1', 'Conservatory'],
+    promocodes: ['FREEINTERNETAURORA', 'FREEINTERNETCONSERVATORY', 'FREEINTERNETQV1']
     // fieldsToShow: ['name', 'email', 'address', 'postcode', 'state', 'phone', 'building', 'apptNumber', 'promocode', 'message']
   },
   howToConnect: {

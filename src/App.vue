@@ -182,7 +182,11 @@ svg.defs-only {
   font-size: 16px!important;
   line-height: 100%;
   text-transform: uppercase;
-  width: 340px;
+  min-width: 240px!important;
+  max-width: 420px!important;
+  height: 48px!important;
+  color: #72BF44;
+  border-radius: 48px!important;
 }
 
 @media (max-width: 600px), (max-height: 600px) {
@@ -218,7 +222,6 @@ svg.defs-only {
   .submit-button {
     font-size: 13px!important;
     width: 100%!important;
-    border-radius: 8px!important;
   }
 }
 
