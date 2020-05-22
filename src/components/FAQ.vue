@@ -31,7 +31,7 @@
             color="buttons"
             dark
             class="submit-button px-auto mx-auto mt-12"
-            @click="$emit('update:page', '#contact')"
+            @click="$emit('update:page', faq.goto)"
         >
             {{ faq.button }}
         </v-btn>
