@@ -127,6 +127,16 @@ const actions = {
     })).json()
     commit('CLEAR_ALL_FIELDS')
     return true
+  },
+  async SEND_SIMPLE_MAIL ({ state }, data) {
+    const response = await (await fetch(state.mailEndpoint, {
+      method: 'POST',
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })).json()
   }
 }
 

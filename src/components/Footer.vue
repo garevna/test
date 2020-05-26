@@ -192,7 +192,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions('contact', { sendEmail: 'SEND_EMAIL' }),
+    ...mapActions('contact', { sendEmail: 'SEND_SIMPLE_MAIL' }),
     initFields () {
       this.name = ''
       this.email = ''
@@ -211,9 +211,10 @@ export default {
           <p>${this.emailText}</p>
           <hr>
           <h3>Name: ${this.name}</h3>
+          <h4>Email: ${this.email}</h4>
           <h4>Phone: ${this.phone}</h4>
           <hr>
-          <p><small>Get started!</small></p>
+          <p>Get started!</p>
         `
       })
       this.initFields()
