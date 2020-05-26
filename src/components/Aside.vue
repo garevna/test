@@ -8,9 +8,7 @@
       <h2 class="text-left">{{ info.header }}</h2>
     </v-card-title>
     <v-card-text>
-      <p class="text-left">
-          {{ info.text }}
-      </p>
+      <p class="text-left" v-html="info.text"></p>
     </v-card-text>
     <v-card-text>
       <h5

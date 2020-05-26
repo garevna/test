@@ -1,5 +1,5 @@
 <template>
-<v-container fluid>
+<v-container>
   <v-system-bar app fixed color="primary" height="40" width="100%">
     <v-row d-flex align="center" justify="end" class="mr-10">
       <v-spacer class="d-none d-lg-flex d-xl-flex"></v-spacer>

@@ -8,14 +8,14 @@ const state = {
   mainNavButtons: ['Reviews', 'Get in Touch', 'FAQs'],
   mainNavSectors: ['#testimonials', '#contact', '#faq'],
   top: {
-    header: 'Get Ultra-Fast Fibre To Your Home',
-    text: 'Turbocharge your home internet with a full-fibre connection. Up to 20x faster than Standard NBN copper or cable. With no evening congestion, dropouts and all the bandwidth, you need to flawlessly support every user and device under your roof and all for a crazy low price. ',
+    header: 'Ultra-Fast Fibre Now Available!',
+    text: 'Pineapple Net’s full-fibre is the internet Melbourne’s been missing. Faster, cheaper and more reliable than your NBN.<br>Now that it’s reached your building, connect and get your first month for FREE. Offer available in Melbourne’s CBD highrise apartments: The Aurora, Conversatory and QV1.',
     button: 'Get in Touch',
     pictureURL: 'https://pineapple-net-land.glitch.me/images/family-medium-1.png'
   },
   info: {
-    header: 'Ultra-Fast Fibre To Your Home',
-    text: 'Nothing beats fibre. Get the best internet connection for HD movies and 4K streams, remote-work and crystal clear video calls. Unwind with lag-free-games, and accelerated web-surfing. Now, you can feel good about your internet connection thanks to our superior-tech and the unrivalled reliability of ultra-fast fibre. ',
+    header: '40% Cheaper, 100% Faster than your current connection',
+    text: 'Nothing beats fibre. Get the best internet connection for HD movies and 4K streams, remote-work and crystal clear video calls. Unwind with lag-free-games, and accelerated web-surfing. Now, you can feel good about your internet connection thanks to our superior-tech and the unrivalled reliability of ultra-fast fibre.<br>Check your building app to get your promo code for 1 month of FREE internet!',
     offer: [
       {
         blackText: 'Up to 1Gbps',
