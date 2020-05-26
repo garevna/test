@@ -17,9 +17,9 @@ const state = {
   mailEndpoint: 'https://api.pineapple.net.au/email/landing',
   emailSubject: '',
   emailText: '',
-  states: ['VIC', 'NSW', 'ACT', 'QLD', 'SA', 'WA', 'TAS', 'NT'],
-  buildings: ['Aurora', 'QV1', 'Conservatory'],
-  promocodes: ['FREEINTERNETAURORA', 'FREEINTERNETCONSERVATORY', 'FREEINTERNETQV1'],
+  // states: ['VIC', 'NSW', 'ACT', 'QLD', 'SA', 'WA', 'TAS', 'NT'],
+  // buildings: ['Aurora', 'QV1', 'Conservatory'],
+  // promocodes: ['FREEINTERNETAURORA', 'FREEINTERNETCONSERVATORY', 'FREEINTERNETQV1'],
   messageForMail: '',
   fieldsToShow: [],
   errors: {

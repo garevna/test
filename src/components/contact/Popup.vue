@@ -11,9 +11,8 @@
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn
-                  class="submit-button"
                   width="80"
-                  color="primary"
+                  color="buttons"
                   text @click="$emit('update:opened', false)"
             >
               CLOSE

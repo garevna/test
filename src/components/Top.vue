@@ -19,7 +19,7 @@
                 rounded
                 height="48"
                 class="submit-button px-auto mx-auto"
-                @click="$emit('update:page', '#contact')"
+                @click="$emit('update:page', top.goto)"
             >
                 {{ top.button }}
             </v-btn>

@@ -47,7 +47,7 @@
               <v-list-item
                   v-for="(page, index) in pages"
                   :key="index"
-                  @click="$emit('update:page', mainNavSectors[index])"
+                  @click="$emit('update:page', mainNavSectors[index]); panel=false"
               >
                 <v-list-item-title class="main-menu-items">{{ page }}</v-list-item-title>
               </v-list-item>

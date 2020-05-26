@@ -74,11 +74,8 @@
       <v-btn
           color="buttons"
           dark
-          rounded
-          min-width="240"
-          height="48"
           class="submit-button px-auto mx-auto"
-          @click="$emit('update:page', '#contact')"
+          @click="$emit('update:page', content.goto)"
       >
           {{ content.button }}
       </v-btn>

@@ -1,5 +1,5 @@
 <template>
-  <v-card class="user-info mx-auto pa-6 homefone" width="480">
+  <v-card class="user-info mx-auto pa-6 homefone" max-width="480">
     <v-card-title>
       <h4>{{ userForm.title }}</h4>
     </v-card-title>
@@ -36,10 +36,10 @@
             v-if="getAvailability('apptNumber')"
       />
 
-      <ComboBoxInput
-            label="Promocode?*"
-            :values="promocodes"
+      <InputWithValidation
+            placeholder="Promocode?*"
             propName="promocode"
+            :validator="val => promocodes.indexOf(val) !== -1"
             v-if="getAvailability('promocode')"
       />
 
@@ -51,10 +51,6 @@
       <v-btn
           color="buttons"
           dark
-          rounded
-          min-width="300"
-          width="100%"
-          height="48"
           class="submit-button px-auto mx-auto"
           @click="sendUserRequest"
       >
@@ -86,8 +82,8 @@ h4 {
     font-size: 16px!important;
   }
   .user-info {
-    width: 480px!important;
-    padding-left: 40px;
+    width: 100%!important;
+    /* padding-left: 40px; */
   }
 }
 @media screen and (max-width: 320px) {
@@ -159,7 +155,15 @@ export default {
   },
   computed: {
     ...mapState('content', ['userForm']),
-    ...mapState('contact', ['states', 'buildings', 'promocodes'])
+    states () {
+      return this.userForm.states
+    },
+    buildings () {
+      return this.userForm.buildings
+    },
+    promocodes () {
+      return this.userForm.promocodes
+    }
   },
   methods: {
     ...mapActions('contact', {

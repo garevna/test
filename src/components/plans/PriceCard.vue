@@ -20,7 +20,7 @@
           width="100%"
           height="40"
           class="px-auto mx-auto mb-8 mb-md-12"
-          @click="$emit('update:contact', true)"
+          @click.stop="$emit('update:contact', true)"
       >
         Contact Us
       </v-btn>

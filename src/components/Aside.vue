@@ -21,7 +21,7 @@
     </v-card-text>
     <v-card-text class="my-12">
       <span class="small text-left" style="margin-right: 16px">Pineapple NET is powered by</span>
-      <v-img src="@/assets/dgtek-logo.png" width="50" style="display: inline-block; vertical-align: middle;"></v-img>
+      <v-img src="@/assets/dgtek-logo.svg" width="50" style="display: inline-block; vertical-align: middle;"></v-img>
     </v-card-text>
   </v-card>
 </template>

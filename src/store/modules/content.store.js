@@ -11,31 +11,35 @@ const state = {
     header: 'Ultra-Fast Fibre Now Available!',
     text: 'Pineapple Net’s full-fibre is the internet Melbourne’s been missing. Faster, cheaper and more reliable than your NBN.<br>Now that it’s reached your building, connect and get your first month for FREE. Offer available in Melbourne’s CBD highrise apartments: The Aurora, Conversatory and QV1.',
     button: 'Get in Touch',
-    pictureURL: 'https://pineapple-net-land.glitch.me/images/family-medium-1.png'
+    goto: '#contact',
+    pictureURL: 'img/family-medium-1.png'
   },
   info: {
     header: '40% Cheaper, 100% Faster than your current connection',
     text: 'Nothing beats fibre. Get the best internet connection for HD movies and 4K streams, remote-work and crystal clear video calls. Unwind with lag-free-games, and accelerated web-surfing. Now, you can feel good about your internet connection thanks to our superior-tech and the unrivalled reliability of ultra-fast fibre.<br>Check your building app to get your promo code for 1 month of FREE internet!',
     offer: [
       {
-        blackText: 'Up to 1Gbps',
-        greenText: 'Speeds'
+        greenText: 'Speeds Up to',
+        blackText: '1000Mbps'
       },
       {
-        blackText: 'Business-worthy uploads',
-        greenText: 'Uploads'
+        greenText: 'Business-worthy',
+        blackText: 'uploads'
       },
       {
-        blackText: 'for every screen',
-        greenText: 'Bandwidth'
+        greenText: 'Crazy affordable',
+        blackText: 'prices'
       }
     ]
   },
   userForm: {
     title: 'Ask Questions Or Get Connected Today',
     messagePlaceholder: 'Enquiry*',
-    button: 'Ask Questions Or Get Connected',
-    fieldsToShow: ['name', 'email', 'phone', 'building', 'apptNumber', 'promocode', 'message']
+    button: 'Get Connected',
+    fieldsToShow: ['name', 'email', 'phone', 'building', 'apptNumber', 'promocode', 'message'],
+    states: ['VIC', 'NSW', 'ACT', 'QLD', 'SA', 'WA', 'TAS', 'NT'],
+    buildings: ['Aurora', 'QV1', 'Conservatory'],
+    promocodes: ['FREEINTERNETAURORA', 'FREEINTERNETCONSERVATORY', 'FREEINTERNETQV1']
     // fieldsToShow: ['name', 'email', 'address', 'postcode', 'state', 'phone', 'building', 'apptNumber', 'promocode', 'message']
   },
   howToConnect: {
@@ -58,11 +62,13 @@ const state = {
   },
   testimonials: {
     header: 'The Social Proof That Melbourne Loves Pineapple Fibre',
-    button: 'Try it for yourself'
+    button: 'Try it for yourself',
+    goto: '#contact'
   },
   faq: {
     header: 'We’ve Answered Some Common Questions',
     button: 'Get in Touch',
+    goto: '#contact',
     items: [
       {
         question: 'How is DGtek Fibre Different to the NBN?',
