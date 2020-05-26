@@ -215,6 +215,8 @@ export default {
           <h4>Phone: ${this.phone}</h4>
           <hr>
           <p>Get started!</p>
+          <hr>
+          <p><small>https://connect-melbournecbd.pineapple.com.au</small></p>
         `
       })
       this.initFields()
