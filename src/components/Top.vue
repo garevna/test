@@ -8,9 +8,7 @@
             <h1 class="text-center text-md-left">{{ top.header }}</h1>
           </v-card-text>
           <v-card-text class="mx-auto mx-lg-0">
-            <p class="text-center text-md-left">
-              {{ top.text }}
-            </p>
+            <p class="text-center text-md-left" v-html="top.text"></p>
           </v-card-text>
           <v-card-text class="text-center text-md-left">
             <v-btn

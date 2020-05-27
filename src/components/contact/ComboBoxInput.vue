@@ -32,7 +32,6 @@ export default {
         return this.$store.state.contact.userInfo[this.propName]
       },
       set (val) {
-        console.log('SELECTED: ', val)
         this.$store.commit('contact/UPDATE_USER_INFO', {
           prop: this.propName,
           value: val
