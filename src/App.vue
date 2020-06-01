@@ -301,7 +301,7 @@ export default {
       if (!val) return
       this.$vuetify.goTo(val, {
         duration: 500,
-        offset: 200,
+        offset: 20,
         easing: 'easeInOutCubic'
       })
       this.page = undefined
