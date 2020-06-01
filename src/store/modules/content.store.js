@@ -107,7 +107,7 @@ const state = {
         `
       },
       {
-        question: 'What Can I Do With Fibre? ',
+        question: 'What Can I Do With Fibre?',
         answer: `Nothing you couldn’t do with your NBN connection. It’s just an all-round better experience. You can download large files quicker, stream in higher resolutions, upload massive files in a fraction of the time and of course, fibre is way more reliable so you won’t drop calls to your work colleagues or loved ones.<br>
                  There is no evening congestion, no unexplainable internet slow days and practically no network outages.<br>
                  Since DGtek launched their fibre in 2016, our customers have enjoyed 99.9% network uptime. Years have passed without a single dropout. That feat is unthinkable on the NBN.
