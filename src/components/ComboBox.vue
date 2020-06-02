@@ -15,6 +15,9 @@ export default {
   name: 'ComboBox',
   props: ['label', 'items', 'selectedItem'],
   data () {
+    /* eslint-disable no-labels */
+    /* eslint-disable no-undef */
+    /* eslint-disable no-unused-expressions */
     select: items[0]
   },
   computed: {
