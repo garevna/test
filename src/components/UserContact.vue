@@ -47,6 +47,15 @@
 
     </v-card-text>
 
+    <v-card-text class="ma-auto" width="40%" height="10">
+      <v-progress-linear
+          color="#75BE00"
+          buffer-value="0"
+          stream
+          v-if="progress"
+      ></v-progress-linear>
+    </v-card-text>
+
     <v-card-actions class="text-center">
       <v-btn
           color="buttons"
@@ -150,7 +159,8 @@ export default {
         building: true,
         apptNumber: true,
         promocode: true
-      }
+      },
+      progress: false
     }
   },
   computed: {
@@ -177,8 +187,10 @@ export default {
     },
 
     async sendUserRequest () {
+      this.progress = true
       if (await this.sendEmail()) this.popupOpened = true
       else this.popupErrorOpened = true
+      this.progress = false
     }
   },
   mounted () {
