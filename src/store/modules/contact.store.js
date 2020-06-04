@@ -106,7 +106,7 @@ const mutations = {
 const actions = {
 
   async SEND_EMAIL ({ state, commit }) {
-    let error = state.fieldsToShow.filter(item => !state.userInfo[item]).length > 0
+    let error = state.fieldsToShow.filter(item => item !== 'promocode' ? !state.userInfo[item] : false).length > 0
     if (error) return false
     for (const err in state.errors) {
       error = error || state.errors[err]
