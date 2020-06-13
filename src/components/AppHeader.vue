@@ -26,7 +26,7 @@
           v-model="panel"
           class="app-bar d-lg-none"
           width="100%"
-          style="position: fixed; margin-top: -8px; z-index: 10;"
+          style="position: fixed; margin-top: 40px; z-index: 10; left: 0"
   >
     <v-expansion-panel style="background: #FAFAFA">
       <v-expansion-panel-header
