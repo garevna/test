@@ -1,24 +1,23 @@
 <template>
 <v-container fluid style="overflow-x: hidden; margin-top: 160px; margin-bottom: 64px;" v-if="top">
   <v-card flat class="homefone" width="100%" max-width="1904">
-    <v-img
+    <!-- <v-img
           :src="top.pictureURL"
           gradient="to right, #FAFAFAFF, #FAFAFA00"
-    >
+    > -->
       <!-- =======================  VIEWPORT > 700 ======================== -->
 
       <v-row align="center" justify="center" style="height: 100%">
         <v-col cols="12" lg="6" class="mx-auto my-auto">
           <v-card flat width="100%" max-width="480" class="transparent mx-auto">
             <v-card-text class="text-center text-md-left">
-              <h1 class="text-left">
+              <h2 class="text-left">
                 {{ top.header }}
-              </h1>
+              </h2>
             </v-card-text>
             <v-card-text class="mx-0" v-if="viewportWidth > 700">
               <p
                     class="text-left"
-                    style="font-weight: bold"
                     v-html="top.text"
               ></p>
             </v-card-text>
@@ -61,7 +60,7 @@
             </v-card>
         </v-col> -->
       </v-row>
-    </v-img>
+    <!-- </v-img> -->
 
     <!-- =======================  VIEWPORT <= 700 ======================== -->
 
