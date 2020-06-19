@@ -1,14 +1,15 @@
 <template>
-<v-container fluid style="overflow-x: hidden; margin-top: 160px; margin-bottom: 64px;">
-  <v-card flat class="mx-auto homefone" width="100%" max-width="1440">
+<v-container fluid style="overflow-x: hidden; margin-top: 80px; margin-bottom: 64px;">
+  <v-card flat tile class="mx-auto homefone" width="100%" max-width="1180">
     <v-row align="center" justify="center">
-      <v-col sm="12" md="6" class="text-center mx-auto">
-        <v-card flat width="100%" max-width="480" class="transparent mx-auto">
-          <v-card-text class="text-center text-md-left">
+      <v-col sm="12" md="6">
+        <v-card flat tile width="100%" max-width="480" class="transparent left-col">
+          <v-card-text class="text-center text-lg-left">
             <h1 class="text-center text-md-left">{{ top.header }}</h1>
           </v-card-text>
           <v-card-text class="mx-auto mx-lg-0">
-            <p class="text-center text-md-left" v-html="top.text"></p>
+            <p class="text-center text-md-left" v-html="top.text">
+            </p>
           </v-card-text>
           <v-card-text class="text-center text-md-left">
             <v-btn
@@ -24,10 +25,8 @@
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col sm="12" md="6" order="first" order-sm="last">
-          <v-card flat width="100%" max-width="600" class="transparent">
-            <v-img :src="top.pictureURL" max-width="750" class="mx-auto"></v-img>
-          </v-card>
+      <v-col sm="12" md="6" order="first" order-md="last" class="right-col mx-auto">
+        <TopPicture :url="top.pictureURL" class="top-picture" />
       </v-col>
     </v-row>
   </v-card>
@@ -39,9 +38,37 @@
   margin-top: 120px;
   margin-bottom: 64px;
 }
+
+.left-col {
+  max-width: 480px;
+}
+
+.clip-svg {
+  clip-path: url(#myClip);
+}
+
 p {
   line-height: 180%!important;
 }
+
+@media screen and (max-width: 959px) {
+  /* .top-element {
+    margin-top: 80px;
+    margin-bottom: 48px;
+  } */
+  .left-col {
+    max-width: 100%!important;
+    margin-top: 48px;
+    text-align: center;
+  }
+  .right-col {
+    margin-top: -60px;
+    margin-bottom: -180px;
+    /* display: flex;
+    justify-content: center; */
+  }
+}
+
 @media screen and (max-width: 500px) {
   .top-element {
     margin-top: 80px;
@@ -52,14 +79,15 @@ p {
 
 <script>
 
-import { mapState, mapGetters } from 'vuex'
+// import { mapState, mapGetters } from 'vuex'
+
+import TopPicture from '@/components/TopPicture.vue'
 
 export default {
   name: 'Top',
-  props: ['page'],
-  computed: {
-    ...mapState('content', ['top']),
-    ...mapGetters(['familyPicture'])
-  }
+  components: {
+    TopPicture
+  },
+  props: ['top', 'page']
 }
 </script>

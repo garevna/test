@@ -1,107 +1,30 @@
 <template>
   <v-app class="homefone">
-    <v-container fluid class="homefone" v-if="ready">
-      <AppHeader :pages="pages" :page.sync="page" />
-      <v-sheet
-        width="100%"
-        max-width="1440"
-        color="homefone"
-        tile
-        class="mx-auto"
-      >
-        <section id="top" style="width: 100%">
-          <div class="base-title">
-            <a href="#top" class="core-goto"></a>
-            <Top :page.sync="page" />
-          </div>
-        </section>
-
-      </v-sheet>
-      <!-- ============================= TESTIMONIALS ============================= -->
-
-      <section id="testimonials" style="width: 100%">
-        <div class="base-title">
-          <a href="#testimonials" class="core-goto"></a>
-          <Testimonials :page.sync="page"/>
-        </div>
-      </section>
-
-      <!-- ============================= USER CONTACT ============================= -->
-
-      <v-sheet
-          width="100%"
-          max-width="1440"
-          color="homefone"
-          tile
-          class="mx-auto"
-      >
-        <v-row align="center" class="mx-0 px-0">
-          <v-col cols="12" md="6" class="aside-col">
-            <section id="benefits" style="width: 100%">
-              <div class="base-title">
-                <a href="#benefits" class="core-goto"></a>
-                <Aside />
-              </div>
-            </section>
-          </v-col>
-          <v-col cols="12" md="6" class="mx-0 px-0">
-            <v-row align="center" justify="center" class="pa-0 my-12">
-              <section id="contact" style="width: 100%">
-                <div class="base-title">
-                  <a href="#contact" class="core-goto"></a>
-                  <v-card flat class="transparent mx-0">
-                    <!-- <v-img src="@/img/map-picture.svg" height="800" contain style="opacity:0.2;"></v-img> -->
-                      <v-card
-                            flat
-                            class="user-contact transparent mx-auto pa-0"
-                            style="margin-bottom: 80px"
-                      >
-                        <UserContact />
-                      </v-card>
-                    </v-card>
-                  </div>
-                </section>
-              </v-row>
-          </v-col>
-        </v-row>
-      </v-sheet>
-
-      <!-- ============================= HOW TO CONNECT ============================= -->
-      <!-- <v-row width="100%">
-        <HowToConnect :page.sync="page" />
-      </v-row> -->
-      <!-- ============================= INTERNET PLANS ============================= -->
-      <!-- <v-row width="100%" justify="center">
-        <section id="plans">
-          <div class="base-title">
-            <a href="#plans" class="core-goto"></a>
-            <InternetPlans :page.sync="page"/>
-          </div>
-        </section>
-      </v-row> -->
-      <!-- ============================= FAQ ============================= -->
-      <v-row width="100%">
-        <section id="faq" style="width: 100%">
-          <div class="base-title">
-            <a href="#faq" class="core-goto"></a>
-            <FAQ :page.sync="page"/>
-          </div>
-        </section>
-      </v-row>
-      <!-- ============================= FOOTER ============================= -->
-      <section id="footer" class="homefone">
-        <div class="base-title">
-          <a href="#footer" class="core-goto"></a>
-            <v-row width="100%">
-              <Footer :page.sync="page" :user.sync="user" />
-            </v-row>
-        </div>
-      </section>
+    <v-container fluid class="homefone">
+      <!-- <AppHeader :pages="pages" :page.sync="page" /> -->
+      <SystemBar />
+      <transition>
+        <keep-alive>
+          <router-view></router-view>
+        </keep-alive>
+      </transition>
     </v-container>
+    <!-- ============================= FOOTER ============================= -->
+    <section id="footer" class="homefone">
+      <div class="base-title">
+        <a href="#footer" class="core-goto"></a>
+          <v-row width="100%">
+            <Footer
+                  :title="footer ? footer.title : ''"
+                  :text="footer ? footer.text : ''"
+            />
+          </v-row>
+      </div>
+    </section>
   </v-app>
 </template>
 
-<style lang="scss">
+<style>
 
 html, body {
   width: 100%;
@@ -128,26 +51,12 @@ h1, h2, h3, h4, h5 {
   color: #000;
   font-family: Gilroy;
 }
-h1 {
-  font-size: 46px;
-}
-h2 {
-  font-size: 32px;
-  text-align: center;
-  width: 150%;
-}
-h3 {
-  font-size: 28px;
-}
-h4 {
-  font-size: 24px;
-}
-h5 {
-  font-size: 20px;
-}
-h4, h5 {
-  font-weight: 600;
-}
+h1 { font-size: 46px; }
+h2 { font-size: 32px; }
+h3 { font-size: 28px; }
+h4 { font-size: 24px; }
+h5 { font-size: 20px; }
+h4, h5 { font-weight: 600; }
 
 p {
   font-size: 16px;
@@ -172,9 +81,8 @@ svg.defs-only {
   overflow: hidden;
 }
 
-.user-contact {
-  width: 640px;
-}
+.user-contact { width: 640px; }
+
 .submit-button {
   font-family: Gilroy;
   font-style: normal;
@@ -185,7 +93,8 @@ svg.defs-only {
   min-width: 240px!important;
   max-width: 420px!important;
   height: 48px!important;
-  color: #72BF44;
+  background-color: #72BF44!important;
+  color: #fff!important;
   border-radius: 48px!important;
 }
 
@@ -193,32 +102,22 @@ svg.defs-only {
   h1 { font-size: 28px; }
   h2 { font-size: 24px; }
   h3 { font-size: 20px; }
-  h4, h5 {
-    font-size: 18px;
-  }
+  h4, h5 { font-size: 18px; }
   p { font-size: 16px; }
-  .user-contact {
-    width: 480px;
-  }
-  .submit-button {
-    font-size: 14px!important;
-  }
+  .user-contact { width: 480px; }
+  .submit-button { font-size: 14px!important; }
 }
 
 @media (max-width: 400px), (max-height: 400px) {
   h1 { font-size: 26px; }
   h2 { font-size: 24px; }
   h3 { font-size: 20px; }
-  h4, h5 {
-    font-size: 16px;
-  }
+  h4, h5 { font-size: 16px; }
   p {
     font-size: 14px!important;
     width: 100%!important;
   }
-  .user-contact {
-    width: 300px;
-  }
+  .user-contact { width: 300px; }
   .submit-button {
     font-size: 13px!important;
     width: 100%!important;
@@ -244,72 +143,28 @@ svg.defs-only {
 
 import { mapState, mapActions } from 'vuex'
 
-import AppHeader from '@/components/AppHeader.vue'
-import Top from '@/components/Top.vue'
-import Aside from '@/components/Aside.vue'
-import UserContact from '@/components/UserContact.vue'
-// import HowToConnect from '@/components/HowToConnect.vue'
-import Testimonials from '@/components/Testimonials.vue'
-// import InternetPlans from '@/components/InternetPlans.vue'
-import FAQ from '@/components/FAQ.vue'
+import SystemBar from '@/components/SystemBar.vue'
 import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'App',
   components: {
-    AppHeader,
-    Top,
-    Aside,
-    UserContact,
-    // HowToConnect,
-    Testimonials,
-    // InternetPlans,
-    FAQ,
+    SystemBar,
     Footer
   },
   data () {
     return {
       ready: false,
-      page: null,
-      user: {
-        name: '',
-        email: '',
-        phone: ''
-      },
-      plans: false
+      page: null
     }
   },
   computed: {
-    ...mapState(['viewport', 'viewportWidth', 'pages', 'selectors']),
-    ...mapState('content', {
-      title: 'browserTabTitle',
-      subject: 'emailSubject',
-      emailText: 'emailText',
-      // pages: 'mainNavButtons',
-      // selectors: 'selectors',
-      top: 'top',
-      info: 'info',
-      userForm: 'userForm',
-      howToConnect: 'howToConnect',
-      testimonials: 'testimonials',
-      faq: 'faq',
-      footer: 'footer'
-    })
-  },
-  watch: {
-    page (val) {
-      if (!val) return
-      this.$vuetify.goTo(val, {
-        duration: 500,
-        offset: 20,
-        easing: 'easeInOutCubic'
-      })
-      this.page = undefined
-    }
+    ...mapState(['viewportWidth', 'pages', 'selectors']),
+    ...mapState('content', ['browserTabTitle', 'footer'])
   },
   methods: {
     ...mapActions('content', {
-      getContent: 'GET_DATA'
+      getContent: 'GET_CONTENT'
     }),
     ...mapActions('testimonials', {
       getTestimonials: 'GET_CONTENT'
@@ -319,18 +174,6 @@ export default {
     }
   },
   beforeMount () {
-    this.getContent()
-      .then((response) => {
-        this.ready = !!response
-        document.title = response
-        this.$store.commit('UPDATE_PAGES', {
-          pages: this.$store.state.content.mainNavButtons,
-          selectors: this.$store.state.content.mainNavSectors
-        })
-        this.$store.commit('contact/UPDATE_EMAIL_SUBJECT', this.$store.state.content.emailSubject)
-        this.$store.commit('contact/UPDATE_EMAIL_TEXT', this.$store.state.content.emailText)
-        this.$store.commit('contact/SET_FIELDS_TO_SHOW', this.$store.state.content.userForm.fieldsToShow)
-      })
     this.getTestimonials()
   },
   mounted () {

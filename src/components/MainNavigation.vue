@@ -1,24 +1,5 @@
 <template>
 <v-container>
-  <v-system-bar app fixed color="primary" height="40" width="100%">
-    <v-row d-flex align="center" justify="end" class="mr-10">
-      <v-spacer class="d-none d-lg-flex d-xl-flex"></v-spacer>
-      <span width="12" height="12" class="mr-2">
-        <v-img src="@/assets/icons/phone.svg" width="11" height="11" contain></v-img>
-      </span>
-      <span class="system-bar-phone ml-2 mr-12">1300 857 501</span>
-      <span width="10" height="10" class="mr-4">
-        <a href="https://www.linkedin.com/company/pineapplenet/" target="_blank">
-          <v-img src="@/assets/icons/linkedin.svg" width="12" height="12" contain></v-img>
-        </a>
-      </span>
-      <span width="10" height="10">
-        <a href="https://www.facebook.com/PineappleNetAU/" target="_blank">
-          <v-img src="@/assets/icons/facebook.svg" width="12" height="12" contain></v-img>
-        </a>
-      </span>
-    </v-row>
-  </v-system-bar>
   <!-- Viewport width less then lg -->
   <v-expansion-panels
           tile
@@ -26,7 +7,7 @@
           v-model="panel"
           class="app-bar d-lg-none"
           width="100%"
-          style="position: fixed; left:0; margin-top: -8px; z-index: 10;"
+          style="position: fixed; margin-top: 40px; z-index: 10; left: 0"
   >
     <v-expansion-panel style="background: #FAFAFA">
       <v-expansion-panel-header
@@ -45,11 +26,11 @@
       <v-expansion-panel-content color="#FAFAFA">
             <v-list flat class="main-menu-content text-center">
               <v-list-item
-                  v-for="(page, index) in pages"
+                  v-for="(text, index) in pages"
                   :key="index"
-                  @click="$emit('update:page', mainNavSectors[index]); panel=false"
+                  @click="$emit('update:page', index); panel=false"
               >
-                <v-list-item-title class="main-menu-items">{{ page }}</v-list-item-title>
+                <v-list-item-title class="main-menu-items">{{ text }}</v-list-item-title>
               </v-list-item>
             </v-list>
       </v-expansion-panel-content>
@@ -80,7 +61,7 @@
                v-for="(page, index) in pages"
                :key="index"
                :class="getClassName(page)"
-               @click="$emit('update:page', mainNavSectors[index])">
+               @click="$emit('update:page', index)">
               {{ page }}
         </v-btn>
       </v-btn-toggle>
@@ -93,11 +74,6 @@
 .v-btn-toggle > .v-btn.v-btn--active {
   color: #72BF44!important;
 }
-.app-bar-icon {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-}
 .app-bar-menu {
   font-size: 13px;
   line-height: 24px;
@@ -109,10 +85,6 @@
 .app-bar-menu-bordered {
   border: solid 2px #51AD30!important;
   border-radius: 100px!important;
-}
-.system-bar-phone {
-  font-size: 16px;
-  color: #ffffff;
 }
 .burger-menu {
   height: 48px;
@@ -156,10 +128,10 @@
 
 <script>
 
-import { mapState } from 'vuex'
+// import { mapState } from 'vuex'
 
 export default {
-  name: 'AppHeader',
+  name: 'MainNavigation',
   props: ['pages', 'page'],
   data () {
     return {
@@ -168,7 +140,6 @@ export default {
     }
   },
   computed: {
-    ...mapState('content', ['mainNavButtons', 'mainNavSectors']),
     burgerMenuClassFirst () {
       return this.panel === 0 ? 'burger-menu-active--first' : 'burger-menu--first'
     },
@@ -180,9 +151,6 @@ export default {
     getClassName (pageName) {
       const className = pageName === 'Contact Us' ? ' app-bar-menu-bordered py-2 px-12' : ''
       return `app-bar-menu${className}`
-    },
-    returnPage () {
-
     }
   }
 }

@@ -2,11 +2,13 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import modules from './modules'
 
+const emailValidator = require('email-validator')
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    host: 'https://pineapple-net-land.glitch.me/',
+    host: 'https://api.pineapple.net.au',
     landhost: `${location.origin}${location.pathname}`,
     officeAddress: '75 Brighton Road, Elwood VIC 3184',
     officePhone: '1300 857 501',
@@ -15,21 +17,33 @@ export default new Vuex.Store({
     linkedIn: 'https://www.linkedin.com/company/pineapplenet/',
     faceBook: 'https://www.facebook.com/PineappleNetAU/',
     contactEndpoint: '',
-    viewport: 'lg',
     viewportWidth: window.innerWidth,
     viewportHeight: window.innerHeight,
-    pages: [],
-    selectors: []
+    plan: 'residential',
+    fieldTypes: {
+      text: 'input-with-validation',
+      number: 'input-with-validation',
+      email: 'input-with-validation',
+      phone: 'phone-number',
+      state: 'selector',
+      postcode: 'input-with-validation',
+      list: 'selector',
+      combo: 'combobox',
+      message: 'textarea'
+    },
+    validators: {
+      text: val => val.length > 2,
+      number: val => val.match(/^[0-9]*$/),
+      email: emailValidator.validate,
+      phone: null,
+      state: null,
+      postcode: val => Number(val) && Number(val) >= 3000 && Number(val) < 9999,
+      list: null,
+      combo: function (val) { return this.available.indexOf(val) !== -1 },
+      message: val => val.length >= 5
+    }
   },
   modules,
-
-  // getters: {
-  //   familyPicture: (state) => {
-  //     const size = state.viewportWidth < 600 ? 'small' : state.viewportWidth < 1440 ? 'medium' : 'large'
-  //     const num = location.hash ? location.hash.slice(1) : '1'
-  //     return `${state.landhost}/img/family-${size}-${num}.png`
-  //   }
-  // },
 
   mutations: {
     UPDATE_PAGES: (state, payload) => {

@@ -76,6 +76,7 @@
           dark
           class="submit-button px-auto mx-auto"
           @click="$emit('update:page', content.goto)"
+          v-if="content.button"
       >
           {{ content.button }}
       </v-btn>
@@ -116,12 +117,9 @@ export default {
   components: {
     TestimonialsCard
   },
-  props: ['page'],
+  props: ['content', 'page'],
   data: () => ({ model: 0 }),
   computed: {
-    ...mapState('content', {
-      content: 'testimonials'
-    }),
     ...mapState('testimonials', ['testimonials']),
     ...mapState(['viewportWidth']),
     cardWidth () {

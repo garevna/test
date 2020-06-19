@@ -2,104 +2,111 @@
 /* eslint-disable no-shadow */
 
 const state = {
-  browserTabTitle: 'Ultra-Fast Fibre',
-  emailSubject: 'Ultra-Fast Fibre To Your Home',
-  emailText: 'Thank you for your interest in Pineapple NET! A member of our team will be in touch shortly.',
   mainNavButtons: [
     {
-      buttonText: 'I live in the CONSERVATORY',
-      page: 'page-1',
+      buttonText: 'Home',
+      page: 'home',
       section: null,
       url: null
     },
     {
-      buttonText: 'I live in the QV1',
-      page: 'page-2',
-      section: null,
-      url: null
-    },
-    {
-      buttonText: 'I live in the AURORA',
-      page: 'page-3',
-      section: null,
-      url: null
-    },
-    {
-      buttonText: 'I live in another CBD building',
+      buttonText: 'Reviews',
       page: null,
-      section: null,
-      url: 'https://pineapple.net.au'
+      section: '#testimonials',
+      url: null
+    },
+    {
+      buttonText: 'Get In Touch',
+      page: null,
+      section: '#contact',
+      url: null
+    },
+    {
+      buttonText: 'Faqs',
+      page: null,
+      section: '#faq',
+      url: null
     }
   ],
   top: {
-    header: 'Get 1 Month Of Free 1000Mbps Fibre Internet In These 3 Prestigious Apartments',
-    text: 'Pineapple Net’s full-fibre is the internet Melbourne’s been missing. Faster, cheaper and more reliable than your NBN.<br>Connect and get your first month for FREE. Offer available in Melbourne’s CBD highrise apartments: The Aurora, Conversatory and QV1.',
-    pictureURL: 'https://api.pineapple.net.au/images/melbourne-large-1.jpg'
-  },
-  greenSection: {
-    header: 'Powered By DGtek',
-    text: 'DGtek is an infrastructure provider running fibre optics down Melbourne’s streets. We retail their world-class FTTP network, and that’s how our residential speeds are faster and cheaper than all our competitors.'
-  },
-  plans: {
-    header: 'We Told You It Was Cheap',
-    button: 'Contact us',
-    goto: '#top'
-  },
-  list: {
-    header: 'Unlimited Internet Superior Technology',
-    text: 'No data caps to stop you or congestion to slow you down! With fibre, you’ll download at breakneck speeds, stream in 4K without pause and experience crystal clear video calls with friends and family at home and abroad.',
+    header: 'Ultra-Fast Fibre Internet Available in QV1!',
+    text: 'Pineapple Net’s full-fibre is the internet Melbourne’s been missing. Faster, cheaper and more reliable than your NBN.<br>Now that it’s reached your building, connect and get your first month for FREE. Offer available in Melbourne’s CBD highrise apartments: The Aurora, Conversatory and QV1.',
     button: 'Get in Touch',
-    goto: '#top',
-    items: [
-      {
-        title: 'Lightspeed',
-        icon: 'https://api.pineapple.net.au/icons/android-chrome-512x512.png',
-        text: 'Fast in both directions. For downloads, we are 10-20x faster than an NBN connection. For uploads, there is no competition - up to 25x faster than the NBN’s fastest.'
-      },
-      {
-        title: 'Bulletproof',
-        icon: 'https://api.pineapple.net.au/icons/android-chrome-512x512.png',
-        text: 'Fibre is reliable. It won’t let you down when you’re in a Zoom meeting with colleagues or a FaceTime with the family. Our 99.9% network uptime is without equal. That’s years without a single outage.'
-      },
-      {
-        title: 'Affordable',
-        icon: 'https://api.pineapple.net.au/icons/android-chrome-512x512.png',
-        text: 'Fibre from $50 helps you tighten the belt without feeling the pinch. Not only does our superior fibre outperform the NBN,  for comparable speeds, but it is also cheaper. And for our gigabit speeds, it’s still a great deal.'
-      }
-    ]
-  },
-  howToConnect: {
-    header: 'Everything You Need To Know To Connect',
-    text: 'There are a couple of options and a 1 month free promo available to you when connecting to Pineapple Net’s residential fibre.',
-    button: 'Enquire Now',
-    goto: '#top',
-    items: [
-      {
-        icon: 'https://api.pineapple.net.au/icons/icon-1.svg',
-        title: 'Flexible. No Contract',
-        text: 'Pay a $99 connection fee for your fibre and router, and we won’t ask you to sign anything. Upgrade or downgrade at any time, or leave when you want.'
-      },
-      {
-        icon: 'https://api.pineapple.net.au/icons/icon-2.svg',
-        title: '12 Month Contract',
-        text: 'Ready for a commitment? You can sign up to a 12-month contract and we’ll waive all the connection fees.'
-      },
-      {
-        icon: 'https://api.pineapple.net.au/icons/icon-3.svg',
-        title: '1 Month Free Internet',
-        text: 'To sweeten the deal, we are giving all residents of the Aurora, Conservatory and QV1 buildings their first month for free.'
-      }
-    ]
+    goto: '#contact',
+    pictureURL: 'https://api.pineapple.net.au/images/QV1-1.jpg'
   },
   testimonials: {
-    header: 'The Social Proof We Are Amazing',
+    header: 'The Social Proof That Melbourne Loves Pineapple Fibre',
     button: 'Try it for yourself',
-    goto: '#top'
+    goto: '#contact'
+  },
+  info: {
+    header: '40% Cheaper, 100% Faster than your current connection',
+    text: 'Nothing beats fibre. Get the best internet connection for HD movies and 4K streams, remote-work and crystal clear video calls. Unwind with lag-free-games, and accelerated web-surfing. Now, you can feel good about your internet connection thanks to our superior-tech and the unrivalled reliability of ultra-fast fibre.<br>Check your building app to get your promo code for 1 month of FREE internet!',
+    offer: [
+      {
+        greenText: 'Speeds Up to',
+        blackText: '1000Mbps'
+      },
+      {
+        greenText: 'Business-worthy',
+        blackText: 'uploads'
+      },
+      {
+        greenText: 'Crazy affordable',
+        blackText: 'prices'
+      }
+    ]
+  },
+  userForm: {
+    title: 'Ask Questions Or Get Connected Today',
+    messagePlaceholder: 'Enquiry*',
+    button: 'Get Connected',
+    fieldsToShow: [
+      {
+        type: 'text',
+        placeholder: 'Full name*',
+        required: true
+      },
+      {
+        type: 'email',
+        placeholder: 'Email*',
+        required: true
+      },
+      {
+        type: 'phone',
+        placeholder: 'Phone',
+        required: false
+      },
+      {
+        type: 'list',
+        placeholder: 'Building*',
+        available: ['Aurora', 'QV1', 'Conservatory'],
+        value: 'Conservatory',
+        required: true
+      },
+      {
+        type: 'number',
+        placeholder: 'Appt number*',
+        required: true
+      },
+      {
+        type: 'combo',
+        placeholder: 'Promocode',
+        available: ['FREEINTERNETAURORA', 'FREEINTERNETCONSERVATORY', 'FREEINTERNETQV1'],
+        required: false
+      },
+      {
+        type: 'message',
+        placeholder: 'Enquiry',
+        required: true
+      }
+    ]
   },
   faq: {
     header: 'We’ve Answered Some Common Questions',
     button: 'Get in Touch',
-    goto: '#top',
+    goto: '#contact',
     items: [
       {
         question: 'How is DGtek Fibre Different to the NBN?',
@@ -138,17 +145,13 @@ const state = {
         `
       },
       {
-        question: 'What Can I Do With Fibre? ',
+        question: 'What Can I Do With Fibre?',
         answer: `Nothing you couldn’t do with your NBN connection. It’s just an all-round better experience. You can download large files quicker, stream in higher resolutions, upload massive files in a fraction of the time and of course, fibre is way more reliable so you won’t drop calls to your work colleagues or loved ones.<br>
                  There is no evening congestion, no unexplainable internet slow days and practically no network outages.<br>
                  Since DGtek launched their fibre in 2016, our customers have enjoyed 99.9% network uptime. Years have passed without a single dropout. That feat is unthinkable on the NBN.
         `
       }
     ]
-  },
-  footer: {
-    topHead: 'READY TO GET STARTED?',
-    topText: "Leave your inquiry and we'll get back to you within 24 hours on business days"
   }
 }
 
@@ -158,9 +161,6 @@ const getters = {
 }
 
 const mutations = {
-  UPDATE_BUTTONS: (state) => {
-    state.top.buttons = state.mainNavButtons
-  },
   UPDATE_ALL: (state, payload) => {
     for (const field in payload) {
       if (typeof payload[field] !== 'object') {

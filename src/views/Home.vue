@@ -1,171 +1,171 @@
 <template>
-  <v-container fluid v-scroll="onScroll">
-    <AppHeader :pages="pages" :selected.sync="page"/>
-    <v-content tag="main" class="homefone">
-      <!-- ============================= HOME ============================= -->
-      <section id="top" class="mb-12">
-        <div class="base-title">
-          <a href="#top" class="mr-2 d-inline-flex core-goto text--primary"></a>
-          <Top/>
-        </div>
-      </section>
-      <!-- ============================= CHECK AVAILABILITY ============================= -->
-      <section id="check" class="my-12">
-        <div class="base-title">
-          <a href="#check" class="mr-2 d-inline-flex core-goto text--primary"></a>
-        <!-- </div>
-        <div class="text-center base-title mx-auto"> -->
-          <CheckAvailability
-              :residential.sync="residential"
-              :business.sync="business"
-              :contact.sync="contactUs"
-          />
-        </div>
-        <SpeedTest/>
-      </section>
+  <v-app class="homefone">
+    <v-container fluid class="homefone">
+      <!-- <AppHeader :pages="pages" :page.sync="page" /> -->
+      <MainNavigation :pages="mainNavButtons.map(item => item.buttonText)" :page.sync="page" />
+      <v-sheet
+        width="100%"
+        max-width="1904"
+        color="homefone"
+        tile
+        class="mx-auto"
+      >
+        <!-- ============================= TOP ============================= -->
+        <section id="top" style="width: 100%">
+          <div class="base-title">
+            <a href="#top" class="core-goto"></a>
+            <Top />
+          </div>
+        </section>
+      </v-sheet>
 
-      <!-- ============================= ABOUT ============================= -->
-      <section id="about" class="mb-12">
+      <!-- ============================= LIST ============================= -->
+
+      <section id="list" style="width: 100%">
         <div class="base-title">
-          <a href="#about" class="mr-2 d-inline-flex core-goto text--primary"></a>
-          <WhoAreWe/>
+          <a href="#list" class="core-goto"></a>
+          <List :page.sync="goto" />
         </div>
       </section>
 
-      <!-- ============================= INTERNET PLANS  ============================= -->
-      <section id="plans">
+      <!-- ============================= CREEN SECTION ============================= -->
+      <section id="dgtek" style="width: 100%">
         <div class="base-title">
-          <a href="#plans" class="core-goto"></a>
-          <InternetPlans :connect.sync="getConnected" :contact.sync="contactUs"/>
+          <a href="#dgtek" class="core-goto"></a>
+          <GreenSection />
         </div>
       </section>
 
       <!-- ============================= HOW TO CONNECT ============================= -->
-      <v-row width="100%">
-        <HowToConnect :contact.sync="contactUs" :connect.sync="getConnected" />
-      </v-row>
 
-      <!-- ============================= TESTIMONIALS ============================= -->
-      <v-row width="100%">
-        <Testimonials/>
-      </v-row>
-
-      <!-- ============================= FOOTER ============================= -->
-      <section id="footer">
+      <section id="how-to-connect" style="width: 100%">
         <div class="base-title">
-          <a href="#footer" class="core-goto"></a>
-            <v-row width="100%">
-              <Footer :page.sync="page" :user.sync="user"/>
-            </v-row>
+          <a href="#how-to-connect" class="core-goto"></a>
+          <HowToConnect :page.sync="goto" />
         </div>
       </section>
 
-    </v-content>
-  </v-container>
+      <!-- ============================= TESTIMONIALS ============================= -->
+
+      <section id="testimonials" style="width: 100%">
+        <div class="base-title">
+          <a href="#testimonials" class="core-goto"></a>
+          <Testimonials :content="reviews" :page.sync="goto"/>
+        </div>
+      </section>
+
+      <!-- ============================= INTERNET PLANS ============================= -->
+      <v-row width="100%" justify="center">
+        <section id="plans">
+          <div class="base-title">
+            <a href="#plans" class="core-goto"></a>
+            <InternetPlans :page.sync="goto"/>
+          </div>
+        </section>
+      </v-row>
+
+      <!-- ============================= FAQ ============================= -->
+      <v-row width="100%">
+        <section id="faq" style="width: 100%">
+          <div class="base-title">
+            <a href="#faq" class="core-goto"></a>
+            <FAQ :page.sync="goto"/>
+          </div>
+        </section>
+      </v-row>
+
+    </v-container>
+  </v-app>
 </template>
-
-<style>
-
-</style>
 
 <script>
 
-import { mapState, mapGetters } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
-import AppHeader from '@/components/home/AppHeader.vue'
-import Top from '@/components/home/Top.vue'
-import CheckAvailability from '@/components/home/CheckAvailability.vue'
-import WhoAreWe from '@/components/home/WhoAreWeCircles.vue'
-import InternetPlans from '@/components/home/InternetPlans.vue'
-import Footer from '@/components/home/Footer.vue'
-import HowToConnect from '@/components/home/HowToConnect.vue'
-import SpeedTest from '@/components/home/SpeedTest.vue'
-import Testimonials from '@/components/home/Testimonials.vue'
+import MainNavigation from '@/components/MainNavigation.vue'
+import Top from '@/components/HomeTop.vue'
+import List from '@/components/List.vue'
+import HowToConnect from '@/components/HowToConnect.vue'
+import GreenSection from '@/components/GreenSection.vue'
+import Testimonials from '@/components/Testimonials.vue'
+import InternetPlans from '@/components/InternetPlans.vue'
+import FAQ from '@/components/FAQ.vue'
 
 export default {
   name: 'Home',
   components: {
-    InternetPlans,
+    MainNavigation,
     Top,
-    CheckAvailability,
-    WhoAreWe,
-    Footer,
+    List,
     HowToConnect,
-    AppHeader,
-    SpeedTest,
-    Testimonials
+    GreenSection,
+    Testimonials,
+    InternetPlans,
+    FAQ
   },
   data () {
     return {
-      page: 0,
-      user: {
-        name: '',
-        email: '',
-        phone: ''
-      },
-      contactUs: false,
-      getConnected: false,
-      business: false,
-      residential: false
+      ready: false,
+      page: 10,
+      goto: null
     }
   },
   computed: {
-    ...mapState(['plan', 'pages', 'selectors']),
-    ...mapGetters('clientInfo', ['address', 'addressAvalable'])
+    ...mapState(['viewportWidth']),
+    ...mapState('content', {
+      top: 'top',
+      reviews: 'testimonials'
+    }),
+    ...mapState('content', ['mainNavButtons']),
+    route () {
+      return this.$route.name
+    }
   },
   watch: {
-    contactUs (val) {
-      if (val) this.$router.push({ name: 'contact' })
+    route (val) {
+      this.$vuetify.goTo('#top', {
+        duration: 500,
+        offset: 100,
+        easing: 'easeInOutCubic'
+      })
     },
-    getConnected (val) {
-      if (val) this.$router.push({ name: 'connect' })
-    },
-    business (val) {
-      if (val) {
-        this.page = this.pages.indexOf('Business')
-      }
-    },
-    residential (val) {
-      this.page = this.pages.indexOf('Residential')
+    goto (val) {
+      if (!val) return
+      this.$vuetify.goTo(val, {
+        duration: 500,
+        offset: 20,
+        easing: 'easeInOutCubic'
+      })
+      this.goto = undefined
     },
     page (val) {
-      if (this.selectors[val] === '#connect') {
-        if (this.addressAvalable) {
-          this.$router.push({ name: 'connect' })
-        } else {
-          this.$vuetify.goTo('#check', {
-            duration: 500,
-            offset: 200,
-            easing: 'easeInOutCubic'
-          })
-        }
+      if (typeof val !== 'number') return
+
+      if (this.mainNavButtons[val].section) {
+        this.$vuetify.goTo(this.mainNavButtons[val].section, {
+          duration: 500,
+          offset: 20,
+          easing: 'easeInOutCubic'
+        })
         this.page = undefined
         return
       }
-      if (this.selectors[val] === '#contact') {
-        this.$router.push({ name: 'contact' })
-        return
+      if (this.mainNavButtons[val].page) {
+        this.$router.push({ name: this.mainNavButtons[val].page })
+      } else {
+        window.open(this.mainNavButtons[val].url, '_blank')
       }
-      if (this.selectors[val] === '#plans') {
-        this.$store.commit('CHANGE_PLAN', this.pages[this.page].toLowerCase())
-      }
-      if (this.selectors[val]) {
-        this.$vuetify.goTo(this.selectors[val], {
-          duration: 500,
-          offset: 0,
-          easing: 'easeInOutCubic'
-        })
-      }
+      this.page = undefined
     }
   },
   methods: {
-    onScroll (event) {
-      const scrollValue = window.pageYOffset || document.documentElement.scrollTop
-      if (scrollValue === 0) this.page = 0
-    }
+    ...mapActions('content', {
+      getContent: 'GET_CONTENT'
+    })
   },
   mounted () {
-    this.page = this.$route.params.page || 0
+    // this.$store.commit('content/UPDATE_BUTTONS')
+    this.page = undefined
   }
 }
 </script>

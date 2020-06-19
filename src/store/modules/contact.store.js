@@ -2,116 +2,83 @@
 /* eslint-disable no-shadow */
 
 const state = {
-  userInfo: {
-    name: '',
-    email: '',
-    address: '',
-    postcode: '',
-    state: '',
-    phone: '',
-    building: '',
-    apptNumber: '',
-    promocode: '',
-    message: ''
-  },
   mailEndpoint: 'https://api.pineapple.net.au/email/landing',
-  emailSubject: '',
-  emailText: '',
-  // states: ['VIC', 'NSW', 'ACT', 'QLD', 'SA', 'WA', 'TAS', 'NT'],
-  // buildings: ['Aurora', 'QV1', 'Conservatory'],
-  // promocodes: ['FREEINTERNETAURORA', 'FREEINTERNETCONSERVATORY', 'FREEINTERNETQV1'],
+  emailSubject: 'Ultra-Fast Fibre To Your Home',
+  emailText: 'Thank you for your interest in Pineapple NET! A member of our team will be in touch shortly.',
   messageForMail: '',
-  fieldsToShow: [],
-  errors: {
-    name: false,
-    email: false,
-    address: false,
-    postcode: false,
-    state: false,
-    phone: false,
-    building: false,
-    apptNumber: false,
-    promocode: false,
-    message: false
-  }
+  contactFormFields: {}
 }
 
 const getters = {
   pages: (state, getters, rootState) => rootState.pages.filter(item => item !== 'Contact Us'),
-  selectors: (state, getters, rootState) => rootState.selectors.filter(item => item !== '#contact')
+  selectors: (state, getters, rootState) => rootState.selectors.filter(item => item !== '#contact'),
+  types: (state, getters, rootState) => rootState.fieldTypes,
+  validators: (state, getters, rootState) => rootState.validators
 }
 
 const mutations = {
-  UPDATE_USER_INFO: (state, payload) => { state.userInfo[payload.prop] = payload.value },
+  UPDATE_USER_INFO: (state, payload) => { state.contactFormFields[payload.num].value = payload.value },
   UPDATE_EMAIL_SUBJECT: (state, payload) => { state.emailSubject = payload },
   UPDATE_EMAIL_TEXT: (state, payload) => { state.emailText = payload },
-  SET_FIELDS_TO_SHOW: (state, payload) => { state.fieldsToShow = payload },
+  UPDATE_FIELD: (state, payload) => {
+    state.contactFormFields[payload.num][payload.prop] = payload.value
+  },
   CREATE_MESSAGE: (state) => {
-    const phone = state.userInfo.phone ? `<h4>Phone: ${state.userInfo.phone}</h4>` : ''
-    const address = state.userInfo.address ? `<p>Address: ${state.userInfo.address}</p>` : ''
-    const postcode = state.userInfo.postcode ? `<p>Postcode: ${state.userInfo.postcode}</p>` : ''
-    const __state = state.userInfo.state ? `<p>State: ${state.userInfo.state}</p>` : ''
-    const building = state.userInfo.building ? `<p>Building: ${state.userInfo.building}</p>` : ''
-    const apptNumber = state.userInfo.apptNumber ? `<p>Appt Number: ${state.userInfo.apptNumber}</p>` : ''
-    const promocode = state.userInfo.promocode ? `<p>Promocode: ${state.userInfo.promocode}</p>` : ''
+    const details = []
+    let message = ''
+    for (const field of state.contactFormFields) {
+      if (field.type === 'textarea') {
+        message = `
+          <fieldset>
+            <legend>Your message:</legend>
+            <p>${field.value.split('\n').join('<br>')}</p>
+          </fieldset>
+        `
+      } else details.push(`<p>${field.placeholder}: ${field.value}</p>`)
+    }
     state.messageForMail = `
       <p>${state.emailText}</p>
-      <h3>Your name: ${state.userInfo.name}</h3>
-      <h4>Your email: ${state.userInfo.email}</h4>
-      ${phone}
       <fieldset>
         <legend>Details:</legend>
-        ${address}
-        ${postcode}
-        ${__state}
-        ${building}
-        ${apptNumber}
-        ${promocode}
+        ${details.join('')}
       </fieldset>
-      <h4>Your message:</h4>
-      <p>${state.userInfo.message.split('\n').join('<br>')}</p>
+      ${message}
     `
   },
   SET_ERROR: (state, payload) => {
-    state.errors[payload.prop] = payload.value
+    state.contactFormFields[payload.num].error = payload.value
   },
   CLEAR_ALL_FIELDS: (state) => {
-    state.userInfo = {
-      name: '',
-      email: '',
-      address: '',
-      postcode: '',
-      state: '',
-      phone: '',
-      building: '',
-      apptNumber: '',
-      promocode: '',
-      message: ''
-    }
-    state.errors = {
-      name: false,
-      email: false,
-      address: false,
-      postcode: false,
-      state: false,
-      phone: false,
-      building: false,
-      apptNumber: false,
-      promocode: false,
-      message: false
+    for (const field of state.contactFormFields) {
+      field.value = ''
+      field.error = false
     }
   }
 }
 
 const actions = {
 
+  SET_FIELDS_TO_SHOW ({ state, getters }, payload) {
+    state.contactFormFields = payload.map((field) => {
+      return {
+        type: getters.types[field.type],
+        placeholder: field.placeholder,
+        required: field.required,
+        value: field.placeholder || '',
+        validator: getters.validators[field.type],
+        error: false,
+        available: field.type === 'state' ? ['VIC', 'NSW', 'ACT', 'QLD', 'SA', 'WA', 'TAS', 'NT'] : field.available || null
+      }
+    })
+  },
   async SEND_EMAIL ({ state, commit }) {
-    let error = state.fieldsToShow.filter(item => item !== 'promocode' ? !state.userInfo[item] : false).length > 0
-    if (error) return false
-    for (const err in state.errors) {
-      error = error || state.errors[err]
+    let error = false
+    for (const field of state.contactFormFields) {
+      error = error || field.error || (field.required && !field.value)
     }
     if (error) return false
+    const email = state.contactFormFields.find(item => item.placeholder.match(/email/i))
+    if (!email) return
     commit('CREATE_MESSAGE')
     const response = await (await fetch(state.mailEndpoint, {
       method: 'POST',
@@ -121,14 +88,14 @@ const actions = {
       },
       body: JSON.stringify({
         subject: state.emailSubject,
-        email: state.userInfo.email,
+        email: email.value,
         message: state.messageForMail
       })
     })).json()
     commit('CLEAR_ALL_FIELDS')
     return true
   },
-  async SEND_SIMPLE_MAIL ({ state }, data) {
+  async SEND_SIMPLE_EMAIL ({ state, commit }, data) {
     const response = await (await fetch(state.mailEndpoint, {
       method: 'POST',
       headers: {
@@ -137,6 +104,7 @@ const actions = {
       },
       body: JSON.stringify(data)
     })).json()
+    return response
   }
 }
 

@@ -4,52 +4,45 @@
       <h4>{{ userForm.title }}</h4>
     </v-card-title>
     <v-card-text class="mx-0 px-0" width="100%">
-      <div v-for="(item, prop) in items" :key="prop">
+      <div v-for="(field, index) in fields" :key="index">
         <InputWithValidation
-              :placeholder="item.placeholder"
-              :propName="prop"
-              :validator="item.validator"
-              v-if="getAvailability(prop)"
+              :label="field.placeholder"
+              :fieldIndex="index"
+              :validator="field.validator"
+              v-if="field.type === 'input-with-validation'"
+        />
+        <List
+              label="field.placeholder"
+              :values="field.available"
+              :fieldIndex="index"
+              v-if="field.type === 'selector'"
+        />
+        <InputPhoneNumber
+              v-if="field.type === 'phone-number'"
+              :fieldIndex="index"
+        />
+        <NumberInput
+              :label="field.placeholder"
+              :fieldIndex="index"
+              v-if="field.type === 'number'"
+        />
+        <Combo
+              :label="field.placeholder"
+              :values="field.available"
+              :fieldIndex="index"
+              v-if="field.type === 'combobox'"
+        />
+        <InputMessage
+              :label="field.placeholder"
+              :fieldIndex="index"
+              v-if="field.type === 'textarea'"
         />
       </div>
-
-      <ComboBoxInput
-            label="State*"
-            :values="states"
-            propName="state"
-            v-if="getAvailability('state')"
-      />
-
-      <InputPhoneNumber v-if="getAvailability('phone')" />
-
-      <ComboBoxInput
-            label="Building*"
-            :values="buildings"
-            propName="building"
-            v-if="getAvailability('building')"
-      />
-
-      <InputWithValidation
-            placeholder="Appt Number*"
-            propName="apptNumber"
-            :validator="val => val.match(/^[0-9]*$/)"
-            v-if="getAvailability('apptNumber')"
-      />
-
-      <InputWithValidation
-            placeholder="Promocode?*"
-            propName="promocode"
-            :validator="val => promocodes.indexOf(val) !== -1"
-            v-if="getAvailability('promocode')"
-      />
-
-      <InputMessage v-if="getAvailability('message')" />
-
     </v-card-text>
 
-    <v-card-text class="ma-auto" width="40%" height="10">
+    <v-card-text class="ma-auto" width="50%" height="10">
       <v-progress-linear
-          color="#75BE00"
+          color="#f50"
           buffer-value="0"
           stream
           v-if="progress"
@@ -60,6 +53,8 @@
       <v-btn
           color="buttons"
           dark
+          min-width="180"
+          height="48"
           class="submit-button px-auto mx-auto"
           @click="sendUserRequest"
       >
@@ -68,6 +63,7 @@
     </v-card-actions>
 
     <Popup :opened.sync="popupOpened" />
+    <PopupEmailDisabled :opened.sync="popupEmailDisabled" />
     <PopupError :opened.sync="popupErrorOpened" />
   </v-card>
 </template>
@@ -110,83 +106,63 @@ import { mapState, mapActions } from 'vuex'
 
 import InputWithValidation from '@/components/contact/InputWithValidation.vue'
 import InputPhoneNumber from '@/components/contact/InputPhoneNumber.vue'
-import ComboBoxInput from '@/components/contact/ComboBoxInput.vue'
+import List from '@/components/contact/List.vue'
+import NumberInput from '@/components/contact/Number.vue'
+import Combo from '@/components/contact/Combo.vue'
 import InputMessage from '@/components/contact/InputMessage.vue'
 
 import Popup from '@/components/contact/Popup.vue'
+import PopupEmailDisabled from '@/components/contact/PopupEmailDisabled.vue'
 import PopupError from '@/components/contact/PopupError.vue'
-
-const emailValidator = require('email-validator')
 
 export default {
   name: 'UserContact',
   components: {
     InputPhoneNumber,
     InputWithValidation,
-    ComboBoxInput,
+    List,
+    NumberInput,
+    Combo,
     InputMessage,
     Popup,
+    PopupEmailDisabled,
     PopupError
   },
+  props: ['userForm'],
   data () {
     return {
       popupOpened: false,
+      popupEmailDisabled: false,
       popupErrorOpened: false,
-      items: {
-        name: {
-          placeholder: 'Full name*',
-          validator: val => val.length > 2
-        },
-        email: {
-          placeholder: 'Email*',
-          validator: emailValidator.validate
-        },
-        address: {
-          placeholder: 'Address*',
-          validator: val => val.length > 5
-        },
-        postcode: {
-          placeholder: 'Postcode*',
-          validator: val => Number(val) && Number(val) >= 3000 && Number(val) < 9999
-        }
-      },
-      state: '',
-      building: '',
-      apptNumber: '',
-      promocode: '',
-      show: {
-        state: false,
-        building: true,
-        apptNumber: true,
-        promocode: true
-      },
+      fields: null,
       progress: false
     }
   },
   computed: {
-    ...mapState('content', ['userForm']),
-    states () {
-      return this.userForm.states
-    },
-    buildings () {
-      return this.userForm.buildings
-    },
-    promocodes () {
-      return this.userForm.promocodes
+    ...mapState('contact', ['contactFormFields'])
+  },
+  watch: {
+    contactFormFields: {
+      deep: true,
+      handler (val) {
+        this.fields = JSON.parse(JSON.stringify(val))
+      }
     }
   },
+
   methods: {
     ...mapActions('contact', {
       sendEmail: 'SEND_EMAIL'
     }),
-    getAvailability (propName) {
-      return this.userForm.fieldsToShow.indexOf(propName) !== -1
-    },
     initFields () {
       this.$store.commit('contact/CLEAR_ALL_FIELDS')
     },
 
     async sendUserRequest () {
+      if (location.host === 'garevna.github.io' || location.port) {
+        this.popupEmailDisabled = true
+        return
+      }
       this.progress = true
       if (await this.sendEmail()) this.popupOpened = true
       else this.popupErrorOpened = true
@@ -194,7 +170,7 @@ export default {
     }
   },
   mounted () {
-    // this.initFields()
+    this.fields = this.contactFormFields
   }
 }
 

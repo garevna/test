@@ -7,16 +7,16 @@
     <v-card-actions class="text-center mx-auto mt-0">
       <v-spacer></v-spacer>
         <span width="10" height="10" class="mr-6">
-          <v-img src="@/assets/home/icons/system-bar-call-answer.png" contain></v-img>
+          <v-img src="@/assets/icons/phone.svg" width="12" height="12" contain></v-img>
         </span>
         <span width="10" height="10" class="mr-6">
           <a :href="linkedIn" target="_blank">
-            <v-img src="@/assets/home/icons/system-bar-linkedin.png"></v-img>
+            <v-img src="@/assets/icons/linkedin.svg" width="12" height="12" contain></v-img>
           </a>
         </span>
         <span width="10" height="10">
           <a :href="faceBook" target="_blank">
-            <v-img src="@/assets/home/icons/system-bar-facebook.png"></v-img>
+            <v-img src="@/assets/icons/facebook.svg" width="12" height="12" contain></v-img>
           </a>
         </span>
       <v-spacer></v-spacer>

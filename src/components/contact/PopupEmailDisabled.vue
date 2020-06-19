@@ -4,20 +4,15 @@
         <v-card class="pa-6">
           <v-img src="@/assets/price-card-image.png" style="position: absolute; bottom: 0; right: 0" contain></v-img>
           <v-card-title>
-            <h2>Error</h2>
+            <h2 text-color="primary">Sorry...</h2>
           </v-card-title>
           <v-card-text>
-            <p>Please fill the form fields</p>
+            <p>You use the demo version of this app</p>
+            <p>And that's the reason you can't send your message to Pineapple</p>
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn
-                  color="buttons"
-                  width="80"
-                  text @click="$emit('update:opened', false)"
-            >
-              CLOSE
-            </v-btn>
+            <v-btn class="submit-button" text @click="$emit('update:opened', false)">CLOSE</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -25,14 +20,11 @@
 </template>
 
 <style scoped>
-h2 {
-  color: #900;
-}
 </style>
 
 <script>
 export default {
-  name: 'PopupError',
+  name: 'Popup',
   props: ['opened']
 }
 </script>

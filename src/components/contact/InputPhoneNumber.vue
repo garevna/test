@@ -24,12 +24,16 @@
     width: 100%;
     padding: 0 12px;
     font-weight: 400;
-    border: 1px solid #ccc;
+    border: 1px solid #848484!important;
     font-size: 16px!important;
     height: 56px!important;
     min-height: 56px!important;
-    color: rgba(0, 0, 0, 0.87);
+    color: rgba(0, 0, 0, 0.84);
 }
+
+/* .input-tel__label {
+  color: #585858!important;
+} */
 
 @media screen and (max-width: 600px) {
   .input-tel.has-hint .input-tel__label,
@@ -53,21 +57,17 @@
 
 <script>
 
-import { mapState } from 'vuex'
-
 export default {
   name: 'InputPhoneNumber',
+  props: ['fieldIndex'],
   computed: {
-    ...mapState('contact', {
-      phone: 'userInfo.phone'
-    }),
     phoneNumber: {
       get () {
-        return this.$store.state.contact.userInfo.phone
+        return this.$store.state.contact.contactFormFields[this.fieldIndex].value
       },
       set (val) {
         this.$store.commit('contact/UPDATE_USER_INFO', {
-          prop: 'phone',
+          num: this.fieldIndex,
           value: val
         })
       }
@@ -76,7 +76,7 @@ export default {
   methods: {
     test (res) {
       this.$store.commit('contact/SET_ERROR', {
-        prop: 'phone',
+        num: this.fieldIndex,
         value: !res.isValid
       })
     }

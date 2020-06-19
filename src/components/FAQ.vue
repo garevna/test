@@ -1,9 +1,9 @@
 <template>
   <v-container fluid class="my-12">
     <v-card flat width="100%" max-width="900" class="transparent mx-auto my-10">
-      <v-card-title class="text-center mb-12">
+      <v-card-text class="text-center mb-12">
         <h2>{{ faq.header }}</h2>
-      </v-card-title>
+      </v-card-text>
       <v-expansion-panels
             v-model="panel"
             accordion
@@ -41,6 +41,11 @@
 </template>
 
 <style scoped>
+
+h2 {
+  text-align: center!important;
+}
+
 .v-card__text {
   font-family: 'Gilroy'!important;
   font-style: normal;

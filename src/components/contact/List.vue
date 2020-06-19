@@ -1,22 +1,25 @@
 <template>
-  <v-textarea
-        :placeholder="field.placeholder"
-        outlined
-        color="#656565"
-        style="margin-top:32px!important;"
-        auto-grow
-        v-model="message"
-        class="user-inputs"
-  ></v-textarea>
+  <v-select
+      :items="field.available"
+      outlined
+      hide-details
+      class="combo-box-input"
+      v-model="selected"
+      :label="field.placeholder"
+  ></v-select>
 </template>
 
 <style scoped>
+  .combo-box-input {
+    margin-top: 24px;
+    margin-bottom: 16px;
+  }
 </style>
 
 <script>
 
 export default {
-  name: 'InputMessage',
+  name: 'List',
   props: ['fieldIndex'],
   data () {
     return {
@@ -27,7 +30,7 @@ export default {
     field () {
       return this.$store.state.contact.contactFormFields[this.fieldIndex]
     },
-    message: {
+    selected: {
       get () {
         return this.field.value
       },

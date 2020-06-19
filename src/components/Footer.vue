@@ -80,6 +80,8 @@
     <FooterBottomContent v-if="viewportWidth >= 770" />
     <FooterBottomContentSmall  v-if="viewportWidth < 770" class="footer--bottom-content-small"/>
     <Popup :opened.sync="popupOpened" />
+    <PopupError :opened.sync="popupErrorOpened" />
+    <PopupEmailDisabled :opened.sync="popupEmailDisabled" />
   </v-container>
 </template>
 
@@ -153,6 +155,8 @@ import FooterBottomContent from '@/components/footer/BottomContent.vue'
 import FooterBottomContentSmall from '@/components/footer/BottomContentSmall.vue'
 
 import Popup from '@/components/contact/Popup.vue'
+import PopupError from '@/components/contact/PopupError.vue'
+import PopupEmailDisabled from '@/components/contact/PopupEmailDisabled.vue'
 
 const emailValidator = require('email-validator')
 
@@ -162,7 +166,9 @@ export default {
     FooterFone,
     FooterBottomContentSmall,
     FooterBottomContent,
-    Popup
+    Popup,
+    PopupError,
+    PopupEmailDisabled
   },
   props: ['user', 'page'],
   data () {
@@ -175,7 +181,9 @@ export default {
         required: value => !!value || 'Required',
         email: () => emailValidator.validate(this.email) ? true : 'Invalid email'
       },
-      popupOpened: false
+      popupOpened: false,
+      popupErrorOpened: false,
+      popupEmailDisabled: false
     }
   },
   computed: {
@@ -192,15 +200,20 @@ export default {
     }
   },
   methods: {
-    ...mapActions('contact', { sendEmail: 'SEND_SIMPLE_MAIL' }),
+    ...mapActions('contact', { sendEmail: 'SEND_SIMPLE_EMAIL' }),
     initFields () {
       this.name = ''
       this.email = ''
       this.phone = ''
     },
     submit () {
+      if (location.host === 'garevna.github.io' || location.port) {
+        this.popupEmailDisabled = true
+        return
+      }
+      this.progress = true
       if (!this.name || !this.phone || !emailValidator.validate(this.email)) {
-        this.$emit('update:page', '#contact')
+        this.popupErrorOpened = true
         return
       }
       this.popupOpened = true
@@ -209,14 +222,13 @@ export default {
         email: this.email,
         message: `
           <p>${this.emailText}</p>
-          <hr>
-          <h3>Name: ${this.name}</h3>
-          <h4>Email: ${this.email}</h4>
-          <h4>Phone: ${this.phone}</h4>
-          <hr>
-          <p>Get started!</p>
-          <hr>
-          <p><small>https://connect-melbournecbd.pineapple.com.au</small></p>
+          <fieldset>
+            <legend>Details</legend>
+            <h3>Name: ${this.name}</h3>
+            <h4>Email: ${this.email}</h4>
+            <h4>Phone: ${this.phone}</h4>
+          </fieldset>
+          <p><b>Get started!</b></p>
         `
       })
       this.initFields()

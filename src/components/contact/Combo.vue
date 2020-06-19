@@ -42,7 +42,7 @@
 <script>
 
 export default {
-  name: 'InputWithValidation',
+  name: 'Combo',
   props: ['fieldIndex'],
   data () {
     return {
@@ -72,7 +72,7 @@ export default {
   },
   methods: {
     validate (val) {
-      this.error = !this.field.validator(val)
+      this.error = this.field.available.indexOf(val) === -1
       this.$store.commit('contact/SET_ERROR', {
         num: this.fieldIndex,
         value: this.error
