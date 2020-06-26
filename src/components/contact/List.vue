@@ -22,11 +22,6 @@
 export default {
   name: 'List',
   props: ['fieldIndex'],
-  data () {
-    return {
-      //
-    }
-  },
   computed: {
     field () {
       return this.$store.state.contact.contactFormFields[this.fieldIndex]
@@ -36,6 +31,11 @@ export default {
         return this.field.value
       },
       set (val) {
+        this.field.error = false
+        this.$store.commit('contact/SET_ERROR', {
+          num: this.fieldIndex,
+          value: this.field.error
+        })
         this.$store.commit('contact/UPDATE_USER_INFO', {
           num: this.fieldIndex,
           value: val
