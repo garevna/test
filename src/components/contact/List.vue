@@ -6,6 +6,7 @@
       class="combo-box-input"
       v-model="selected"
       :label="field.placeholder"
+      :error="field.error"
   ></v-select>
 </template>
 

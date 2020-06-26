@@ -64,7 +64,7 @@ const actions = {
         type: getters.types[field.type],
         placeholder: field.placeholder,
         required: field.required,
-        value: field.placeholder || '',
+        value: '',
         validator: getters.validators[field.type],
         error: false,
         available: field.type === 'state' ? ['VIC', 'NSW', 'ACT', 'QLD', 'SA', 'WA', 'TAS', 'NT'] : field.available || null

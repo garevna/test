@@ -9,6 +9,7 @@
       class="user-inputs"
       :append-icon="validationIcon"
       @input="validate($event)"
+      :error="field.error"
   ></v-text-field>
 </template>
 

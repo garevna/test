@@ -5,7 +5,7 @@
       hide-details
       class="combo-box-input"
       v-model="selected"
-      :label="label"
+      :placeholder="label"
   ></v-select>
 </template>
 

@@ -1,6 +1,7 @@
 <template>
   <v-text-field
-      :placeholder="field.placeholder"
+      :label="field.placeholder"
+      :error="field.error"
       outlined
       hide-details
       height="32"

@@ -17,9 +17,15 @@
               :fieldIndex="index"
               v-if="field.type === 'selector'"
         />
-        <InputPhoneNumber
+        <!-- <InputPhoneNumber
               v-if="field.type === 'phone-number'"
               :fieldIndex="index"
+        /> -->
+        <InputWithValidation
+              :label="field.placeholder"
+              :fieldIndex="index"
+              :validator="field.validator"
+              v-if="field.type === 'phone-number'"
         />
         <NumberInput
               :label="field.placeholder"
@@ -105,7 +111,7 @@ h4 {
 import { mapState, mapActions } from 'vuex'
 
 import InputWithValidation from '@/components/contact/InputWithValidation.vue'
-import InputPhoneNumber from '@/components/contact/InputPhoneNumber.vue'
+// import InputPhoneNumber from '@/components/contact/InputPhoneNumber.vue'
 import List from '@/components/contact/List.vue'
 import NumberInput from '@/components/contact/Number.vue'
 import Combo from '@/components/contact/Combo.vue'
@@ -118,7 +124,7 @@ import PopupError from '@/components/contact/PopupError.vue'
 export default {
   name: 'UserContact',
   components: {
-    InputPhoneNumber,
+    // InputPhoneNumber,
     InputWithValidation,
     List,
     NumberInput,
@@ -158,9 +164,22 @@ export default {
       this.$store.commit('contact/CLEAR_ALL_FIELDS')
     },
 
+    keyDownHandler (event) {
+
+    },
+
     async sendUserRequest () {
-      if (location.host === 'garevna.github.io' || location.port) {
-        this.popupEmailDisabled = true
+      let err = false
+      this.fields.forEach((field, index) => {
+        field.error = field.required && !field.value
+        this.$store.commit('contact/SET_ERROR', {
+          num: index,
+          value: field.error
+        })
+        err = err || field.error
+      })
+      if (err) {
+        this.popupErrorOpened = true
         return
       }
       this.progress = true

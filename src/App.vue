@@ -90,12 +90,13 @@ svg.defs-only {
   font-size: 16px!important;
   line-height: 100%;
   text-transform: uppercase;
-  min-width: 240px!important;
+  min-width: 180px!important;
   max-width: 420px!important;
   height: 48px!important;
   background-color: #72BF44!important;
   color: #fff!important;
   border-radius: 48px!important;
+  padding: 12px 32px!important;
 }
 
 @media (max-width: 600px), (max-height: 600px) {

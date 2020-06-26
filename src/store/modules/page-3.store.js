@@ -76,7 +76,7 @@ const state = {
       {
         type: 'phone',
         placeholder: 'Phone',
-        required: false
+        required: true
       },
       {
         type: 'list',

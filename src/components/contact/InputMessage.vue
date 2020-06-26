@@ -1,6 +1,7 @@
 <template>
   <v-textarea
         :placeholder="field.placeholder"
+        :error="field.error"
         outlined
         color="#656565"
         style="margin-top:32px!important;"
