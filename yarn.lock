@@ -3816,11 +3816,6 @@ elliptic@^6.0.0, elliptic@^6.5.2:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
 
-email-validator@^2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/email-validator/-/email-validator-2.0.4.tgz#b8dfaa5d0dae28f1b03c95881d904d4e40bfe7ed"
-  integrity sha512-gYCwo7kh5S3IDyZPLZf6hSS0MnZT8QmJFqYvbqlDZSbwdZlY6QZWxJ4i/6UhITOJ4XzyI647Bm2MXKCLqnJ4nQ==
-
 emoji-regex@^7.0.1:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-7.0.3.tgz#933a04052860c85e83c122479c4748a8e4c72156"
@@ -6504,14 +6499,6 @@ levn@^0.3.0, levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-libphonenumber-js@^1.7.51:
-  version "1.7.52"
-  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.7.52.tgz#a30dc8ec4dfa2ce651a6abf76c6b141b244b1aa3"
-  integrity sha512-NnJbWGRWIAQwz3UOXJoka92FJqmr/VvGIHienUMnBf7QNSCYF2WhvknEgpQIhL8VLZp/rJg3m3czOHRAmyYMLg==
-  dependencies:
-    minimist "^1.2.5"
-    xml2js "^0.4.17"
-
 lines-and-columns@^1.1.6:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
@@ -7825,6 +7812,120 @@ pify@^4.0.1:
   resolved "https://registry.yarnpkg.com/pify/-/pify-4.0.1.tgz#4b2cd25c50d598735c50292224fd8c6df41e3231"
   integrity sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==
 
+pineapple-contact-form@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/pineapple-contact-form/-/pineapple-contact-form-1.1.4.tgz#1f36abfb6995fc8a3cab780dbe6ea4d2b65da0c3"
+  integrity sha512-TYQufGQ0hPgcl0sjVRF8xj2gIVG7TFAfdhFWL8LliGlQLUjkk214TPiixPBcU5IvmOuIuiH8cfoGp0MVh73zOg==
+  dependencies:
+    core-js "^3.6.5"
+    pineapple-popup "^1.0.7"
+    pineapple-styles "^1.1.0"
+    vue "^2.6.11"
+    vuetify "^2.2.11"
+    vuex "^3.4.0"
+
+pineapple-faq@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/pineapple-faq/-/pineapple-faq-1.0.0.tgz#867e16806f7f7fbd8cf7914d415fd1d4e32d989e"
+  integrity sha512-oiYg9QwnfbCOodBLlGacPFDrz1D73GSQSC7DSo3hQHkY/JE2vqfLwN09tIdeW3w0TgpdMO2LRiQ+YluBxEOJWA==
+  dependencies:
+    core-js "^3.6.5"
+    vue "^2.6.11"
+    vue-router "^3.2.0"
+    vuetify "^2.2.11"
+    vuex "^3.4.0"
+
+pineapple-footer@^2.0.9:
+  version "2.0.9"
+  resolved "https://registry.yarnpkg.com/pineapple-footer/-/pineapple-footer-2.0.9.tgz#e90f6f6f1f570a289a2e76f5be6ed0b119387407"
+  integrity sha512-2R0Twb4uXNM7kRPw46rw024d+mvIET+1lazgyzlZMJK5X7IJQRe2vFk7mcllxtiFnucZCZY2qNBnsjvtyq+mYw==
+  dependencies:
+    core-js "^3.6.5"
+    pineapple-popup "^1.0.7"
+    pineapple-styles "^1.1.0"
+    vue "^2.6.11"
+    vue-router "^3.3.4"
+    vuetify "^2.2.11"
+    vuex "^3.4.0"
+
+pineapple-how-to-connect@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/pineapple-how-to-connect/-/pineapple-how-to-connect-1.0.4.tgz#ed120d25639165698bccae4bb1b1b6ec06670d2c"
+  integrity sha512-A44vEdnwxfbjbYHL7f3JT0Ch583huw/Y0zJAOAAh7KXVdUoLOTFrVUiJjeN8XUg8eoFuKL4Q4Lb9VCr588v3+Q==
+  dependencies:
+    core-js "^3.6.5"
+    pineapple-footer "^2.0.9"
+    pineapple-popup "^1.0.7"
+    pineapple-system-bar "^1.0.4"
+    vue "^2.6.11"
+    vuetify "^2.2.11"
+    vuex "^3.4.0"
+
+pineapple-internet-plans@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/pineapple-internet-plans/-/pineapple-internet-plans-1.0.9.tgz#1113f0d28bdd63f362e15163cc0f831183c8b8ba"
+  integrity sha512-TPV0b8VYE+l8MtKpYGKNWVPIW9OHHEzp4J1rh1ZmV/KQJXizRmk9f53OD6aSTaFKxySTG4xWs4xdaal1GvVchQ==
+  dependencies:
+    core-js "^3.6.5"
+    pineapple-styles "^1.1.0"
+    vue "^2.6.11"
+    vue-router "^3.2.0"
+    vuetify "^2.2.11"
+    vuex "^3.4.0"
+
+pineapple-main-nav-bar@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/pineapple-main-nav-bar/-/pineapple-main-nav-bar-1.0.9.tgz#85598cd56a7281f8d8aa62c6706807d773f317a5"
+  integrity sha512-TQ8t+fTDqIq5T2AAZBEznjKo4xusCCgdM67IxiefErWZOkSvMehuVECYQL/pPib1JW0g7nkcf4viZCTpdxKKWw==
+  dependencies:
+    core-js "^3.6.5"
+    pineapple-styles "^1.1.0"
+    pineapple-system-bar "^1.0.4"
+    vue "^2.6.11"
+    vue-router "^3.2.0"
+    vuetify "^2.2.11"
+    vuex "^3.4.0"
+
+pineapple-popup@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/pineapple-popup/-/pineapple-popup-1.0.7.tgz#394a7e84fa844e1c9b81aeccaa4a9aabde080de2"
+  integrity sha512-QcUrFyWtZ0+5OkPeYNzNo23DRKOyjBFQrX0AuM8ygjrG2mzXVevapMnlfibbr4C6ggSXpabRUnVxabjwWD0hnQ==
+  dependencies:
+    core-js "^3.6.5"
+    vue "^2.6.11"
+    vuetify "^2.2.11"
+    vuex "^3.4.0"
+
+pineapple-styles@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/pineapple-styles/-/pineapple-styles-1.1.0.tgz#ec5e51d19b67280d1e261cbac98f8d67962755db"
+  integrity sha512-KFAS9bSVruAtN4WgEOcnC9d5F50+k4iA1iJxt/3YlaGro536GJqODt7R1Rc40iqyH2p8JhkmMExSCeFWVa5nng==
+  dependencies:
+    core-js "^3.6.5"
+    vue "^2.6.11"
+    vuetify "^2.2.11"
+
+pineapple-system-bar@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/pineapple-system-bar/-/pineapple-system-bar-1.0.4.tgz#803719e7a2e8b5ae1ff0eeeeb5bc7f59cd85b4ea"
+  integrity sha512-s1GInOE7gQRCJMCEM2iaF6WG2h4UxBYotOQsf3y3g9gIgQ1LtvNCbz4UoIQ73+gBkMif1Bm4q5N+LjiPiZd22A==
+  dependencies:
+    core-js "^3.6.5"
+    vue "^2.6.11"
+    vuetify "^2.2.11"
+    vuex "^3.4.0"
+
+pineapple-testimonials@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/pineapple-testimonials/-/pineapple-testimonials-1.0.8.tgz#2707b75fba63d3ce2c2014cf24b8f9dc72c45f63"
+  integrity sha512-k5cfwvZUWDUunlLTxDSFrI2FHuvncCIYdZeobU3d+OmFojhKBJiqQQlM4qeERAt+iqeTfscOIJiYYEecmar8iw==
+  dependencies:
+    core-js "^3.6.5"
+    pineapple-styles "^1.1.0"
+    vue "^2.6.11"
+    vuetify "^2.2.11"
+    vuex "^3.4.0"
+
 pinkie-promise@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/pinkie-promise/-/pinkie-promise-2.0.1.tgz#2135d6dfa7a358c069ac9b178776288228450ffa"
@@ -8202,14 +8303,6 @@ postcss-selector-parser@^6.0.0, postcss-selector-parser@^6.0.2:
     indexes-of "^1.0.1"
     uniq "^1.0.1"
 
-postcss-sorting@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/postcss-sorting/-/postcss-sorting-5.0.1.tgz#10d5d0059eea8334dacc820c0121864035bc3f11"
-  integrity sha512-Y9fUFkIhfrm6i0Ta3n+89j56EFqaNRdUKqXyRp6kvTcSXnmgEjaVowCXH+JBe9+YKWqd4nc28r2sgwnzJalccA==
-  dependencies:
-    lodash "^4.17.14"
-    postcss "^7.0.17"
-
 postcss-svgo@^4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/postcss-svgo/-/postcss-svgo-4.0.2.tgz#17b997bc711b333bab143aaed3b8d3d6e3d38258"
@@ -8239,7 +8332,7 @@ postcss-value-parser@^4.0.0, postcss-value-parser@^4.0.2, postcss-value-parser@^
   resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-4.1.0.tgz#443f6a20ced6481a2bda4fa8532a6e55d789a2cb"
   integrity sha512-97DXOFbQJhk71ne5/Mt6cOu6yxsSfM0QGQyl0L25Gca4yGWEGJaig7l7gbCX623VqTBNGLRLaVUCnNkcedlRSQ==
 
-postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.16, postcss@^7.0.17, postcss@^7.0.27, postcss@^7.0.30, postcss@^7.0.31, postcss@^7.0.5, postcss@^7.0.6:
+postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.16, postcss@^7.0.27, postcss@^7.0.30, postcss@^7.0.5, postcss@^7.0.6:
   version "7.0.31"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.31.tgz#332af45cb73e26c0ee2614d7c7fb02dfcc2bd6dd"
   integrity sha512-a937VDHE1ftkjk+8/7nj/mrjtmkn69xxzJgRETXdAUU+IgOYPQNJF17haGWbeDxSyk++HA14UA98FurvPyBJOA==
@@ -8963,7 +9056,7 @@ sass@^1.19.0:
   dependencies:
     chokidar ">=2.0.0 <4.0.0"
 
-sax@>=0.6.0, sax@^1.2.4, sax@~1.2.4:
+sax@^1.2.4, sax@~1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
   integrity sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
@@ -8992,11 +9085,6 @@ schema-utils@^2.0.0, schema-utils@^2.5.0, schema-utils@^2.6.1, schema-utils@^2.6
     "@types/json-schema" "^7.0.4"
     ajv "^6.12.2"
     ajv-keywords "^3.4.1"
-
-scrollparent@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/scrollparent/-/scrollparent-2.0.1.tgz#715d5b9cc57760fb22bdccc3befb5bfe06b1a317"
-  integrity sha1-cV1bnMV3YPsivczDvvtb/gaxoxc=
 
 scss-tokenizer@^0.2.3:
   version "0.2.3"
@@ -9691,13 +9779,6 @@ strip-json-comments@^3.0.1:
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-3.1.0.tgz#7638d31422129ecf4457440009fba03f9f9ac180"
   integrity sha512-e6/d0eBu7gHtdCqFt0xJr642LdToM5/cN4Qb9DbHjVx1CP5RyeM+zH7pbecEmDv/lBqb0QH+6Uqq75rxFPkM0w==
 
-style-helpers@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/style-helpers/-/style-helpers-1.0.2.tgz#3675e327c806a8f2edb56cde3d990dded25e8b31"
-  integrity sha512-1wDr4EsNepPWPWsbr0m7H+4saaJK7+/H+VQqoLTmoaS3A0zXFzoCk+16RLXevnzfunVByFCu7tmyR2tXwzmBGw==
-  dependencies:
-    stylelint-order "^4.0.0"
-
 stylehacks@^4.0.0:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/stylehacks/-/stylehacks-4.0.3.tgz#6718fcaf4d1e07d8a1318690881e8d96726a71d5"
@@ -9706,15 +9787,6 @@ stylehacks@^4.0.0:
     browserslist "^4.0.0"
     postcss "^7.0.0"
     postcss-selector-parser "^3.0.0"
-
-stylelint-order@^4.0.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/stylelint-order/-/stylelint-order-4.1.0.tgz#692d05b7d0c235ac66fcf5ea1d9e5f08a76747f6"
-  integrity sha512-sVTikaDvMqg2aJjh4r48jsdfmqLT+nqB1MOsaBnvM3OwLx4S+WXcsxsgk5w18h/OZoxZCxuyXMh61iBHcj9Qiw==
-  dependencies:
-    lodash "^4.17.15"
-    postcss "^7.0.31"
-    postcss-sorting "^5.0.1"
 
 supports-color@^2.0.0:
   version "2.0.0"
@@ -10391,27 +10463,7 @@ vue-loader@^15.8.3:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
-vue-observe-visibility@^0.4.4:
-  version "0.4.6"
-  resolved "https://registry.yarnpkg.com/vue-observe-visibility/-/vue-observe-visibility-0.4.6.tgz#878cb8ebcf3078e40807af29774e97105ebd519e"
-  integrity sha512-xo0CEVdkjSjhJoDdLSvoZoQrw/H2BlzB5jrCBKGZNXN2zdZgMuZ9BKrxXDjNP2AxlcCoKc8OahI3F3r3JGLv2Q==
-
-vue-phone-number-input@^1.1.9:
-  version "1.1.9"
-  resolved "https://registry.yarnpkg.com/vue-phone-number-input/-/vue-phone-number-input-1.1.9.tgz#cf07c461a1172e9b6102011b774f458ee30dc5f4"
-  integrity sha512-3IOvj49U/8W3bXOjtt4KGVLhOM1foTEvwerIyEekVWocjXy4aTggQEHOqouZcmdmNwaokXo0he8QTMjm1YrgVw==
-  dependencies:
-    libphonenumber-js "^1.7.51"
-    style-helpers "^1.0.2"
-    vue "^2.6.11"
-    vue-virtual-scroller "^1.0.10"
-
-vue-resize@^0.4.5:
-  version "0.4.5"
-  resolved "https://registry.yarnpkg.com/vue-resize/-/vue-resize-0.4.5.tgz#4777a23042e3c05620d9cbda01c0b3cc5e32dcea"
-  integrity sha512-bhP7MlgJQ8TIkZJXAfDf78uJO+mEI3CaLABLjv0WNzr4CcGRGPIAItyWYnP6LsPA4Oq0WE+suidNs6dgpO4RHg==
-
-vue-router@^3.3.4:
+vue-router@^3.2.0, vue-router@^3.3.4:
   version "3.3.4"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.3.4.tgz#4e38abc34a11c41b6c3d8244449a2e363ba6250b"
   integrity sha512-SdKRBeoXUjaZ9R/8AyxsdTqkOfMcI5tWxPZOUX5Ie1BTL5rPSZ0O++pbiZCeYeythiZIdLEfkDiQPKIaWk5hDg==
@@ -10437,15 +10489,6 @@ vue-template-es2015-compiler@^1.6.0, vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
-vue-virtual-scroller@^1.0.10:
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/vue-virtual-scroller/-/vue-virtual-scroller-1.0.10.tgz#fdf243240001f05bd79aa77f2e2e60403760e2fb"
-  integrity sha512-Hn4qSBDhRY4XdngPioYy/ykDjrLX/NMm1fQXm/4UQQ/Xv1x8JbHGFZNftQowTcfICgN7yc31AKnUk1UGLJ2ndA==
-  dependencies:
-    scrollparent "^2.0.1"
-    vue-observe-visibility "^0.4.4"
-    vue-resize "^0.4.5"
-
 vue@^2.6.11:
   version "2.6.11"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
@@ -10468,6 +10511,11 @@ vuex@^3.1.2:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/vuex/-/vuex-3.4.0.tgz#20cc086062d750769fce1febb34e7fceeaebde45"
   integrity sha512-ajtqwEW/QhnrBZQsZxCLHThZZaa+Db45c92Asf46ZDXu6uHXgbfVuBaJ4gzD2r4UX0oMJHstFwd2r2HM4l8umg==
+
+vuex@^3.4.0:
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/vuex/-/vuex-3.5.1.tgz#f1b8dcea649bc25254cf4f4358081dbf5da18b3d"
+  integrity sha512-w7oJzmHQs0FM9LXodfskhw9wgKBiaB+totOdb8sNzbTB2KDCEEwEs29NzBZFh/lmEK1t5tDmM1vtsO7ubG1DFw==
 
 w3c-hr-time@^1.0.1:
   version "1.0.2"
@@ -10944,19 +10992,6 @@ xml-name-validator@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/xml-name-validator/-/xml-name-validator-3.0.0.tgz#6ae73e06de4d8c6e47f9fb181f78d648ad457c6a"
   integrity sha512-A5CUptxDsvxKJEU3yO6DuWBSJz/qizqzJKOMIfUJHETbBw/sFaDxgd6fxm1ewUaM0jZ444Fc5vC5ROYurg/4Pw==
-
-xml2js@^0.4.17:
-  version "0.4.23"
-  resolved "https://registry.yarnpkg.com/xml2js/-/xml2js-0.4.23.tgz#a0c69516752421eb2ac758ee4d4ccf58843eac66"
-  integrity sha512-ySPiMjM0+pLDftHgXY4By0uswI3SPKLDw/i3UXbnO8M/p28zqexCUoPmQFrYD+/1BzhGJSs2i1ERWKJAtiLrug==
-  dependencies:
-    sax ">=0.6.0"
-    xmlbuilder "~11.0.0"
-
-xmlbuilder@~11.0.0:
-  version "11.0.1"
-  resolved "https://registry.yarnpkg.com/xmlbuilder/-/xmlbuilder-11.0.1.tgz#be9bae1c8a046e76b31127726347d0ad7002beb3"
-  integrity sha512-fDlsI/kFEx7gLvbecc0/ohLG50fugQp8ryHzMTuW9vSa1GJ0XYWKnhsUx7oie3G98+r56aTQIUB4kht42R3JvA==
 
 xmlchars@^2.1.1:
   version "2.2.0"

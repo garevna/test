@@ -1,7 +1,7 @@
 <template>
   <v-app class="homefone">
     <v-container fluid class="homefone" v-if="ready">
-      <AppHeader :pages="pages" :page.sync="page" />
+      <MainNavBar :page.sync="page" />
       <v-sheet
         width="100%"
         max-width="1440"
@@ -56,7 +56,13 @@
                             class="user-contact transparent mx-auto pa-0"
                             style="margin-bottom: 80px"
                       >
-                        <UserContact />
+                        <UserContact
+                              :userForm.sync="userForm"
+                              :emailSubject="emailSubject"
+                              :emailText="emailText"
+                              :emailEndpoint="mailEndpoint"
+                              v-if="userForm && userForm.fieldsToShow"
+                        />
                       </v-card>
                     </v-card>
                   </div>
@@ -105,29 +111,15 @@
 
 import { mapState, mapActions } from 'vuex'
 
-import AppHeader from '@/components/AppHeader.vue'
 import Top from '@/components/Top.vue'
 import Aside from '@/components/Aside.vue'
-import UserContact from '@/components/UserContact.vue'
-// import HowToConnect from '@/components/HowToConnect.vue'
-import Testimonials from '@/components/Testimonials.vue'
-// import InternetPlans from '@/components/InternetPlans.vue'
-import FAQ from '@/components/FAQ.vue'
-import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'page-4',
 
   components: {
-    AppHeader,
     Top,
-    Aside,
-    UserContact,
-    // HowToConnect,
-    Testimonials,
-    // InternetPlans,
-    FAQ,
-    Footer
+    Aside
   },
 
   data () {
@@ -143,26 +135,12 @@ export default {
     }
   },
   computed: {
-    ...mapState(['viewport', 'viewportWidth', 'pages', 'selectors']),
-    ...mapState('content', {
-      title: 'browserTabTitle',
-      subject: 'emailSubject',
-      emailText: 'emailText',
-      // pages: 'mainNavButtons',
-      // selectors: 'selectors',
-      top: 'top',
-      info: 'info',
-      userForm: 'userForm',
-      howToConnect: 'howToConnect',
-      testimonials: 'testimonials',
-      faq: 'faq',
-      footer: 'footer'
-    })
+    ...mapState(['viewportWidth', 'mailEndpoint']),
+    ...mapState('content', ['top', 'testimonials', 'info', 'userForm', 'faq', 'emailSubject', 'emailText'])
   },
   watch: {
     page (val) {
       if (typeof val !== 'number') return
-      console.log(val)
 
       if (this.pages[val].section) {
         this.$vuetify.goTo(this.pages[val].section, {

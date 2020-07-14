@@ -2,14 +2,12 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import modules from './modules'
 
-const emailValidator = require('email-validator')
-
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
     host: 'https://api.pineapple.net.au',
-    landhost: `${location.origin}${location.pathname}`,
+    mailEndpoint: 'https://api.pineapple.net.au/email/landing',
     officeAddress: '75 Brighton Road, Elwood VIC 3184',
     officePhone: '1300 857 501',
     officeEmail: 'info@pineapple.net.au',
@@ -17,51 +15,41 @@ export default new Vuex.Store({
     linkedIn: 'https://www.linkedin.com/company/pineapplenet/',
     faceBook: 'https://www.facebook.com/PineappleNetAU/',
     contactEndpoint: '',
+    viewport: 'lg',
     viewportWidth: window.innerWidth,
     viewportHeight: window.innerHeight,
-    plan: 'residential',
-    fieldTypes: {
-      text: 'input-with-validation',
-      number: 'input-with-validation',
-      email: 'input-with-validation',
-      phone: 'phone-number',
-      state: 'selector',
-      postcode: 'input-with-validation',
-      list: 'selector',
-      combo: 'combobox',
-      message: 'textarea'
-    },
-    validators: {
-      text: val => val.length > 2,
-      number: val => val.match(/^[0-9]*$/),
-      email: emailValidator.validate,
-      phone: val => val.match(/^\({0,1}((0|\+61)(2|4|3|7|8)){0,1}\){0,1}( |-){0,1}[0-9]{2}( |-){0,1}[0-9]{2}( |-){0,1}[0-9]{1}( |-){0,1}[0-9]{3}$/),
-      state: null,
-      postcode: val => Number(val) && Number(val) >= 3000 && Number(val) < 9999,
-      list: null,
-      combo: function (val) { return this.available.indexOf(val) !== -1 },
-      message: val => val.length >= 5
-    }
+    pages: ['Benefits', 'Internet Plans', 'FAQs', 'Contact Us'],
+    selectors: ['benefits', 'plans', 'faq', 'contact'],
+    plan: 'residential'
   },
   modules,
+
+  getters: {
+    //
+  },
 
   mutations: {
     UPDATE_PAGES: (state, payload) => {
       state.pages = payload.pages
-      state.selectors = payload.selectors
+      state.sectors = payload.selectors
     },
     CHANGE_VIEWPORT: (state) => {
-      state.viewport = window.innerWidth >= 1904 ? 'xl'
-        : window.innerWidth >= 1264 ? 'lg'
-          : window.innerWidth >= 960 ? 'md'
-            : window.innerWidth >= 600 ? 'sm' : 'xs'
       state.viewportWidth = window.innerWidth
       state.viewportHeight = window.innerHeight
     },
-    CHANGE_VIEWPORT_WIDTH: (state, width) => { state.viewportWidth = width },
-    CHANGE_VIEWPORT_HEIGHT: (state, height) => { state.viewportHeight = height },
 
     CHANGE_PLAN: (state, plan) => { state.plan = plan },
+
+    ERROR_HANDLER: (state, { moduleName, error }) => {
+      state.errorsLog.push({
+        module: moduleName,
+        error,
+        time: new Date().getTime()
+      })
+    },
+    ERRORS_CLEAR: (state) => {
+      state.errorsLog = []
+    },
     SET_PROPERTY: (state, payload) => {
       Vue.set(payload.object, payload.propertyName, payload.value)
     },

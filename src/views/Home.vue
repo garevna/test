@@ -1,8 +1,7 @@
 <template>
   <v-app class="homefone">
-    <v-container fluid class="homefone">
-      <!-- <AppHeader :pages="pages" :page.sync="page" /> -->
-      <MainNavigation :pages="mainNavButtons.map(item => item.buttonText)" :page.sync="page" />
+    <v-container fluid class="homefone" v-if="ready">
+      <MainNavBar :page.sync="page" />
       <v-sheet
         width="100%"
         max-width="1904"
@@ -14,7 +13,7 @@
         <section id="top" style="width: 100%">
           <div class="base-title">
             <a href="#top" class="core-goto"></a>
-            <Top />
+            <HomeTop :page.sync="page" />
           </div>
         </section>
       </v-sheet>
@@ -82,53 +81,36 @@
 
 import { mapState, mapActions } from 'vuex'
 
-import MainNavigation from '@/components/MainNavigation.vue'
-import Top from '@/components/HomeTop.vue'
+import HomeTop from '@/components/HomeTop.vue'
 import List from '@/components/List.vue'
-import HowToConnect from '@/components/HowToConnect.vue'
 import GreenSection from '@/components/GreenSection.vue'
-import Testimonials from '@/components/Testimonials.vue'
-import InternetPlans from '@/components/InternetPlans.vue'
-import FAQ from '@/components/FAQ.vue'
 
 export default {
   name: 'Home',
   components: {
-    MainNavigation,
-    Top,
+    HomeTop,
     List,
-    HowToConnect,
-    GreenSection,
-    Testimonials,
-    InternetPlans,
-    FAQ
+    GreenSection
   },
   data () {
     return {
       ready: false,
-      page: 10,
+      page: undefined,
       goto: null
     }
   },
   computed: {
-    ...mapState(['viewportWidth']),
+    ...mapState(['viewportWidth', 'mailEndpoint']),
     ...mapState('content', {
       top: 'top',
       reviews: 'testimonials'
     }),
-    ...mapState('content', ['mainNavButtons']),
+    ...mapState('content', ['mainNavButtons', 'mainNavSectors']),
     route () {
       return this.$route.name
     }
   },
   watch: {
-    route (val) {
-      this.$vuetify.goTo('#top', {
-        duration: 500,
-        offset: 100,
-        easing: 'easeInOutCubic'
-      })
-    },
     goto (val) {
       if (!val) return
       this.$vuetify.goTo(val, {
@@ -139,10 +121,11 @@ export default {
       this.goto = undefined
     },
     page (val) {
-      if (typeof val !== 'number') return
+      if (!val) return
 
-      if (this.mainNavButtons[val].section) {
-        this.$vuetify.goTo(this.mainNavButtons[val].section, {
+      /* Inside page transition */
+      if (val.indexOf('#') === 0) {
+        this.$vuetify.goTo(val, {
           duration: 500,
           offset: 20,
           easing: 'easeInOutCubic'
@@ -150,11 +133,17 @@ export default {
         this.page = undefined
         return
       }
-      if (this.mainNavButtons[val].page) {
-        this.$router.push({ name: this.mainNavButtons[val].page })
-      } else {
-        window.open(this.mainNavButtons[val].url, '_blank')
+
+      /* Go to external url */
+      if (val.indexOf('http') === 0) {
+        window.open(val, '_blank')
+        this.page = undefined
+        return
       }
+
+      /* Go to page */
+      if (this.route.name === val) return
+      this.$router.push({ name: val })
       this.page = undefined
     }
   },
@@ -163,8 +152,12 @@ export default {
       getContent: 'GET_CONTENT'
     })
   },
+  beforeMount () {
+    this.getContent('2').then(() => {
+      this.ready = true
+    })
+  },
   mounted () {
-    // this.$store.commit('content/UPDATE_BUTTONS')
     this.page = undefined
   }
 }

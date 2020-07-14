@@ -1,7 +1,7 @@
 <template>
   <v-app class="homefone">
-    <v-container fluid class="homefone">
-      <MainNavigation :pages="pages.map(item => item.buttonText)" :page.sync="page" />
+    <v-container fluid class="homefone" v-if="ready">
+      <MainNavBar :page.sync="page" />
       <v-sheet
         width="100%"
         max-width="1440"
@@ -55,7 +55,13 @@
                             class="user-contact transparent mx-auto pa-0"
                             style="margin-bottom: 80px"
                       >
-                        <UserContact :userForm="userForm" />
+                        <UserContact
+                              :userForm.sync="userForm"
+                              :emailSubject="emailSubject"
+                              :emailText="emailText"
+                              :emailEndpoint="mailEndpoint"
+                              v-if="userForm && userForm.fieldsToShow"
+                        />
                       </v-card>
                     </v-card>
                   </div>
@@ -82,22 +88,14 @@
 
 import { mapState, mapActions } from 'vuex'
 
-import MainNavigation from '@/components/MainNavigation.vue'
 import Top from '@/components/Top.vue'
 import Aside from '@/components/Aside.vue'
-import UserContact from '@/components/UserContact.vue'
-import Testimonials from '@/components/Testimonials.vue'
-import FAQ from '@/components/FAQ.vue'
 
 export default {
   name: 'page-1',
   components: {
-    MainNavigation,
     Top,
-    Aside,
-    UserContact,
-    Testimonials,
-    FAQ
+    Aside
   },
   data () {
     return {
@@ -107,9 +105,8 @@ export default {
     }
   },
   computed: {
-    ...mapState(['viewportWidth']),
-    ...mapState('page-1', ['top', 'testimonials', 'info', 'userForm', 'faq']),
-    ...mapState('page-1', { pages: 'mainNavButtons' }),
+    ...mapState(['viewportWidth', 'mailEndpoint']),
+    ...mapState('content', ['top', 'testimonials', 'info', 'userForm', 'faq', 'emailSubject', 'emailText']),
     route () {
       return this.$route.name
     }
@@ -118,7 +115,7 @@ export default {
     route (val) {
       this.$vuetify.goTo('#top', {
         duration: 500,
-        offset: 100,
+        offset: 0,
         easing: 'easeInOutCubic'
       })
     },
@@ -132,37 +129,41 @@ export default {
       this.goto = undefined
     },
     page (val) {
-      if (typeof val !== 'number') return
+      if (!val) return
 
-      if (this.pages[val].section) {
-        this.$vuetify.goTo(this.pages[val].section, {
+      /* Inside page transition */
+      if (val.indexOf('#') === 0) {
+        this.$vuetify.goTo(val, {
           duration: 500,
-          offset: 50,
+          offset: 20,
           easing: 'easeInOutCubic'
         })
         this.page = undefined
         return
       }
-      if (this.pages[val].page) {
-        this.$router.push({ name: this.pages[val].page })
-      } else {
-        window.open(this.pages[val].url, '_blank')
+
+      /* Go to external url */
+      if (val.indexOf('http') === 0) {
+        window.open(val, '_blank')
+        this.page = undefined
+        return
       }
+
+      /* Go to page */
+      this.$router.push({ name: val })
       this.page = undefined
     }
   },
   methods: {
-    ...mapState('testimonials', {
-      reviews: 'testimonials'
-    }),
-    ...mapActions('contact', {
-      // getContent: 'GET_CONTENT',
-      updateFields: 'SET_FIELDS_TO_SHOW'
+    ...mapActions('content', {
+      getContent: 'GET_CONTENT'
     })
+  },
+  beforeMount () {
+    this.getContent('2-1').then(() => { this.ready = true })
   },
   mounted () {
     this.page = undefined
-    this.updateFields(this.userForm.fieldsToShow)
   }
 }
 </script>

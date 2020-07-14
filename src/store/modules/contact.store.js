@@ -23,28 +23,6 @@ const mutations = {
   UPDATE_FIELD: (state, payload) => {
     state.contactFormFields[payload.num][payload.prop] = payload.value
   },
-  CREATE_MESSAGE: (state) => {
-    const details = []
-    let message = ''
-    for (const field of state.contactFormFields) {
-      if (field.type === 'textarea') {
-        message = `
-          <fieldset>
-            <legend>Your message:</legend>
-            <p>${field.value.split('\n').join('<br>')}</p>
-          </fieldset>
-        `
-      } else details.push(`<p>${field.placeholder}: ${field.value}</p>`)
-    }
-    state.messageForMail = `
-      <p>${state.emailText}</p>
-      <fieldset>
-        <legend>Details:</legend>
-        ${details.join('')}
-      </fieldset>
-      ${message}
-    `
-  },
   SET_ERROR: (state, payload) => {
     state.contactFormFields[payload.num].error = payload.value
   },
@@ -56,57 +34,7 @@ const mutations = {
   }
 }
 
-const actions = {
-
-  SET_FIELDS_TO_SHOW ({ state, getters }, payload) {
-    state.contactFormFields = payload.map((field) => {
-      return {
-        type: getters.types[field.type],
-        placeholder: field.placeholder,
-        required: field.required,
-        value: '',
-        validator: getters.validators[field.type],
-        error: false,
-        available: field.type === 'state' ? ['VIC', 'NSW', 'ACT', 'QLD', 'SA', 'WA', 'TAS', 'NT'] : field.available || null
-      }
-    })
-  },
-  async SEND_EMAIL ({ state, commit }) {
-    let error = false
-    for (const field of state.contactFormFields) {
-      error = error || field.error || (field.required && !field.value)
-    }
-    if (error) return false
-    const email = state.contactFormFields.find(item => item.placeholder.match(/email/i))
-    if (!email) return
-    commit('CREATE_MESSAGE')
-    const response = await (await fetch(state.mailEndpoint, {
-      method: 'POST',
-      headers: {
-        'X-Requested-With': 'XMLHttpRequest',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        subject: state.emailSubject,
-        email: email.value,
-        message: state.messageForMail
-      })
-    })).json()
-    commit('CLEAR_ALL_FIELDS')
-    return true
-  },
-  async SEND_SIMPLE_EMAIL ({ state, commit }, data) {
-    const response = await (await fetch(state.mailEndpoint, {
-      method: 'POST',
-      headers: {
-        'X-Requested-With': 'XMLHttpRequest',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })).json()
-    return response
-  }
-}
+const actions = {}
 
 export default {
   namespaced: true,
