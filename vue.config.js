@@ -24,5 +24,8 @@ module.exports = {
       msTileImage: '/img/icons/mstile-150x150.png'
     }
   },
-  runtimeCompiler: true
+  runtimeCompiler: true,
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/connect-melbournecbd/'
+    : '/'
 }
