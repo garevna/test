@@ -1,11 +1,10 @@
 <template>
   <v-app class="homefone">
-    <v-container fluid class="homefone">
-      <!-- <AppHeader :pages="pages" :page.sync="page" /> -->
+    <v-container fluid class="homefone" v-mutate="mutationHandler">
       <SystemBar />
       <transition>
         <keep-alive>
-          <router-view></router-view>
+          <router-view v-if="pageContentReady"></router-view>
         </keep-alive>
       </transition>
     </v-container>
@@ -14,12 +13,22 @@
       <div class="base-title">
         <a href="#footer" class="core-goto"></a>
           <v-row width="100%">
-            <Footer :emailEndpoint="mailEndpoint" v-if="ready" />
+            <Footer :emailEndpoint="mailEndpoint" v-mutate="footerMutationHandler" />
           </v-row>
       </div>
     </section>
   </v-app>
 </template>
+
+<style>
+  .section {
+    width: 100%;
+    max-width: 1440px;
+  }
+  body {
+    overflow: hidden;
+  }
+</style>
 
 <script>
 
@@ -70,36 +79,52 @@ export default {
   data () {
     return {
       ready: false,
+      pageContentReady: false,
       page: null,
       routesNames: []
     }
   },
   computed: {
-    ...mapState(['viewportWidth', 'mailEndpoint']),
-    ...mapState('content', ['browserTabTitle', 'footer', 'mainNavButtons', 'mainNavSectors']),
-    ...mapState('contact', ['mailEndpoint'])
+    ...mapState(['viewportWidth', 'mailEndpoint', 'emailSubject', 'emailText', 'mainContentHeight', 'footerHeight']),
+    ...mapState('content', ['footer', 'top'])
   },
   watch: {
     $route (val) {
-      this.ready = false
+      this.pageContentReady = false
       const index = this.routesNames.indexOf(val.name)
       const resource = ['2', '2-1', '2-2', '2-3'][index]
-      this.getContent(resource).then(() => { this.ready = true })
+      this.getPageContent(resource).then(() => {
+        this.pageContentReady = true
+      })
     }
   },
   methods: {
-    ...mapActions('content', {
-      getContent: 'GET_CONTENT'
+    ...mapActions({
+      getGeneralInfo: 'GET_GENERAL_INFO'
     }),
+    ...mapActions('content', {
+      getPageContent: 'GET_PAGE_CONTENT'
+    }),
+    mutationHandler (mutations) {
+      this.$store.commit('UPDATE_MAIN_CONTENT_HEIGHT', this.$el.offsetHeight)
+      document.body.style.height = this.mainContentHeight + this.footerHeight - 36 + 'px'
+    },
+    footerMutationHandler (mutations) {
+      const footer = document.querySelector('.footer')
+      this.$store.commit('UPDATE_FOOTER_HEIGHT', footer.offsetHeight)
+      document.body.style.height = this.mainContentHeight + this.footerHeight - 36 + 'px'
+    },
     onResize () {
       this.$store.commit('CHANGE_VIEWPORT')
     }
   },
   beforeMount () {
-    this.getContent(2).then(title => {
-      this.ready = true
-      document.title = title
-    })
+    this.getGeneralInfo()
+    this.getPageContent(2)
+      .then((response) => {
+        document.title = response
+        this.ready = true
+      })
   },
   mounted () {
     this.onResize()

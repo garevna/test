@@ -105,8 +105,8 @@ export default {
     }
   },
   computed: {
-    ...mapState(['viewportWidth', 'mailEndpoint']),
-    ...mapState('content', ['top', 'testimonials', 'info', 'userForm', 'faq', 'emailSubject', 'emailText']),
+    ...mapState(['viewportWidth', 'mailEndpoint', 'emailSubject', 'emailText', 'mainContentHeight', 'footerHeight']),
+    ...mapState('content', ['userForm', 'top', 'testimonials', 'info', 'faq']),
     route () {
       return this.$route.name
     }
@@ -115,10 +115,12 @@ export default {
     route (val) {
       this.$vuetify.goTo('#top', {
         duration: 500,
-        offset: 0,
+        offset: 80,
         easing: 'easeInOutCubic'
       })
     },
+
+    /* Buttons on page */
     goto (val) {
       if (!val) return
       this.$vuetify.goTo(val, {
@@ -128,6 +130,8 @@ export default {
       })
       this.goto = undefined
     },
+
+    /* Buttons of main nav bar */
     page (val) {
       if (!val) return
 
@@ -135,7 +139,7 @@ export default {
       if (val.indexOf('#') === 0) {
         this.$vuetify.goTo(val, {
           duration: 500,
-          offset: 20,
+          offset: 50,
           easing: 'easeInOutCubic'
         })
         this.page = undefined
@@ -156,11 +160,13 @@ export default {
   },
   methods: {
     ...mapActions('content', {
-      getContent: 'GET_CONTENT'
+      getContent: 'GET_PAGE_CONTENT'
     })
   },
   beforeMount () {
-    this.getContent('2-3').then(() => { this.ready = true })
+    this.getContent('2-3').then(() => {
+      this.ready = true
+    })
   },
   mounted () {
     this.page = undefined

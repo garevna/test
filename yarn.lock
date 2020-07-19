@@ -7812,10 +7812,10 @@ pify@^4.0.1:
   resolved "https://registry.yarnpkg.com/pify/-/pify-4.0.1.tgz#4b2cd25c50d598735c50292224fd8c6df41e3231"
   integrity sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==
 
-pineapple-contact-form@^1.1.4:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/pineapple-contact-form/-/pineapple-contact-form-1.1.4.tgz#1f36abfb6995fc8a3cab780dbe6ea4d2b65da0c3"
-  integrity sha512-TYQufGQ0hPgcl0sjVRF8xj2gIVG7TFAfdhFWL8LliGlQLUjkk214TPiixPBcU5IvmOuIuiH8cfoGp0MVh73zOg==
+pineapple-contact-form@^1.1.7:
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/pineapple-contact-form/-/pineapple-contact-form-1.1.7.tgz#7b35a2dd953e7ce746f19f950afd23033c5bd2c2"
+  integrity sha512-QkUbqvur2wg2jOX7qDfmcV9trvYD1QqaWwgGk7p6RCZDSOMlqLtsn4PYmoOK76Uv3lyMHrMUKBcegPpQmByrfw==
   dependencies:
     core-js "^3.6.5"
     pineapple-popup "^1.0.7"
@@ -7835,52 +7835,49 @@ pineapple-faq@^1.0.0:
     vuetify "^2.2.11"
     vuex "^3.4.0"
 
-pineapple-footer@^2.0.9:
-  version "2.0.9"
-  resolved "https://registry.yarnpkg.com/pineapple-footer/-/pineapple-footer-2.0.9.tgz#e90f6f6f1f570a289a2e76f5be6ed0b119387407"
-  integrity sha512-2R0Twb4uXNM7kRPw46rw024d+mvIET+1lazgyzlZMJK5X7IJQRe2vFk7mcllxtiFnucZCZY2qNBnsjvtyq+mYw==
+pineapple-footer@^2.1.4, pineapple-footer@^2.1.7:
+  version "2.1.7"
+  resolved "https://registry.yarnpkg.com/pineapple-footer/-/pineapple-footer-2.1.7.tgz#805651e3045401c83d57629a1236a44aacd77f60"
+  integrity sha512-YH79mTIqmyle93QiasNBQf8+peSH5XCNTSsSD4XRQc7dRs+Uqn6kUPhv5mBw+5p23vk/EHtA5o9TxuRvWJmlNA==
   dependencies:
     core-js "^3.6.5"
     pineapple-popup "^1.0.7"
-    pineapple-styles "^1.1.0"
+    pineapple-styles "^1.1.7"
     vue "^2.6.11"
     vue-router "^3.3.4"
     vuetify "^2.2.11"
     vuex "^3.4.0"
 
-pineapple-how-to-connect@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/pineapple-how-to-connect/-/pineapple-how-to-connect-1.0.4.tgz#ed120d25639165698bccae4bb1b1b6ec06670d2c"
-  integrity sha512-A44vEdnwxfbjbYHL7f3JT0Ch583huw/Y0zJAOAAh7KXVdUoLOTFrVUiJjeN8XUg8eoFuKL4Q4Lb9VCr588v3+Q==
+pineapple-how-to-connect@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/pineapple-how-to-connect/-/pineapple-how-to-connect-1.0.5.tgz#4829f761b65874a2ff885cd766c8033ad0369ee6"
+  integrity sha512-ap1TImMPIXSY07Xqq4qN/pyRfdUcqg7kcLdgFPbNX9UZ+Eu0kSiY1UTUU5B/zKzR/7xYTl/jmuZJtPHaw8y3Bg==
   dependencies:
     core-js "^3.6.5"
-    pineapple-footer "^2.0.9"
-    pineapple-popup "^1.0.7"
-    pineapple-system-bar "^1.0.4"
     vue "^2.6.11"
     vuetify "^2.2.11"
     vuex "^3.4.0"
 
-pineapple-internet-plans@^1.0.9:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/pineapple-internet-plans/-/pineapple-internet-plans-1.0.9.tgz#1113f0d28bdd63f362e15163cc0f831183c8b8ba"
-  integrity sha512-TPV0b8VYE+l8MtKpYGKNWVPIW9OHHEzp4J1rh1ZmV/KQJXizRmk9f53OD6aSTaFKxySTG4xWs4xdaal1GvVchQ==
+pineapple-internet-plans@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/pineapple-internet-plans/-/pineapple-internet-plans-1.1.5.tgz#eb0d9a91ecac18aeaf750871528270d29e40decd"
+  integrity sha512-btpDcUEQ8DN1Hg7xy2S0+hrUVGucwAaNzXBaO2L7uv5xzgUfxFZII/mePwivc6aeF/2gClDaMIqC8bAEwaKgCw==
   dependencies:
     core-js "^3.6.5"
     pineapple-styles "^1.1.0"
     vue "^2.6.11"
-    vue-router "^3.2.0"
     vuetify "^2.2.11"
     vuex "^3.4.0"
 
-pineapple-main-nav-bar@^1.0.9:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/pineapple-main-nav-bar/-/pineapple-main-nav-bar-1.0.9.tgz#85598cd56a7281f8d8aa62c6706807d773f317a5"
-  integrity sha512-TQ8t+fTDqIq5T2AAZBEznjKo4xusCCgdM67IxiefErWZOkSvMehuVECYQL/pPib1JW0g7nkcf4viZCTpdxKKWw==
+pineapple-main-nav-bar@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/pineapple-main-nav-bar/-/pineapple-main-nav-bar-1.1.4.tgz#8dd25a11b44ef1cb630caec326c8bacf3e5003c3"
+  integrity sha512-PiaXyse2vjGthDcMLG6kICtDc3fy163C6h4VVHFtuUW79h6WOMth8ut63YYmojFoEgyJfjSGKQQG89bml4Fj8Q==
   dependencies:
     core-js "^3.6.5"
-    pineapple-styles "^1.1.0"
-    pineapple-system-bar "^1.0.4"
+    pineapple-footer "^2.1.4"
+    pineapple-styles "^1.1.5"
+    pineapple-system-bar "^1.0.7"
     vue "^2.6.11"
     vue-router "^3.2.0"
     vuetify "^2.2.11"
@@ -7905,20 +7902,30 @@ pineapple-styles@^1.1.0:
     vue "^2.6.11"
     vuetify "^2.2.11"
 
-pineapple-system-bar@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/pineapple-system-bar/-/pineapple-system-bar-1.0.4.tgz#803719e7a2e8b5ae1ff0eeeeb5bc7f59cd85b4ea"
-  integrity sha512-s1GInOE7gQRCJMCEM2iaF6WG2h4UxBYotOQsf3y3g9gIgQ1LtvNCbz4UoIQ73+gBkMif1Bm4q5N+LjiPiZd22A==
+pineapple-styles@^1.1.5, pineapple-styles@^1.1.7, pineapple-styles@^1.1.8:
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/pineapple-styles/-/pineapple-styles-1.1.8.tgz#b0a5d78b5f3aa541a0af62147556ff3193f8c978"
+  integrity sha512-gEKn09d5o8C5UQIxsjLN7aIsNa4iXIjH3bBUwJUpHfNDTy/WiaHBBUncqX1kcWqH4N4mG5Rp4fBWWexP5SCWtA==
   dependencies:
     core-js "^3.6.5"
     vue "^2.6.11"
     vuetify "^2.2.11"
-    vuex "^3.4.0"
 
-pineapple-testimonials@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/pineapple-testimonials/-/pineapple-testimonials-1.0.8.tgz#2707b75fba63d3ce2c2014cf24b8f9dc72c45f63"
-  integrity sha512-k5cfwvZUWDUunlLTxDSFrI2FHuvncCIYdZeobU3d+OmFojhKBJiqQQlM4qeERAt+iqeTfscOIJiYYEecmar8iw==
+pineapple-system-bar@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/pineapple-system-bar/-/pineapple-system-bar-1.0.7.tgz#c587b49564ce76674f3f9d85c04d0373b8fdf60c"
+  integrity sha512-UkpJMUZUnz73+v1rdlXeCGmGWNkgR2jOzrqzeb/DFCo78L+9ypOg0rDkQ1/2pU92YjbivYWY0JMdmu1BM6RP8w==
+  dependencies:
+    core-js "^3.6.5"
+    pineapple-styles "^1.1.0"
+    vue "^2.6.11"
+    vuetify "^2.2.11"
+    vuex "^3.5.1"
+
+pineapple-testimonials@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/pineapple-testimonials/-/pineapple-testimonials-1.0.9.tgz#1c4a5e2ead689d2a368fbd2ea6bb2f0312e48ee0"
+  integrity sha512-y8sUjCtyK6RlgTUym8/dBnAQ1e0f4t1+WzdVhiPaBs6rBwQg/gUmXPRAxXIfQ/ywUNNzWlJfqqzIUgLlr+7uKw==
   dependencies:
     core-js "^3.6.5"
     pineapple-styles "^1.1.0"
@@ -10512,7 +10519,7 @@ vuex@^3.1.2:
   resolved "https://registry.yarnpkg.com/vuex/-/vuex-3.4.0.tgz#20cc086062d750769fce1febb34e7fceeaebde45"
   integrity sha512-ajtqwEW/QhnrBZQsZxCLHThZZaa+Db45c92Asf46ZDXu6uHXgbfVuBaJ4gzD2r4UX0oMJHstFwd2r2HM4l8umg==
 
-vuex@^3.4.0:
+vuex@^3.4.0, vuex@^3.5.1:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/vuex/-/vuex-3.5.1.tgz#f1b8dcea649bc25254cf4f4358081dbf5da18b3d"
   integrity sha512-w7oJzmHQs0FM9LXodfskhw9wgKBiaB+totOdb8sNzbTB2KDCEEwEs29NzBZFh/lmEK1t5tDmM1vtsO7ubG1DFw==

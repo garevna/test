@@ -19,56 +19,61 @@
       </v-sheet>
 
       <!-- ============================= LIST ============================= -->
-
-      <section id="list" style="width: 100%">
-        <div class="base-title">
-          <a href="#list" class="core-goto"></a>
-          <List :page.sync="goto" />
-        </div>
-      </section>
+      <v-row width="100%" justify="center">
+        <section id="list" style="width: 100%">
+          <div class="base-title">
+            <a href="#list" class="core-goto"></a>
+            <List :page.sync="goto" />
+          </div>
+        </section>
+      </v-row>
 
       <!-- ============================= CREEN SECTION ============================= -->
-      <section id="dgtek" style="width: 100%">
-        <div class="base-title">
-          <a href="#dgtek" class="core-goto"></a>
-          <GreenSection />
-        </div>
-      </section>
+      <v-row width="100%">
+        <section id="dgtek" style="width: 100%">
+          <div class="base-title">
+            <a href="#dgtek" class="core-goto"></a>
+            <GreenSection />
+          </div>
+        </section>
+      </v-row>
 
       <!-- ============================= HOW TO CONNECT ============================= -->
-
-      <section id="how-to-connect" style="width: 100%">
-        <div class="base-title">
-          <a href="#how-to-connect" class="core-goto"></a>
-          <HowToConnect :page.sync="goto" />
-        </div>
-      </section>
+      <v-row width="100%" justify="center">
+        <section id="how-to-connect" class="section">
+          <div class="base-title">
+            <a href="#how-to-connect" class="core-goto"></a>
+            <HowToConnect :page.sync="page" />
+          </div>
+        </section>
+      </v-row>
 
       <!-- ============================= TESTIMONIALS ============================= -->
-
-      <section id="testimonials" style="width: 100%">
-        <div class="base-title">
-          <a href="#testimonials" class="core-goto"></a>
-          <Testimonials :content="reviews" :page.sync="goto"/>
-        </div>
-      </section>
+      <v-row width="100%" justify="center">
+        <section id="testimonials" class="section">
+          <div class="base-title">
+            <a href="#testimonials" class="core-goto"></a>
+            <Testimonials :page.sync="page"/>
+          </div>
+        </section>
+      </v-row>
 
       <!-- ============================= INTERNET PLANS ============================= -->
       <v-row width="100%" justify="center">
-        <section id="plans">
+        <section id="plans" class="section">
           <div class="base-title">
             <a href="#plans" class="core-goto"></a>
-            <InternetPlans :page.sync="goto"/>
+            <InternetPlans :page.sync="page" v-if="ready" />
           </div>
         </section>
       </v-row>
 
       <!-- ============================= FAQ ============================= -->
-      <v-row width="100%">
-        <section id="faq" style="width: 100%">
+      <v-row width="100%" justify="center">
+        <section id="faq" class="section">
           <div class="base-title">
             <a href="#faq" class="core-goto"></a>
-            <FAQ :page.sync="goto"/>
+            <FAQ :page.sync="page"/>
           </div>
         </section>
       </v-row>
@@ -100,17 +105,17 @@ export default {
     }
   },
   computed: {
-    ...mapState(['viewportWidth', 'mailEndpoint']),
+    ...mapState(['viewportWidth']),
     ...mapState('content', {
-      top: 'top',
       reviews: 'testimonials'
     }),
-    ...mapState('content', ['mainNavButtons', 'mainNavSectors']),
+    ...mapState('content', ['top', 'mainNavButtons', 'mainNavSectors']),
     route () {
       return this.$route.name
     }
   },
   watch: {
+    /* Buttons on page */
     goto (val) {
       if (!val) return
       this.$vuetify.goTo(val, {
@@ -120,6 +125,8 @@ export default {
       })
       this.goto = undefined
     },
+
+    /* Buttons of main nav bar */
     page (val) {
       if (!val) return
 
@@ -127,7 +134,7 @@ export default {
       if (val.indexOf('#') === 0) {
         this.$vuetify.goTo(val, {
           duration: 500,
-          offset: 20,
+          offset: 80,
           easing: 'easeInOutCubic'
         })
         this.page = undefined
@@ -149,7 +156,7 @@ export default {
   },
   methods: {
     ...mapActions('content', {
-      getContent: 'GET_CONTENT'
+      getContent: 'GET_PAGE_CONTENT'
     })
   },
   beforeMount () {

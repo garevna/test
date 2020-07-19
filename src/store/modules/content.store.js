@@ -1,48 +1,33 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-shadow */
-
-const state = {
-  browserTabTitle: 'Melbourne CBD',
-  emailSubject: 'Connect Melbourne CBD',
-  emailText: 'Thank you for your interest in Pineapple NET! A member of our team will be in touch shortly.',
-  mainNavButtons: [],
-  mainNavSectors: [],
-  top: null,
-  greenSection: null,
-  plans: null,
-  list: null,
-  howToConnect: null,
-  testimonials: null,
-  faq: null
-}
+const state = {}
 
 const getters = {
-  contentEndpoint: (state, getters, rootState) => `${rootState.host}/content`
+  contentEndpoint: (state, getters, rootState) => rootState.contentEndpoint
 }
 
 const mutations = {
   UPDATE_NAV_BUTTONS: (state, payload) => {
     state.mainNavButtons = payload.mainNavButtons
     state.mainNavSectors = payload.mainNavSectors
-  },
-  UPDATE_ALL: (state, payload) => {
-    for (const field in payload) {
-      state[field] = payload[field]
-    }
   }
 }
 
 const actions = {
-  async GET_CONTENT ({ getters, commit }, route) {
+  async GET_PAGE_CONTENT ({ state, getters, commit }, route) {
     const content = await (await fetch(`${getters.contentEndpoint}/${route}`)).json()
-    commit('UPDATE_NAV_BUTTONS', { mainNavButtons: content.mainNavButtons, mainNavSectors: content.mainNavSectors })
-    commit('contact/UPDATE_EMAIL_SUBJECT', content.emailSubject, { root: true })
-    commit('contact/UPDATE_EMAIL_TEXT', content.emailText, { root: true })
-    const browserTabTitle = content.browserTabTitle
-    for (const field of ['mainNavButtons', 'mainNavSectors', 'browserTabTitle', 'emailSubject', 'emailText']) {
-      if (content[field]) delete content[field]
+    const { mainNavButtons, mainNavSectors, browserTabTitle, emailSubject, emailText, ...rest } = content
+    commit('UPDATE_NAV_BUTTONS', { mainNavButtons, mainNavSectors })
+    commit('UPDATE_EMAIL_SUBJECT', emailSubject, { root: true })
+    commit('UPDATE_EMAIL_TEXT', emailText, { root: true })
+
+    for (const prop in rest) {
+      if (Object.keys(rest[prop]).length === 0) continue
+      commit('SET_PROPERTY', {
+        object: state,
+        propertyName: prop,
+        value: rest[prop]
+      }, { root: true })
     }
-    commit('UPDATE_ALL', content)
+
     return browserTabTitle
   }
 }
