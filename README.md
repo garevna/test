@@ -2,11 +2,11 @@
 
 ###### Landing page for pineapple.net.au
 
-[**demo**](https://garevna.github.io/connect-melbournecbd.pineapple.net.au)
+[**run**](https://connect-melbournecbd.pineapple.net.au)
 
 ### Project setup
 ```
-npm install
+yarn install
 ```
 
 #### Compiles and hot-reloads for development

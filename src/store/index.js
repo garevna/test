@@ -10,6 +10,7 @@ export default new Vuex.Store({
     generalInfoEndpoint: 'https://api.pineapple.net.au/content/general',
     contentEndpoint: 'https://api.pineapple.net.au/content',
     mailEndpoint: 'https://api.pineapple.net.au/email/landing',
+    browserTabTitle: '',
     emailSubject: '',
     emailText: 'Thank you for your interest in Pineapple NET! A member of our team will be in touch shortly.',
     viewportWidth: window.innerWidth,
@@ -28,7 +29,8 @@ export default new Vuex.Store({
   mutations: {
     UPDATE_MAIN_CONTENT_HEIGHT: (state, payload) => { state.mainContentHeight = payload },
     UPDATE_FOOTER_HEIGHT: (state, payload) => { state.footerHeight = payload },
-    UPDATE_EMAIL_SUBJECT: (state, payload) => { state.emailSubject = payload },
+    UPDATE_BROWSER_TITLE: (state, payload) => { state.browserTabTitle = payload },
+    UPDATE_EMAIL_SUBJECT: (state, payload) => { console.log(payload); state.emailSubject = payload },
     UPDATE_EMAIL_TEXT: (state, payload) => { state.emailText = payload },
     CHANGE_VIEWPORT: (state) => {
       state.viewportWidth = window.innerWidth

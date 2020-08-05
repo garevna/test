@@ -107,7 +107,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['viewportWidth', 'mailEndpoint', 'emailSubject', 'emailText', 'mainContentHeight', 'footerHeight']),
+    ...mapState(['viewportWidth', 'mailEndpoint', 'browserTabTitle', 'emailSubject', 'emailText', 'mainContentHeight', 'footerHeight']),
     ...mapState('content', ['userForm', 'top', 'testimonials', 'info', 'faq']),
     route () {
       return this.$route.name
@@ -163,12 +163,16 @@ export default {
   methods: {
     ...mapActions('content', {
       getContent: 'GET_PAGE_CONTENT'
-    })
+    }),
+    async getReady () {
+      if (!this.emailSubject) await this.getContent(2)
+      document.title = this.browserTabTitle
+      await this.getContent('2-2')
+      this.ready = true
+    }
   },
   beforeMount () {
-    this.getContent('2-2').then(() => {
-      this.ready = true
-    })
+    this.getReady()
   },
   mounted () {
     this.page = undefined

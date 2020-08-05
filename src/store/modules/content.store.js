@@ -16,8 +16,9 @@ const actions = {
     const content = await (await fetch(`${getters.contentEndpoint}/${route}`)).json()
     const { mainNavButtons, mainNavSectors, browserTabTitle, emailSubject, emailText, ...rest } = content
     commit('UPDATE_NAV_BUTTONS', { mainNavButtons, mainNavSectors })
-    commit('UPDATE_EMAIL_SUBJECT', emailSubject, { root: true })
-    commit('UPDATE_EMAIL_TEXT', emailText, { root: true })
+    if (browserTabTitle) commit('UPDATE_BROWSER_TITLE', browserTabTitle, { root: true })
+    if (emailSubject) commit('UPDATE_EMAIL_SUBJECT', emailSubject, { root: true })
+    if (emailText) commit('UPDATE_EMAIL_TEXT', emailText, { root: true })
 
     for (const prop in rest) {
       if (Object.keys(rest[prop]).length === 0) continue

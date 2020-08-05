@@ -135,8 +135,11 @@ export default {
     }
   },
   computed: {
-    ...mapState(['viewportWidth', 'mailEndpoint']),
-    ...mapState('content', ['top', 'testimonials', 'info', 'userForm', 'faq', 'emailSubject', 'emailText'])
+    ...mapState(['viewportWidth', 'mailEndpoint', 'browserTabTitle', 'emailSubject', 'emailText', 'mainContentHeight', 'footerHeight']),
+    ...mapState('content', ['userForm', 'top', 'testimonials', 'info', 'faq']),
+    route () {
+      return this.$route.name
+    }
   },
   watch: {
     page (val) {
