@@ -7812,10 +7812,10 @@ pify@^4.0.1:
   resolved "https://registry.yarnpkg.com/pify/-/pify-4.0.1.tgz#4b2cd25c50d598735c50292224fd8c6df41e3231"
   integrity sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==
 
-pineapple-contact-form@^1.1.8:
-  version "1.1.8"
-  resolved "https://registry.yarnpkg.com/pineapple-contact-form/-/pineapple-contact-form-1.1.8.tgz#1528d2f16740d4891920e9f9343642dbbd75c217"
-  integrity sha512-6UO14FHF3uxTpHThrWwOLITyAnLTf6j7OckLbUaWAooEKAyfSOIpRy2IuzF4XrioFtwsX+5Mv8iXWeA3ozoX4w==
+pineapple-contact-form@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/pineapple-contact-form/-/pineapple-contact-form-1.2.1.tgz#4bdb36bf729e7c3b965d2cb181ba176b045db52b"
+  integrity sha512-tPSUwTxpuBaQBAZXwaQ2SvlVOZZ//U3RnUbACjR/+jsBIS9JHtkTO26b43XkeN4Nf6JdhB84R2/5wkxW0DY3qA==
   dependencies:
     core-js "^3.6.5"
     pineapple-popup "^1.0.7"

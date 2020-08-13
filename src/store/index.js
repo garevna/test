@@ -30,7 +30,7 @@ export default new Vuex.Store({
     UPDATE_MAIN_CONTENT_HEIGHT: (state, payload) => { state.mainContentHeight = payload },
     UPDATE_FOOTER_HEIGHT: (state, payload) => { state.footerHeight = payload },
     UPDATE_BROWSER_TITLE: (state, payload) => { state.browserTabTitle = payload },
-    UPDATE_EMAIL_SUBJECT: (state, payload) => { console.log(payload); state.emailSubject = payload },
+    UPDATE_EMAIL_SUBJECT: (state, payload) => { state.emailSubject = payload },
     UPDATE_EMAIL_TEXT: (state, payload) => { state.emailText = payload },
     CHANGE_VIEWPORT: (state) => {
       state.viewportWidth = window.innerWidth
