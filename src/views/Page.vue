@@ -1,7 +1,6 @@
 <template>
-  <v-app class="homefone">
     <v-container fluid class="homefone" v-if="ready">
-      <MainNavBar :page.sync="page" />
+      <MainMenu :page.sync="page" />
       <v-sheet
         width="100%"
         max-width="1440"
@@ -18,25 +17,21 @@
 
       </v-sheet>
       <!-- ============================= TESTIMONIALS ============================= -->
-
-      <section id="testimonials" style="width: 100%">
-        <div class="base-title">
-          <a href="#testimonials" class="core-goto"></a>
-          <Testimonials :content="testimonials" :page.sync="goto"/>
-        </div>
-      </section>
+      <v-row align="center" justify="center" class="mx-0 px-0">
+        <Reviews :goto.sync="goto" />
+      </v-row>
 
       <!-- ============================= USER CONTACT ============================= -->
 
       <v-sheet
           width="100%"
-          max-width="1440"
+          max-width="1130"
           color="homefone"
           tile
           class="mx-auto"
       >
-        <v-row align="center" class="mx-0 px-0">
-          <v-col cols="12" md="6" class="aside-col">
+        <v-row align="start" justify="center" class="mx-0 px-0">
+          <v-col cols="12" md="7" class="aside-col">
             <section id="benefits" style="width: 100%">
               <div class="base-title">
                 <a href="#benefits" class="core-goto"></a>
@@ -44,45 +39,28 @@
               </div>
             </section>
           </v-col>
-          <v-col cols="12" md="6" class="mx-0 px-0">
+          <v-col cols="12" md="5" class="mx-0 px-0">
             <v-row align="center" justify="center" class="pa-0 my-12">
-              <section id="contact" style="width: 100%">
-                <div class="base-title">
-                  <a href="#contact" class="core-goto"></a>
-                  <v-card flat class="transparent mx-0">
-                      <v-card
-                            flat
-                            class="user-contact transparent mx-auto pa-0"
-                            style="margin-bottom: 80px"
-                      >
-                        <UserContact
-                              :userForm.sync="userForm"
-                              :emailSubject="emailSubject"
-                              :emailText="emailText"
-                              :emailEndpoint="mailEndpoint"
-                              v-if="userForm && userForm.fieldsToShow"
-                        />
-                      </v-card>
-                    </v-card>
-                  </div>
-                </section>
-              </v-row>
+              <UserForm />
+            </v-row>
           </v-col>
         </v-row>
       </v-sheet>
 
       <!-- ============================= FAQ ============================= -->
-      <v-row width="100%">
-        <section id="faq" style="width: 100%">
-          <div class="base-title">
-            <a href="#faq" class="core-goto"></a>
-            <FAQ :faq="faq" :page.sync="goto"/>
-          </div>
-        </section>
-      </v-row>
+      <!-- <v-row width="100%">
+        <Faqs :goto.sync="goto" />
+      </v-row> -->
     </v-container>
-  </v-app>
 </template>
+
+<style scoped>
+@media screen and (max-width: 360px) {
+  h3 {
+    font-size: 14px;
+  }
+}
+</style>
 
 <script>
 
@@ -92,8 +70,12 @@ import Top from '@/components/Top.vue'
 import Aside from '@/components/Aside.vue'
 
 export default {
-  name: 'page-1',
+  name: 'Page',
+  props: ['route'],
   components: {
+    UserForm: () => import(/* webpackChunkName: "userForm" */ '@/components/packages/UserForm.vue'),
+    Reviews: () => import(/* webpackChunkName: "reviews" */ '@/components/packages/Reviews.vue'),
+    MainMenu: () => import(/* webpackChunkName: "reviews" */ '@/components/packages/MainMenu.vue'),
     Top,
     Aside
   },
@@ -105,11 +87,8 @@ export default {
     }
   },
   computed: {
-    ...mapState(['viewportWidth', 'mailEndpoint', 'browserTabTitle', 'emailSubject', 'emailText', 'mainContentHeight', 'footerHeight']),
-    ...mapState('content', ['userForm', 'top', 'testimonials', 'info', 'faq']),
-    route () {
-      return this.$route.name
-    }
+    ...mapState(['viewportWidth', 'mailEndpoint', 'browserTabTitle', 'emailSubject', 'emailText', 'pages', 'mainContentHeight', 'footerHeight']),
+    ...mapState('content', ['top', 'testimonials', 'info', 'address'])
   },
   watch: {
     route (val) {
@@ -163,9 +142,14 @@ export default {
       getContent: 'GET_PAGE_CONTENT'
     }),
     async getReady () {
-      if (!this.emailSubject) await this.getContent(2)
+      if (!this.emailSubject) await this.getContent('live')
       document.title = this.browserTabTitle
-      await this.getContent('2-3')
+      // route: `${address.streetNumber}_${address.streetName.split(' ').join(-)}_${address.state}_${address.postcode}`
+      const [number, street, state, postcode] = this.route.split('_')
+      const streetName = street.split('-').join(' ')
+      const page = this.pages.find(item => item.address.streetNumber === number && item.address.state === state && item.address.postcode === postcode && item.address.streetName === streetName)
+      if (!page) return
+      await this.getContent(`live-${page.id}`)
       this.ready = true
     }
   },

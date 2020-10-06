@@ -2,21 +2,19 @@
   <v-app class="homefone">
     <v-container fluid class="homefone" v-mutate="mutationHandler">
       <SystemBar />
-      <transition>
-        <keep-alive>
+      <transition
+            name="fade"
+            mode="out-in"
+            @beforeLeave="beforeLeave"
+            @enter="enter"
+            @afterEnter="afterEnter"
+      >
           <router-view v-if="pageContentReady"></router-view>
-        </keep-alive>
       </transition>
+      <Faqs />
     </v-container>
     <!-- ============================= FOOTER ============================= -->
-    <section id="footer" class="homefone">
-      <div class="base-title">
-        <a href="#footer" class="core-goto"></a>
-          <v-row width="100%">
-            <Footer :emailEndpoint="mailEndpoint" v-mutate="footerMutationHandler" />
-          </v-row>
-      </div>
-    </section>
+    <FooterComponent />
   </v-app>
 </template>
 
@@ -27,6 +25,18 @@
   }
   body {
     overflow: hidden;
+  }
+  .fade-enter-active,
+  .fade-leave-active {
+    transition-duration: 0.5s;
+    transition-property: height, opacity;
+    transition-timing-function: ease;
+    overflow: hidden;
+  }
+
+  .fade-enter,
+  .fade-leave-active {
+    opacity: 0
   }
 </style>
 
@@ -40,42 +50,20 @@ import 'pineapple-styles'
 import 'pineapple-system-bar'
 import 'pineapple-system-bar/dist/pineapple-system-bar.css'
 
-/* SystemBar */
-import 'pineapple-main-nav-bar'
-import 'pineapple-main-nav-bar/dist/pineapple-main-nav-bar.css'
-
 /* Popup */
 import 'pineapple-popup'
 import 'pineapple-popup/dist/pineapple-popup.css'
-
-/* Footer */
-import 'pineapple-footer'
-import 'pineapple-footer/dist/pineapple-footer.css'
-
-/* HowToConnect */
-import 'pineapple-how-to-connect'
-import 'pineapple-how-to-connect/dist/pineapple-how-to-connect.css'
-
-/* Testimonials */
-import 'pineapple-testimonials'
-import 'pineapple-testimonials/dist/pineapple-testimonials.css'
-
-/* UserContact */
-import 'pineapple-contact-form'
-import 'pineapple-contact-form/dist/pineapple-contact-form.css'
-
-/* FAQ */
-import 'pineapple-faq'
-import 'pineapple-faq/dist/pineapple-faq.css'
-
-/* InternetPlans */
-import 'pineapple-internet-plans'
-import 'pineapple-internet-plans/dist/pineapple-internet-plans.css'
 
 import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'App',
+  components: {
+    Faqs: () => import(/* webpackChunkName: "faqs" */ '@/components/packages/Faq.vue'),
+    // Reviews: () => import(/* webpackChunkName: "reviews" */ '@/components/packages/Reviews.vue'),
+    // MainMenu: () => import(/* webpackChunkName: "reviews" */ '@/components/packages/MainMenu.vue'),
+    FooterComponent: () => import(/* webpackChunkName: "footer-component" */ '@/components/packages/FooterComponent.vue')
+  },
   data () {
     return {
       ready: false,
@@ -85,18 +73,8 @@ export default {
     }
   },
   computed: {
-    ...mapState(['viewportWidth', 'mailEndpoint', 'emailSubject', 'emailText', 'mainContentHeight', 'footerHeight']),
+    ...mapState(['viewportWidth', 'mailEndpoint', 'emailSubject', 'emailText', 'pages', 'mainContentHeight', 'footerHeight']),
     ...mapState('content', ['footer', 'top'])
-  },
-  watch: {
-    $route (val) {
-      this.pageContentReady = false
-      const index = this.routesNames.indexOf(val.name)
-      const resource = ['2', '2-1', '2-2', '2-3'][index]
-      this.getPageContent(resource).then(() => {
-        this.pageContentReady = true
-      })
-    }
   },
   methods: {
     ...mapActions({
@@ -105,13 +83,22 @@ export default {
     ...mapActions('content', {
       getPageContent: 'GET_PAGE_CONTENT'
     }),
+    beforeLeave (element) {
+      this.prevHeight = getComputedStyle(element).height
+    },
+    enter (element) {
+      const { height } = getComputedStyle(element)
+      element.style.height = this.prevHeight
+
+      setTimeout(() => {
+        element.style.height = height
+      })
+    },
+    afterEnter (element) {
+      element.style.height = 'auto'
+    },
     mutationHandler (mutations) {
       this.$store.commit('UPDATE_MAIN_CONTENT_HEIGHT', this.$el.offsetHeight)
-      document.body.style.height = this.mainContentHeight + this.footerHeight - 36 + 'px'
-    },
-    footerMutationHandler (mutations) {
-      const footer = document.querySelector('.footer')
-      this.$store.commit('UPDATE_FOOTER_HEIGHT', footer.offsetHeight)
       document.body.style.height = this.mainContentHeight + this.footerHeight - 36 + 'px'
     },
     onResize () {
@@ -120,10 +107,10 @@ export default {
   },
   beforeMount () {
     this.getGeneralInfo()
-    this.getPageContent(2)
+    this.getPageContent('live')
       .then((response) => {
         document.title = response
-        this.ready = true
+        this.pageContentReady = true
       })
   },
   mounted () {

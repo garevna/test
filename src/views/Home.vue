@@ -1,7 +1,7 @@
 <template>
   <v-app class="homefone">
-    <v-container fluid class="homefone" v-if="ready">
-      <MainNavBar :page.sync="page" />
+    <v-container fluid class="homefone">
+      <MainMenu :page.sync="page" />
       <v-sheet
         width="100%"
         max-width="1904"
@@ -50,33 +50,24 @@
 
       <!-- ============================= TESTIMONIALS ============================= -->
       <v-row width="100%" justify="center">
-        <section id="testimonials" class="section">
-          <div class="base-title">
-            <a href="#testimonials" class="core-goto"></a>
-            <Testimonials :page.sync="page"/>
-          </div>
-        </section>
+        <Reviews :goto.sync="goto" />
       </v-row>
 
       <!-- ============================= INTERNET PLANS ============================= -->
-      <v-row width="100%" justify="center">
+      <!-- <v-row width="100%" justify="center">
         <section id="plans" class="section">
           <div class="base-title">
             <a href="#plans" class="core-goto"></a>
-            <InternetPlans :page.sync="page" v-if="ready" />
+            <InternetPlans :page.sync="page" />
           </div>
         </section>
-      </v-row>
+      </v-row> -->
+      <Plans :goto.sync="goto" />
 
       <!-- ============================= FAQ ============================= -->
-      <v-row width="100%" justify="center">
-        <section id="faq" class="section">
-          <div class="base-title">
-            <a href="#faq" class="core-goto"></a>
-            <FAQ :page.sync="page"/>
-          </div>
-        </section>
-      </v-row>
+      <!-- <v-row width="100%" justify="center">
+        <Faqs :goto.sync="goto"/>
+      </v-row> -->
 
     </v-container>
   </v-app>
@@ -86,6 +77,14 @@
 
 import { mapState, mapActions } from 'vuex'
 
+/* HowToConnect */
+import 'pineapple-how-to-connect'
+import 'pineapple-how-to-connect/dist/pineapple-how-to-connect.css'
+
+/* InternetPlans */
+// import 'pineapple-internet-plans'
+// import 'pineapple-internet-plans/dist/pineapple-internet-plans.css'
+
 import HomeTop from '@/components/HomeTop.vue'
 import List from '@/components/List.vue'
 import GreenSection from '@/components/GreenSection.vue'
@@ -93,6 +92,9 @@ import GreenSection from '@/components/GreenSection.vue'
 export default {
   name: 'Home',
   components: {
+    Reviews: () => import(/* webpackChunkName: "reviews" */ '@/components/packages/Reviews.vue'),
+    MainMenu: () => import(/* webpackChunkName: "main-menu" */ '@/components/packages/MainMenu.vue'),
+    Plans: () => import(/* webpackChunkName: "internet-plans" */ '@/components/packages/Plans.vue'),
     HomeTop,
     List,
     GreenSection
@@ -105,10 +107,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['viewportWidth']),
-    ...mapState('content', {
-      reviews: 'testimonials'
-    }),
+    ...mapState(['viewportWidth', 'pages']),
     ...mapState('content', ['top', 'mainNavButtons', 'mainNavSectors']),
     route () {
       return this.$route.name
@@ -159,9 +158,9 @@ export default {
       getContent: 'GET_PAGE_CONTENT'
     })
   },
-  beforeMount () {
-    this.getContent('2').then(() => {
-      this.ready = true
+  beforeRouteEnter (to, from, next) {
+    next(vm => {
+      vm.getContent('live').then(() => { vm.ready = true })
     })
   },
   mounted () {

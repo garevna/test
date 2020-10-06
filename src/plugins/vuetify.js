@@ -1,10 +1,20 @@
 import '@mdi/font/css/materialdesignicons.css'
 import Vue from 'vue'
-import Vuetify from 'vuetify/lib'
+import Vuetify, {
+  VApp,
+  VContainer,
+  VNavigationDrawer,
+  VFooter,
+  VToolbar,
+  VFadeTransition
+} from 'vuetify/lib'
+
+import { Ripple } from 'vuetify/lib/directives'
 
 Vue.use(Vuetify)
 
 export default new Vuetify({
+  treeShake: true,
   icons: {
     iconfont: 'mdi',
     values: {
@@ -37,5 +47,16 @@ export default new Vuetify({
         warning: '#FAFF00'
       }
     }
+  },
+  components: {
+    VApp,
+    VContainer,
+    VNavigationDrawer,
+    VFooter,
+    VToolbar,
+    VFadeTransition
+  },
+  directives: {
+    Ripple
   }
 })

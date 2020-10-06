@@ -13,6 +13,7 @@ export default new Vuex.Store({
     browserTabTitle: '',
     emailSubject: '',
     emailText: 'Thank you for your interest in Pineapple NET! A member of our team will be in touch shortly.',
+    pages: [],
     viewportWidth: window.innerWidth,
     viewportHeight: window.innerHeight,
     plan: 'residential',
@@ -23,7 +24,11 @@ export default new Vuex.Store({
   modules,
 
   getters: {
-    pageHeight: (state) => state.mainContentHeight + state.footerHeight - 36
+    pageHeight: (state) => state.mainContentHeight + state.footerHeight - 36,
+    getPagesByPostcode: postcode => state => state.pages.filter(page => page.address.postcode === postcode),
+    getPagesByStreetName: streetName => state => state.pages.filter(page => page.address.streetName === streetName),
+    getPageByaddress: address => state => state.pages
+      .find(page => page.address.postcode === address.postcode && page.address.streetName === address.streetName && page.address.streetNumber === address.streetNumber)
   },
 
   mutations: {
@@ -32,6 +37,7 @@ export default new Vuex.Store({
     UPDATE_BROWSER_TITLE: (state, payload) => { state.browserTabTitle = payload },
     UPDATE_EMAIL_SUBJECT: (state, payload) => { state.emailSubject = payload },
     UPDATE_EMAIL_TEXT: (state, payload) => { state.emailText = payload },
+    UPDATE_PAGES: (state, payload) => { state.pages = payload },
     CHANGE_VIEWPORT: (state) => {
       state.viewportWidth = window.innerWidth
       state.viewportHeight = window.innerHeight
@@ -49,7 +55,15 @@ export default new Vuex.Store({
   actions: {
 
     async GET_GENERAL_INFO ({ state, commit }) {
-      const generalInfo = await (await fetch(state.generalInfoEndpoint)).json()
+      let generalInfo = JSON.parse(localStorage.getItem('generalInfo'))
+      if (!generalInfo || Date.now() - generalInfo.modified > 3600000) {
+        generalInfo = await (await fetch(state.generalInfoEndpoint)).json()
+        localStorage.setItem('generalInfo', JSON.stringify({
+          modified: Date.now(),
+          ...generalInfo
+        }))
+      }
+      delete generalInfo.modified
       for (const field in generalInfo) {
         commit('SET_PROPERTY', {
           object: state,

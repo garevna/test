@@ -1,14 +1,16 @@
 <template>
-<v-container fluid style="overflow-x: hidden; margin-top: 80px; margin-bottom: 64px;">
+<v-container fluid class="page-top-container">
   <v-card flat tile class="mx-auto homefone" width="100%" max-width="1180">
     <v-row align="center" justify="center">
       <v-col sm="12" md="6">
         <v-card flat tile width="100%" max-width="480" class="transparent left-col">
           <v-card-text class="text-center text-lg-left">
-            <h1 class="text-center text-md-left">{{ top.header }}</h1>
+            <h1 class="text-center text-md-left">
+              {{ top.header }}
+            </h1>
           </v-card-text>
           <v-card-text class="mx-auto mx-lg-0">
-            <p class="text-center text-md-left" v-html="top.text">
+            <p class="text-center text-md-left" v-html="top.text.split('\n').join('<br>')">
             </p>
           </v-card-text>
           <v-card-text class="text-center text-md-left">
@@ -34,9 +36,11 @@
 </template>
 
 <style scoped>
-.top-element {
-  margin-top: 120px;
-  margin-bottom: 64px;
+
+.page-top-container {
+  overflow-x: hidden;
+  margin-top: 80px;
+  margin-bottom: -120px;
 }
 
 .left-col {
@@ -52,27 +56,25 @@ p {
 }
 
 @media screen and (max-width: 959px) {
-  /* .top-element {
+  .page-top-container {
     margin-top: 80px;
-    margin-bottom: 48px;
-  } */
+    margin-bottom: 32px;
+  }
   .left-col {
     max-width: 100%!important;
     margin-top: 48px;
     text-align: center;
   }
   .right-col {
-    margin-top: -60px;
+    margin-top: -40px;
     margin-bottom: -180px;
-    /* display: flex;
-    justify-content: center; */
   }
 }
 
 @media screen and (max-width: 500px) {
-  .top-element {
-    margin-top: 80px;
-    margin-bottom: 48px;
+  .page-top-container {
+    margin-top: 20px;
+    margin-bottom: 120px;
   }
 }
 </style>
