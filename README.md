@@ -1,8 +1,8 @@
-# connect-melbournecbd.pineapple.net.au
+# live.pineapple.net.au
 
 ###### Landing page for pineapple.net.au
 
-[**run**](https://connect-melbournecbd.pineapple.net.au)
+[**run**](https://garevna.github.io/live.pineapple.net.au)
 
 ### Project setup
 ```
