@@ -7,9 +7,9 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     host: 'https://api.pineapple.net.au',
-    generalInfoEndpoint: 'https://api.pineapple.net.au/content/general',
-    contentEndpoint: 'https://api.pineapple.net.au/content',
-    mailEndpoint: 'https://api.pineapple.net.au/email/landing',
+    // generalInfoEndpoint: 'https://api.pineapple.net.au/content/general',
+    // contentEndpoint: 'https://api.pineapple.net.au/content',
+    // mailEndpoint: 'https://api.pineapple.net.au/email/landing',
     browserTabTitle: '',
     emailSubject: '',
     emailText: 'Thank you for your interest in Pineapple NET! A member of our team will be in touch shortly.',
@@ -24,6 +24,11 @@ export default new Vuex.Store({
   modules,
 
   getters: {
+    generalInfoEndpoint: (state) => `${state.host}/content/general`,
+    contentEndpoint: (state) => `${state.host}/content`,
+    homeContentEndpoint: (state) => `${state.host}/content/live`,
+    pagesEndpoint: (state) => `${state.host}/content/live-pages`,
+    mailEndpoint: (state) => `${state.host}/email/landing`,
     pageHeight: (state) => state.mainContentHeight + state.footerHeight - 36,
     getPagesByPostcode: postcode => state => state.pages.filter(page => page.address.postcode === postcode),
     getPagesByStreetName: streetName => state => state.pages.filter(page => page.address.streetName === streetName),
@@ -54,10 +59,10 @@ export default new Vuex.Store({
 
   actions: {
 
-    async GET_GENERAL_INFO ({ state, commit }) {
+    async GET_GENERAL_INFO ({ state, getters, commit }) {
       let generalInfo = JSON.parse(localStorage.getItem('generalInfo'))
       if (!generalInfo || Date.now() - generalInfo.modified > 3600000) {
-        generalInfo = await (await fetch(state.generalInfoEndpoint)).json()
+        generalInfo = await (await fetch(getters.generalInfoEndpoint)).json()
         localStorage.setItem('generalInfo', JSON.stringify({
           modified: Date.now(),
           ...generalInfo
@@ -71,6 +76,41 @@ export default new Vuex.Store({
           value: generalInfo[field]
         })
       }
+    },
+
+    async GET_COMMON_DATA ({ state, getters, commit }) {
+      let commonData = JSON.parse(localStorage.getItem('common-data'))
+      if (!commonData || Date.now() - commonData.modified > 3600000) {
+        commonData = await (await fetch(getters.homeContentEndpoint)).json()
+        const [browserTabTitle, emailSubject, emailText] = commonData
+        localStorage.setItem('common-data', JSON.stringify({
+          modified: Date.now(),
+          browserTabTitle,
+          emailSubject,
+          emailText
+        }))
+      }
+      commonData = JSON.parse(localStorage.getItem('common-data'))
+      delete commonData.modified
+      for (const prop in commonData) {
+        commit('SET_PROPERTY', {
+          object: state,
+          propertyName: prop,
+          value: commonData[prop]
+        })
+      }
+    },
+
+    async GET_PAGES ({ state, getters, commit }) {
+      let pages = JSON.parse(localStorage.getItem('live-pages'))
+      if (!pages || Date.now() - pages.modified > 1800000) {
+        pages = await (await fetch(getters.pagesEndpoint)).json()
+        localStorage.setItem('live-pages', JSON.stringify({
+          modified: Date.now(),
+          pages
+        }))
+      }
+      commit('UPDATE_PAGES', pages.pages)
     }
   }
 })

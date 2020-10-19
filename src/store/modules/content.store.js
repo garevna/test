@@ -4,7 +4,7 @@ const state = {
 }
 
 const getters = {
-  contentEndpoint: (state, getters, rootState) => rootState.contentEndpoint
+  contentEndpoint: (state, getters, rootState, rootGetters) => rootGetters.contentEndpoint
 }
 
 const mutations = {
@@ -26,6 +26,7 @@ const actions = {
     let content = JSON.parse(localStorage.getItem(route))
     if (!content || Date.now() - content.modified > 3600000) {
       content = await (await fetch(`${context.getters.contentEndpoint}/${route}`)).json()
+      delete content.pages
       localStorage.setItem(route, JSON.stringify({
         modified: Date.now(),
         ...content
@@ -38,11 +39,9 @@ const actions = {
       browserTabTitle,
       emailSubject,
       emailText,
-      pages,
       ...rest
     } = content
     context.commit('UPDATE_NAV_BUTTONS', { mainNavButtons, mainNavSectors })
-    context.commit('UPDATE_PAGES', pages, { root: true })
     if (browserTabTitle) context.commit('UPDATE_BROWSER_TITLE', browserTabTitle, { root: true })
     if (emailSubject) context.commit('UPDATE_EMAIL_SUBJECT', emailSubject, { root: true })
     if (emailText) context.commit('UPDATE_EMAIL_TEXT', emailText, { root: true })

@@ -2,9 +2,12 @@
   <v-card flat class="transparent" width="100%">
     <v-row align="start" justify="center" class="my-12">
       <v-card dark width="100%" class="deepgreen mx-auto my-12 pa-8">
-        <h3 style="color: #fff!important; text-wrap: normal;">
+        <h3 style="color: #fff!important; text-align: center;">
           {{ address.formatted }}
         </h3>
+        <h4 style="color: #fff!important; text-wrap: normal; text-align: center;">
+          {{ address.streetNumber }} {{ address.streetName }}, {{ address.city }} {{ address.state }} {{ address.postcode }}
+        </h4>
       </v-card>
     </v-row>
     <v-card
@@ -64,7 +67,6 @@ import { mapState } from 'vuex'
 
 export default {
   name: 'Aside',
-  // props: ['info'],
   computed: {
     ...mapState('content', ['info', 'address'])
   }

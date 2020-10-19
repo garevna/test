@@ -73,16 +73,25 @@ export default {
     }
   },
   computed: {
-    ...mapState(['viewportWidth', 'mailEndpoint', 'emailSubject', 'emailText', 'pages', 'mainContentHeight', 'footerHeight']),
-    ...mapState('content', ['footer', 'top'])
+    ...mapState(['pages', 'mainContentHeight', 'footerHeight'])
+    // ...mapState('content', ['footer', 'top'])
   },
   methods: {
     ...mapActions({
-      getGeneralInfo: 'GET_GENERAL_INFO'
+      getGeneralInfo: 'GET_GENERAL_INFO',
+      getPages: 'GET_PAGES'
     }),
     ...mapActions('content', {
       getPageContent: 'GET_PAGE_CONTENT'
     }),
+    async getReady () {
+      const response = await Promise.all([
+        this.getGeneralInfo(),
+        this.getPageContent('live'),
+        this.getPages()
+      ])
+      return response[2] ? response[1] : 'Pineapple NET'
+    },
     beforeLeave (element) {
       this.prevHeight = getComputedStyle(element).height
     },
@@ -106,22 +115,20 @@ export default {
     }
   },
   beforeMount () {
-    this.getGeneralInfo()
-    this.getPageContent('live')
+    this.getReady()
       .then((response) => {
         document.title = response
         this.pageContentReady = true
       })
   },
   mounted () {
-    this.onResize()
-    window.addEventListener('resize', this.onResize, { passive: true })
-    this.routesNames = this.$router.options.routes.map(item => item.name)
+    // this.onResize()
+    // window.addEventListener('resize', this.onResize, { passive: true })
   },
   beforeDestroy () {
-    if (typeof window !== 'undefined') {
-      window.removeEventListener('resize', this.onResize, { passive: true })
-    }
+    // if (typeof window !== 'undefined') {
+    //   window.removeEventListener('resize', this.onResize, { passive: true })
+    // }
   }
 }
 </script>

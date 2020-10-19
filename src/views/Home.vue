@@ -54,20 +54,7 @@
       </v-row>
 
       <!-- ============================= INTERNET PLANS ============================= -->
-      <!-- <v-row width="100%" justify="center">
-        <section id="plans" class="section">
-          <div class="base-title">
-            <a href="#plans" class="core-goto"></a>
-            <InternetPlans :page.sync="page" />
-          </div>
-        </section>
-      </v-row> -->
       <Plans :goto.sync="goto" />
-
-      <!-- ============================= FAQ ============================= -->
-      <!-- <v-row width="100%" justify="center">
-        <Faqs :goto.sync="goto"/>
-      </v-row> -->
 
     </v-container>
   </v-app>
@@ -107,8 +94,8 @@ export default {
     }
   },
   computed: {
-    ...mapState(['viewportWidth', 'pages']),
-    ...mapState('content', ['top', 'mainNavButtons', 'mainNavSectors']),
+    ...mapState(['pages']),
+    // ...mapState('content', ['top', 'mainNavButtons', 'mainNavSectors']),
     route () {
       return this.$route.name
     }
@@ -154,17 +141,28 @@ export default {
     }
   },
   methods: {
+    ...mapActions({
+      getPages: 'GET_PAGES'
+    }),
     ...mapActions('content', {
       getContent: 'GET_PAGE_CONTENT'
     })
   },
   beforeRouteEnter (to, from, next) {
     next(vm => {
-      vm.getContent('live').then(() => { vm.ready = true })
+      vm.getPages()
+        .then(() => vm.getContent('live'))
+        .then(() => { vm.ready = true })
     })
   },
   mounted () {
     this.page = undefined
+    this.$vuetify.goTo('#top', {
+      duration: 500,
+      offset: 20,
+      easing: 'easeInOutCubic'
+    })
+    this.goto = undefined
   }
 }
 </script>

@@ -81,7 +81,7 @@ p {
 
 <script>
 
-// import { mapState, mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 
 import TopPicture from '@/components/TopPicture.vue'
 
@@ -90,6 +90,9 @@ export default {
   components: {
     TopPicture
   },
-  props: ['top', 'page']
+  props: ['page'],
+  computed: {
+    ...mapState('content', ['top'])
+  }
 }
 </script>

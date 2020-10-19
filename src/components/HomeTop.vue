@@ -108,7 +108,7 @@ export default {
     streetNumbers: []
   }),
   computed: {
-    ...mapState(['viewportWidth', 'pages']),
+    ...mapState(['pages']),
     ...mapState('content', ['top', 'mainNavButtons', 'mainNavSectors']),
     streetNames () {
       return !this.pages ? [] : (this.selectedPages || this.pages).map(item => item.address.streetName)
@@ -128,10 +128,11 @@ export default {
       this.streetNumbers = street.map(item => item.address.streetNumber)
     },
     navigateTo (number) {
-      const item = (this.selectedPages || this.pages).find(item => item.address.streetNumber === number)
-      if (!item) return
-      const address = item.address
-      const route = `${address.streetNumber}_${address.streetName.split(' ').join('-')}_${address.state}_${address.postcode}`
+      const page = (this.selectedPages || this.pages).find(item => item.address.streetNumber === number)
+      if (!page) return
+      // const address = item.address
+      // const route = `${address.streetNumber}_${address.streetName.split(' ').join('-')}_${address.state}_${address.postcode}`
+      const route = this.getAddressBarStringByPageId(page.id)
       this.$router.push({ path: `/${route}` })
     }
   },

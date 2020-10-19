@@ -11,7 +11,7 @@
         <section id="top" style="width: 100%">
           <div class="base-title">
             <a href="#top" class="core-goto"></a>
-            <Top :top="top" :page.sync="goto" />
+            <Top :page.sync="goto" />
           </div>
         </section>
 
@@ -35,7 +35,7 @@
             <section id="benefits" style="width: 100%">
               <div class="base-title">
                 <a href="#benefits" class="core-goto"></a>
-                <Aside :info="info" />
+                <Aside  />
               </div>
             </section>
           </v-col>
@@ -46,11 +46,6 @@
           </v-col>
         </v-row>
       </v-sheet>
-
-      <!-- ============================= FAQ ============================= -->
-      <!-- <v-row width="100%">
-        <Faqs :goto.sync="goto" />
-      </v-row> -->
     </v-container>
 </template>
 
@@ -87,8 +82,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['viewportWidth', 'mailEndpoint', 'browserTabTitle', 'emailSubject', 'emailText', 'pages', 'mainContentHeight', 'footerHeight']),
-    ...mapState('content', ['top', 'testimonials', 'info', 'address'])
+    ...mapState(['browserTabTitle', 'pages', 'mainContentHeight', 'footerHeight'])
   },
   watch: {
     route (val) {
@@ -138,23 +132,23 @@ export default {
     }
   },
   methods: {
+    ...mapActions({
+      getPages: 'GET_PAGES',
+      getCommonData: 'GET_COMMON_DATA'
+    }),
     ...mapActions('content', {
       getContent: 'GET_PAGE_CONTENT'
     }),
     async getReady () {
-      if (!this.emailSubject) await this.getContent('live')
-      document.title = this.browserTabTitle
-      // route: `${address.streetNumber}_${address.streetName.split(' ').join(-)}_${address.state}_${address.postcode}`
-      const [number, street, state, postcode] = this.route.split('_')
-      const streetName = street.split('-').join(' ')
-      const page = this.pages.find(item => item.address.streetNumber === number && item.address.state === state && item.address.postcode === postcode && item.address.streetName === streetName)
-      if (!page) return
-      await this.getContent(`live-${page.id}`)
-      this.ready = true
+      if (!this.browserTabTitle) await this.getCommonData()
+      if (!this.pages) await this.getPages()
     }
   },
-  beforeMount () {
-    this.getReady()
+  beforeRouteEnter (to, from, next) {
+    next(vm => {
+      vm.getReady()
+      vm.getContent(`live-${vm.getPageIdByAddressBarString(to.path.slice(1))}`).then(() => { vm.ready = true })
+    })
   },
   mounted () {
     this.page = undefined
