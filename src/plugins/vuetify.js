@@ -11,10 +11,16 @@ import Vuetify, {
 
 import { Ripple } from 'vuetify/lib/directives'
 
+// import { en } from 'vuetify/src/locale'
+
 Vue.use(Vuetify)
 
 export default new Vuetify({
   treeShake: true,
+  lang: {
+    // locales: { en },
+    current: 'en'
+  },
   icons: {
     iconfont: 'mdi',
     values: {

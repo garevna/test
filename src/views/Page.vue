@@ -41,7 +41,7 @@
           </v-col>
           <v-col cols="12" md="5" class="mx-0 px-0">
             <v-row align="center" justify="center" class="pa-0 my-12">
-              <UserForm />
+              <UserForm :address="address"/>
             </v-row>
           </v-col>
         </v-row>
@@ -82,7 +82,8 @@ export default {
     }
   },
   computed: {
-    ...mapState(['browserTabTitle', 'pages', 'mainContentHeight', 'footerHeight'])
+    ...mapState(['browserTabTitle', 'pages', 'mainContentHeight', 'footerHeight']),
+    ...mapState('content', ['address'])
   },
   watch: {
     route (val) {

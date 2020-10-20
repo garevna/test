@@ -10,7 +10,7 @@
           <UserContact
                 :userForm="userForm"
                 :emailSubject="emailSubject"
-                :emailText="emailText"
+                :emailText="textForMail"
                 :emailEndpoint="mailEndpoint"
                 v-if="userForm"
           />
@@ -21,16 +21,26 @@
 
 <script>
 
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 
 import 'pineapple-contact-form'
 import 'pineapple-contact-form/dist/pineapple-contact-form.css'
 
 export default {
   name: 'UserForm',
+  props: ['address'],
   computed: {
-    ...mapState(['mailEndpoint', 'emailSubject', 'emailText']),
-    ...mapState('content', ['userForm'])
+    ...mapState(['emailSubject', 'emailText']),
+    ...mapGetters(['mailEndpoint']),
+    ...mapState('content', ['userForm']),
+    addressString () {
+      const addr = ['streetNumber', 'streetName', 'city', 'state', 'postcode'].map(item => this.address[item]).join(' ')
+      const formatted = this.address.formatted ? `${this.address.formatted}<br>` : ''
+      return `<b style="color: #20731C">${formatted}${addr}</b>`
+    },
+    textForMail () {
+      return `${this.emailText}<br></br>${this.addressString}`
+    }
   }
 }
 </script>
