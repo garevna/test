@@ -18,7 +18,4 @@ module.exports = {
     msTileColor: '#FAFAFA'
   },
   runtimeCompiler: true,
-  publicPath: process.env.NODE_ENV === 'production'
-    ? '/live.pineapple.net.au/'
-    : '/'
 }
