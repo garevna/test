@@ -10,6 +10,12 @@ const routes = [
     component: () => import(/* webpackChunkName: "home" */ '@/views/Home.vue')
   },
   {
+    path: '/blackfriday',
+    name: 'blackfriday',
+    component: () => import(/* webpackChunkName: "blackfriday" */ '@/views/BlackFriday.vue'),
+    props: true
+  },
+  {
     path: '/:route',
     name: 'page',
     component: () => import(/* webpackChunkName: "page" */ '@/views/Page.vue'),

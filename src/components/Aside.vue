@@ -1,7 +1,12 @@
 <template>
   <v-card flat class="transparent" width="100%">
     <v-row align="start" justify="center" class="my-12">
-      <v-card dark width="100%" class="deepgreen mx-auto my-12 pa-8">
+      <v-card
+        v-if="$route.name !== 'blackfriday'"
+        dark
+        width="100%"
+        class="deepgreen mx-auto my-12 pa-8"
+      >
         <h3 style="color: #fff!important; text-align: center;">
           {{ address.formatted }}
         </h3>

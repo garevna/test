@@ -110,7 +110,7 @@ export default new Vuex.Store({
           pages
         }))
       }
-      commit('UPDATE_PAGES', pages.pages)
+      commit('UPDATE_PAGES', pages.pages.filter(page => !page.hidden))
     }
   }
 })
