@@ -23,13 +23,11 @@ Vue.prototype.getAddressBarStringByPageId = function (id) {
 Vue.prototype.getPageIdByAddressBarString = function (addressBar) {
   const pages = this.$store.state.pages
   const adresses = pages.map(page => page.address)
-  const [number, street, city, state, postcode] = addressBar.split('_')
+  const [number = '', street = '', city = '', state = '', postcode = ''] = addressBar.toString().split('_')
   const streetName = street.split('-').join(' ')
-
   const index = adresses
     .findIndex(address => address.streetNumber === number && address.streetName === streetName && address.city === city && address.state === state && address.postcode === postcode)
-  if (index < 0) return null
-  return pages[index].id
+  return index < 0 ? null : pages[index].id
 }
 
 const vue = new Vue({

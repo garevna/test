@@ -102,15 +102,15 @@ export default new Vuex.Store({
     },
 
     async GET_PAGES ({ state, getters, commit }) {
-      let pages = JSON.parse(localStorage.getItem('live-pages'))
-      if (!pages || Date.now() - pages.modified > 1800000) {
+      let { modified, pages } = JSON.parse(localStorage.getItem('live-pages')) || {}
+      if (!pages || Date.now() - modified > 1800000) {
         pages = await (await fetch(getters.pagesEndpoint)).json()
         localStorage.setItem('live-pages', JSON.stringify({
           modified: Date.now(),
           pages
         }))
       }
-      commit('UPDATE_PAGES', pages.pages.filter(page => !page.hidden))
+      commit('UPDATE_PAGES', pages.filter(page => !page.hidden))
     }
   }
 })

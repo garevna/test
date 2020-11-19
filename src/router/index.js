@@ -16,6 +16,12 @@ const routes = [
     props: true
   },
   {
+    path: '/404',
+    name: 'not-found',
+    component: () => import(/* webpackChunkName: "not-found" */ '@/views/NotFound.vue'),
+    props: true
+  },
+  {
     path: '/:route',
     name: 'page',
     component: () => import(/* webpackChunkName: "page" */ '@/views/Page.vue'),

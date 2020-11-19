@@ -148,7 +148,21 @@ export default {
   beforeRouteEnter (to, from, next) {
     next(vm => {
       vm.getReady()
-      vm.getContent(`live-${vm.getPageIdByAddressBarString(to.path.slice(1))}`).then(() => { vm.ready = true })
+      const path = to.path.slice(1)
+      const route = vm.getPageIdByAddressBarString(path)
+      if (!route) {
+        next('/404')
+      } else {
+        vm.getContent(`live-${route}`)
+          .then(response => {
+            if (response) {
+              vm.ready = true
+              next()
+            } else {
+              next('/404')
+            }
+          })
+      }
     })
   },
   mounted () {
