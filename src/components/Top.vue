@@ -1,5 +1,5 @@
 <template>
-<v-container fluid class="page-top-container">
+<v-container fluid class="page-top-container mb-12">
   <v-card flat tile class="mx-auto homefone" width="100%" max-width="1180">
     <v-row align="center" justify="center">
       <v-col sm="12" md="6">
