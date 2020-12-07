@@ -6,7 +6,7 @@ deploy:
   script:
     - helm upgrade live-pineapple-net-au .helm --namespace "${KUBE_NAMESPACE}" --install
   environment:
-    name: production
+    name: pineapple-net-au
   rules:
     - if: $CI_COMMIT_TAG =~ /^(\d+\.)?(\d+\.)?(\*|\d+)$/
       when: manual
