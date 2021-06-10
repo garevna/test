@@ -31,6 +31,7 @@
             <v-col cols="12" sm="8" v-if="streetNames.length > 0">
               <v-select
                     v-if="pages"
+                    v-model="streetName"
                     :items="streetNames"
                     label="Street Name"
                     @change="selectStreet($event)"
@@ -128,7 +129,7 @@ export default {
       this.streetNumbers = street.map(item => item.address.streetNumber)
     },
     navigateTo (number) {
-      const page = (this.selectedPages || this.pages).find(item => item.address.streetNumber === number)
+      const page = (this.selectedPages || this.pages).find(item => item.address.streetNumber === number && item.address.streetName === this.streetName)
       if (!page) return
       // const address = item.address
       // const route = `${address.streetNumber}_${address.streetName.split(' ').join('-')}_${address.state}_${address.postcode}`
