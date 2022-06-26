@@ -22,7 +22,7 @@ spec:
         - name: gitlab-registry
       containers:
         - name: {{ .Values.image.name }}
-          image: "{{ .Values.image.repository }}:{{ .Chart.AppVersion }}"
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           livenessProbe:
             failureThreshold: 3
