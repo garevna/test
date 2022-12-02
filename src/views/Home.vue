@@ -39,22 +39,22 @@
       </v-row>
 
       <!-- ============================= HOW TO CONNECT ============================= -->
-      <v-row width="100%" justify="center">
+      <!-- <v-row width="100%" justify="center">
         <section id="how-to-connect" class="section">
           <div class="base-title">
             <a href="#how-to-connect" class="core-goto"></a>
             <HowToConnect :page.sync="page" />
           </div>
         </section>
-      </v-row>
+      </v-row> -->
 
       <!-- ============================= TESTIMONIALS ============================= -->
-      <v-row width="100%" justify="center">
+      <!-- <v-row width="100%" justify="center">
         <Reviews :goto.sync="goto" />
-      </v-row>
+      </v-row> -->
 
       <!-- ============================= INTERNET PLANS ============================= -->
-      <Plans :goto.sync="goto" />
+      <!-- <Plans :goto.sync="goto" /> -->
 
     </v-container>
   </v-app>
@@ -65,8 +65,8 @@
 import { mapState, mapActions } from 'vuex'
 
 /* HowToConnect */
-import 'pineapple-how-to-connect'
-import 'pineapple-how-to-connect/dist/pineapple-how-to-connect.css'
+// import 'pineapple-how-to-connect'
+// import 'pineapple-how-to-connect/dist/pineapple-how-to-connect.css'
 
 /* InternetPlans */
 // import 'pineapple-internet-plans'
@@ -79,9 +79,9 @@ import GreenSection from '@/components/GreenSection.vue'
 export default {
   name: 'Home',
   components: {
-    Reviews: () => import(/* webpackChunkName: "reviews" */ '@/components/packages/Reviews.vue'),
+    // Reviews: () => import(/* webpackChunkName: "reviews" */ '@/components/packages/Reviews.vue'),
     MainMenu: () => import(/* webpackChunkName: "main-menu" */ '@/components/packages/MainMenu.vue'),
-    Plans: () => import(/* webpackChunkName: "internet-plans" */ '@/components/packages/Plans.vue'),
+    // Plans: () => import(/* webpackChunkName: "internet-plans" */ '@/components/packages/Plans.vue'),
     HomeTop,
     List,
     GreenSection
