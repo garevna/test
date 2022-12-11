@@ -18,28 +18,6 @@
   </v-app>
 </template>
 
-<style>
-  .section {
-    width: 100%;
-    max-width: 1440px;
-  }
-  body {
-    overflow: hidden;
-  }
-  .fade-enter-active,
-  .fade-leave-active {
-    transition-duration: 0.5s;
-    transition-property: height, opacity;
-    transition-timing-function: ease;
-    overflow: hidden;
-  }
-
-  .fade-enter,
-  .fade-leave-active {
-    opacity: 0
-  }
-</style>
-
 <script>
 
 /* GLOBAL COMPONENTS */
@@ -132,3 +110,25 @@ export default {
   }
 }
 </script>
+
+<style>
+  .section {
+    width: 100%;
+    max-width: 1440px;
+  }
+  body {
+    overflow: hidden;
+  }
+  .fade-enter-active,
+  .fade-leave-active {
+    transition-duration: 0.5s;
+    transition-property: height, opacity;
+    transition-timing-function: ease;
+    overflow: hidden;
+  }
+
+  .fade-enter,
+  .fade-leave-active {
+    opacity: 0
+  }
+</style>

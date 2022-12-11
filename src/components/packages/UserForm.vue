@@ -3,16 +3,17 @@
     <div class="base-title">
       <a href="#contact" class="core-goto"></a>
         <v-card
-              flat
-              class="user-contact transparent mx-auto pa-0"
-              style="margin-bottom: 80px"
+          flat
+          class="user-contact transparent mx-auto pa-0"
+          style="margin-bottom: 80px"
         >
           <UserContact
-                :userForm="userForm"
-                :emailSubject="emailSubject"
-                :emailText="textForMail"
-                :emailEndpoint="mailEndpoint"
-                v-if="userForm"
+            v-if="userForm"
+            :userForm="userForm"
+            :emailSubject="emailSubject"
+            :emailText="textForMail"
+            :emailEndpoint="mailEndpoint"
+            :emailTarget="emailTarget"
           />
       </v-card>
     </div>
@@ -21,7 +22,7 @@
 
 <script>
 
-import { mapState, mapGetters } from 'vuex'
+import { mapState /*, mapGetters */ } from 'vuex'
 
 import 'pineapple-contact-form'
 import 'pineapple-contact-form/dist/pineapple-contact-form.css'
@@ -30,8 +31,7 @@ export default {
   name: 'UserForm',
   props: ['address'],
   computed: {
-    ...mapState(['emailSubject', 'emailText']),
-    ...mapGetters(['mailEndpoint']),
+    ...mapState(['mailEndpoint', 'emailSubject', 'emailText', 'emailTarget']),
     ...mapState('content', ['userForm']),
     addressString () {
       const addr = ['streetNumber', 'streetName', 'city', 'state', 'postcode'].map(item => this.address[item]).join(' ')

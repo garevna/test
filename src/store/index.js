@@ -7,9 +7,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     host: 'https://api.pineapple.net.au',
-    // generalInfoEndpoint: 'https://api.pineapple.net.au/content/general',
-    // contentEndpoint: 'https://api.pineapple.net.au/content',
-    // mailEndpoint: 'https://api.pineapple.net.au/email/landing',
+    mailEndpoint: 'https://portal.staging.dgtek.net/send-email',
+    emailTarget: 'sales@pineapple.net.au',
     browserTabTitle: '',
     emailSubject: '',
     emailText: 'Thank you for your interest in Pineapple NET! A member of our team will be in touch shortly.',
@@ -28,7 +27,7 @@ export default new Vuex.Store({
     contentEndpoint: (state) => `${state.host}/content`,
     homeContentEndpoint: (state) => `${state.host}/content/live`,
     pagesEndpoint: (state) => `${state.host}/content/live-pages`,
-    mailEndpoint: (state) => `${state.host}/email/landing`,
+    mailEndpoint: state => state.mailEndpoint,
     pageHeight: (state) => state.mainContentHeight + state.footerHeight - 36,
     getPagesByPostcode: postcode => state => state.pages.filter(page => page.address.postcode === postcode),
     getPagesByStreetName: streetName => state => state.pages.filter(page => page.address.streetName === streetName),

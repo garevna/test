@@ -27,13 +27,17 @@ const actions = {
       let content = JSON.parse(localStorage.getItem(route))
       if (!content || Date.now() - content.modified > 3600000) {
         content = await (await fetch(`${context.getters.contentEndpoint}/${route}`)).json()
+
         delete content.pages
+
         localStorage.setItem(route, JSON.stringify({
           modified: Date.now(),
           ...content
         }))
       }
+
       delete content.modified
+
       const {
         mainNavButtons,
         mainNavSectors,
@@ -42,7 +46,9 @@ const actions = {
         emailText,
         ...rest
       } = content
+
       context.commit('UPDATE_NAV_BUTTONS', { mainNavButtons, mainNavSectors })
+
       if (browserTabTitle) context.commit('UPDATE_BROWSER_TITLE', browserTabTitle, { root: true })
       if (emailSubject) context.commit('UPDATE_EMAIL_SUBJECT', emailSubject, { root: true })
       if (emailText) context.commit('UPDATE_EMAIL_TEXT', emailText, { root: true })

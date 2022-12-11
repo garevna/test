@@ -7817,13 +7817,12 @@ pify@^4.0.1:
   resolved "https://registry.yarnpkg.com/pify/-/pify-4.0.1.tgz#4b2cd25c50d598735c50292224fd8c6df41e3231"
   integrity sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==
 
-pineapple-contact-form@^1.2.8:
-  version "1.2.8"
-  resolved "https://registry.yarnpkg.com/pineapple-contact-form/-/pineapple-contact-form-1.2.8.tgz#d203d30b6d8661dcc64c4829ea2249adf013d5be"
-  integrity sha512-b6hPF4MEIQhML/9C3zpusyD+KlJqs+ER2W3aUhR/bF3zTJJUeBgISy85spPgP5QBwPlE7BaU/VKtG7nmxS8s1g==
+pineapple-contact-form@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/pineapple-contact-form/-/pineapple-contact-form-1.7.0.tgz#43ea7c4174c1674dc11af4c464ae86736805dd97"
+  integrity sha512-0gD4HkIoAZ3UA7CRxhO5qqP7roDmcgKVVcf2oflpDtnyFMhjZ4H9nBHG4qFj7p+RPqQ9fVnxSYQgYjxWU58jnA==
   dependencies:
-    core-js "^3.6.5"
-    pineapple-popup "^1.0.7"
+    pineapple-popup "^1.1.1"
     pineapple-styles "^1.1.0"
     vue "^2.6.11"
     vuetify "^2.2.11"
@@ -7898,6 +7897,16 @@ pineapple-popup@^1.0.7:
     vuetify "^2.2.11"
     vuex "^3.4.0"
 
+pineapple-popup@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/pineapple-popup/-/pineapple-popup-1.1.1.tgz#26ad2f2eeb02b708c9c3772d31a55627ba247830"
+  integrity sha512-VNebYJJxvgTJw/IoXmxv8miOLymhPA49lVYZZkFgIqI23xJrhPHI+L5KIE5G4g8mJQSPzeowmfEJS1qbdQCwHw==
+  dependencies:
+    pineapple-styles "^1.1.9"
+    vue "^2.6.11"
+    vuetify "^2.2.11"
+    vuex "^3.4.0"
+
 pineapple-styles@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/pineapple-styles/-/pineapple-styles-1.1.0.tgz#ec5e51d19b67280d1e261cbac98f8d67962755db"
@@ -7911,6 +7920,15 @@ pineapple-styles@^1.1.5, pineapple-styles@^1.1.7, pineapple-styles@^1.1.8:
   version "1.1.8"
   resolved "https://registry.yarnpkg.com/pineapple-styles/-/pineapple-styles-1.1.8.tgz#b0a5d78b5f3aa541a0af62147556ff3193f8c978"
   integrity sha512-gEKn09d5o8C5UQIxsjLN7aIsNa4iXIjH3bBUwJUpHfNDTy/WiaHBBUncqX1kcWqH4N4mG5Rp4fBWWexP5SCWtA==
+  dependencies:
+    core-js "^3.6.5"
+    vue "^2.6.11"
+    vuetify "^2.2.11"
+
+pineapple-styles@^1.1.9:
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/pineapple-styles/-/pineapple-styles-1.1.9.tgz#b063c6866a201c98795bb0ee1fb46341c4b0e02a"
+  integrity sha512-HxAUGdl/+QYDN3f8YK+TcvdczSZCyJ4wUmeskRXyomhzSLZfNJO6vcvwcsKnyQmbImKUgv4BXwZW/cgda+yRdA==
   dependencies:
     core-js "^3.6.5"
     vue "^2.6.11"
