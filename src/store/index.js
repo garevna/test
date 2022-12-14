@@ -7,7 +7,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     host: 'https://api.pineapple.net.au',
-    mailEndpoint: 'https://portal.staging.dgtek.net/send-email',
+    mailEndpoint: 'https://portal.dgtek.net/send-email',
     emailTarget: 'sales@pineapple.net.au',
     browserTabTitle: '',
     emailSubject: '',
