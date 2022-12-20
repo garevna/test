@@ -92,6 +92,7 @@ export default {
       this.$store.commit('CHANGE_VIEWPORT')
     }
   },
+
   beforeMount () {
     this.getReady()
       .then((response) => {
@@ -99,10 +100,12 @@ export default {
         this.pageContentReady = true
       })
   },
+
   mounted () {
     // this.onResize()
     // window.addEventListener('resize', this.onResize, { passive: true })
   },
+
   beforeDestroy () {
     // if (typeof window !== 'undefined') {
     //   window.removeEventListener('resize', this.onResize, { passive: true })

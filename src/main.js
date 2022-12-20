@@ -30,6 +30,24 @@ Vue.prototype.getPageIdByAddressBarString = function (addressBar) {
   return index < 0 ? null : pages[index].id
 }
 
+Vue.config.errorHandler = (err, vm, info) => {
+  console.warn(err)
+  console.warn(vm)
+  console.warn(info)
+  // err: error trace
+  // vm: component in which error occured
+  // info: Vue specific error information such as lifecycle hooks, events etc.
+
+  // TODO: Perform any custom logic or log to server
+}
+
+window.onerror = function(message, source, lineno, colno, error) {
+  console.warn(message)
+  console.warn(source)
+  console.warn(lineno, colno)
+  console.warn(error)
+}
+
 const vue = new Vue({
   store,
   router,

@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.4",
-    "pineapple-contact-form": "^1.7.0",
+    "pineapple-contact-form": "^1.7.91",
     "pineapple-faq": "^1.0.0",
     "pineapple-footer": "^2.1.7",
     "pineapple-how-to-connect": "^1.0.5",

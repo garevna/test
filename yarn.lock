@@ -1024,6 +1024,11 @@
   resolved "https://registry.yarnpkg.com/@mdi/font/-/font-4.9.95.tgz#00ed2ffe289c9230f146e74559c07542d3f4475a"
   integrity sha512-m2sbAs+SMwRnWpkMriBxEulwuhmqRyh6X+hdOZlqSxYZUM2C2TaDnQ4gcilzdoAgru2XYnWViZ/xPuSDGgRXVw==
 
+"@mdi/js@^7.1.96":
+  version "7.1.96"
+  resolved "https://registry.yarnpkg.com/@mdi/js/-/js-7.1.96.tgz#9c5a7f8a20ea63c03b09a0dba1768fe8b70eeaf9"
+  integrity sha512-wlrJs6Ryhaa5CqhK3FjTfMRnb/s7HeLkKMFqwQySkK86cdN1TGdzpSM3O4tsmzCA1dYBeTbXvOwSE/Y42cUrvA==
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -7817,11 +7822,12 @@ pify@^4.0.1:
   resolved "https://registry.yarnpkg.com/pify/-/pify-4.0.1.tgz#4b2cd25c50d598735c50292224fd8c6df41e3231"
   integrity sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==
 
-pineapple-contact-form@^1.7.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/pineapple-contact-form/-/pineapple-contact-form-1.7.0.tgz#43ea7c4174c1674dc11af4c464ae86736805dd97"
-  integrity sha512-0gD4HkIoAZ3UA7CRxhO5qqP7roDmcgKVVcf2oflpDtnyFMhjZ4H9nBHG4qFj7p+RPqQ9fVnxSYQgYjxWU58jnA==
+pineapple-contact-form@^1.7.91:
+  version "1.7.91"
+  resolved "https://registry.yarnpkg.com/pineapple-contact-form/-/pineapple-contact-form-1.7.91.tgz#8d297c4c385b601555649fed9d0c30b41c921a2a"
+  integrity sha512-SEP/3sh5a5NIpvqfiLOqZz3h3EQPE1E41IRiwexMLxfJ/Nugd8w8soNZ1F2bOZKqY8R5epqLMBkqdlVa+nmaGw==
   dependencies:
+    "@mdi/js" "^7.1.96"
     pineapple-popup "^1.1.1"
     pineapple-styles "^1.1.0"
     vue "^2.6.11"

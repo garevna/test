@@ -9,6 +9,7 @@
         >
           <UserContact
             v-if="userForm"
+            :address="addressString"
             :userForm="userForm"
             :emailSubject="emailSubject"
             :emailText="textForMail"

@@ -9,6 +9,7 @@ export default new Vuex.Store({
     host: 'https://api.pineapple.net.au',
     mailEndpoint: 'https://portal.dgtek.net/send-email',
     emailTarget: 'sales@pineapple.net.au',
+    // emailTarget: 'dgtek.email.service@gmail.com',
     browserTabTitle: '',
     emailSubject: '',
     emailText: 'Thank you for your interest in Pineapple NET! A member of our team will be in touch shortly.',
