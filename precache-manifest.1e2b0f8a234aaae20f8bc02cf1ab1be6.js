@@ -1,5 +1,9 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
+    "revision": "f551c5cd06ff6c5b92d140b5e1db5ca2",
+    "url": "/test/___testimonials/testimonials.json"
+  },
+  {
     "revision": "d6bec297eeb4cf05165238dbe46f7e54",
     "url": "/test/android-chrome-192x192.png"
   },
@@ -20,11 +24,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/browserconfig.xml"
   },
   {
-    "revision": "20282615f8dd0ee105fd",
+    "revision": "48df78d4bdec09088111",
     "url": "/test/css/app.06bda4bb.css"
   },
   {
-    "revision": "1ae5b91b0cd1a0218940",
+    "revision": "422e78bc6440551eb84c",
     "url": "/test/css/blackfriday.a5ae6596.css"
   },
   {
@@ -36,35 +40,35 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/css/chunk-vendors.29dbbaea.css"
   },
   {
-    "revision": "bdc99470834816cc60e7",
+    "revision": "496fa77dfd423eea122e",
     "url": "/test/css/faqs.170d32b0.css"
   },
   {
-    "revision": "2e30aa54e3ed4eea0155",
+    "revision": "84eb78492a615d098daf",
     "url": "/test/css/footer-component.315aa0a1.css"
   },
   {
-    "revision": "58ba0af1730970f93a65",
+    "revision": "7898e96b00a30a827a86",
     "url": "/test/css/home.f1ee91e4.css"
   },
   {
-    "revision": "020ac7a09e47a2543086",
+    "revision": "36a09fd03e0116edd5b0",
     "url": "/test/css/main-menu.f091c936.css"
   },
   {
-    "revision": "9c74112d74e05e12fdfc",
+    "revision": "6282a2c99281adad71cc",
     "url": "/test/css/not-found.11c29232.css"
   },
   {
-    "revision": "2afb5b8248b4380c6e43",
+    "revision": "61ac1efb91099627e166",
     "url": "/test/css/page.73565f75.css"
   },
   {
-    "revision": "7fd3f226e4a50fcd9f93",
+    "revision": "fea1d0ecdb840f5eeb1e",
     "url": "/test/css/reviews.49d0453c.css"
   },
   {
-    "revision": "70b8086d6dba6128cdcf",
+    "revision": "22d50fa19ae6aac867dc",
     "url": "/test/css/userForm.6d87831d.css"
   },
   {
@@ -376,6 +380,74 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/fonts/materialdesignicons-webfont.f5111234.ttf"
   },
   {
+    "revision": "64427e15ac5261f4a52128d53350bc94",
+    "url": "/test/img/___testimonials/1.jpg"
+  },
+  {
+    "revision": "b12f1b44479fe1aa0a45e59394180d63",
+    "url": "/test/img/___testimonials/10.png"
+  },
+  {
+    "revision": "5e31a29026b1e8afa447ee141802ff73",
+    "url": "/test/img/___testimonials/11.png"
+  },
+  {
+    "revision": "50cd42dfecce77f1862fe03dfe99f4ff",
+    "url": "/test/img/___testimonials/12.png"
+  },
+  {
+    "revision": "bde2502306971300e34b8d39ad8adca3",
+    "url": "/test/img/___testimonials/13.png"
+  },
+  {
+    "revision": "7b5a4655e9a28a9bca66df0032e7ba28",
+    "url": "/test/img/___testimonials/14.png"
+  },
+  {
+    "revision": "76c49b31dde860cc48a06e785c9aed1e",
+    "url": "/test/img/___testimonials/15.png"
+  },
+  {
+    "revision": "a7055035c5a5ac52b3705e1c650cbc43",
+    "url": "/test/img/___testimonials/2.jpg"
+  },
+  {
+    "revision": "e37a57d692b876c600a673e561b05c6d",
+    "url": "/test/img/___testimonials/3.jpg"
+  },
+  {
+    "revision": "0327ed81812baf95bbda07b71b81a12e",
+    "url": "/test/img/___testimonials/4.png"
+  },
+  {
+    "revision": "ca51aba41cbcf0e31ab7f55c2625af74",
+    "url": "/test/img/___testimonials/5.png"
+  },
+  {
+    "revision": "f634a0bacf523e74cab3e67419602783",
+    "url": "/test/img/___testimonials/6.png"
+  },
+  {
+    "revision": "867d82adf3b6c09b5f9d1b3246f1c814",
+    "url": "/test/img/___testimonials/7.png"
+  },
+  {
+    "revision": "bb68f71d86ff786d01e710fa628eb44c",
+    "url": "/test/img/___testimonials/8.png"
+  },
+  {
+    "revision": "38da7e779b5d3d6642b479f4bd3a15e7",
+    "url": "/test/img/___testimonials/9.png"
+  },
+  {
+    "revision": "64f3a7dd82f399db86d0911b3fe9c057",
+    "url": "/test/img/___testimonials/default.png"
+  },
+  {
+    "revision": "9d8d0dcee543446ec841cba9c91497b6",
+    "url": "/test/img/christmas.9d8d0dce.webp"
+  },
+  {
     "revision": "0f6246a959f5e411fc59e31a1ddc3010",
     "url": "/test/img/dgtek-logo-white.0f6246a9.svg"
   },
@@ -388,80 +460,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/img/dgtek-logo.png"
   },
   {
-    "revision": "64427e15ac5261f4a52128d53350bc94",
-    "url": "/test/img/testimonials/1.jpg"
-  },
-  {
-    "revision": "b12f1b44479fe1aa0a45e59394180d63",
-    "url": "/test/img/testimonials/10.png"
-  },
-  {
-    "revision": "5e31a29026b1e8afa447ee141802ff73",
-    "url": "/test/img/testimonials/11.png"
-  },
-  {
-    "revision": "50cd42dfecce77f1862fe03dfe99f4ff",
-    "url": "/test/img/testimonials/12.png"
-  },
-  {
-    "revision": "bde2502306971300e34b8d39ad8adca3",
-    "url": "/test/img/testimonials/13.png"
-  },
-  {
-    "revision": "7b5a4655e9a28a9bca66df0032e7ba28",
-    "url": "/test/img/testimonials/14.png"
-  },
-  {
-    "revision": "76c49b31dde860cc48a06e785c9aed1e",
-    "url": "/test/img/testimonials/15.png"
-  },
-  {
-    "revision": "a7055035c5a5ac52b3705e1c650cbc43",
-    "url": "/test/img/testimonials/2.jpg"
-  },
-  {
-    "revision": "e37a57d692b876c600a673e561b05c6d",
-    "url": "/test/img/testimonials/3.jpg"
-  },
-  {
-    "revision": "0327ed81812baf95bbda07b71b81a12e",
-    "url": "/test/img/testimonials/4.png"
-  },
-  {
-    "revision": "ca51aba41cbcf0e31ab7f55c2625af74",
-    "url": "/test/img/testimonials/5.png"
-  },
-  {
-    "revision": "f634a0bacf523e74cab3e67419602783",
-    "url": "/test/img/testimonials/6.png"
-  },
-  {
-    "revision": "867d82adf3b6c09b5f9d1b3246f1c814",
-    "url": "/test/img/testimonials/7.png"
-  },
-  {
-    "revision": "bb68f71d86ff786d01e710fa628eb44c",
-    "url": "/test/img/testimonials/8.png"
-  },
-  {
-    "revision": "38da7e779b5d3d6642b479f4bd3a15e7",
-    "url": "/test/img/testimonials/9.png"
-  },
-  {
-    "revision": "64f3a7dd82f399db86d0911b3fe9c057",
-    "url": "/test/img/testimonials/default.png"
-  },
-  {
-    "revision": "ca61f847a53c00169e85a3a3205b4b1f",
+    "revision": "662bc65eeaefc7c68ef797301acd1b15",
     "url": "/test/index.html"
   },
   {
-    "revision": "20282615f8dd0ee105fd",
-    "url": "/test/js/app.581ffd5d.js"
+    "revision": "48df78d4bdec09088111",
+    "url": "/test/js/app.e742b8df.js"
   },
   {
-    "revision": "1ae5b91b0cd1a0218940",
-    "url": "/test/js/blackfriday.828c1a5f.js"
+    "revision": "422e78bc6440551eb84c",
+    "url": "/test/js/blackfriday.dc09f3f8.js"
   },
   {
     "revision": "177b1884c3fef2a06005",
@@ -472,36 +480,36 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/js/chunk-vendors.292674f4.js"
   },
   {
-    "revision": "bdc99470834816cc60e7",
-    "url": "/test/js/faqs.4f11e69f.js"
+    "revision": "496fa77dfd423eea122e",
+    "url": "/test/js/faqs.b85b6150.js"
   },
   {
-    "revision": "2e30aa54e3ed4eea0155",
-    "url": "/test/js/footer-component.2eb6d522.js"
+    "revision": "84eb78492a615d098daf",
+    "url": "/test/js/footer-component.dc22e40b.js"
   },
   {
-    "revision": "58ba0af1730970f93a65",
-    "url": "/test/js/home.f3e92043.js"
+    "revision": "7898e96b00a30a827a86",
+    "url": "/test/js/home.b5ef3a97.js"
   },
   {
-    "revision": "020ac7a09e47a2543086",
-    "url": "/test/js/main-menu.aa3e8beb.js"
+    "revision": "36a09fd03e0116edd5b0",
+    "url": "/test/js/main-menu.4b9044c9.js"
   },
   {
-    "revision": "9c74112d74e05e12fdfc",
-    "url": "/test/js/not-found.89f77946.js"
+    "revision": "6282a2c99281adad71cc",
+    "url": "/test/js/not-found.b944b106.js"
   },
   {
-    "revision": "2afb5b8248b4380c6e43",
-    "url": "/test/js/page.69d11f3e.js"
+    "revision": "61ac1efb91099627e166",
+    "url": "/test/js/page.0f84404a.js"
   },
   {
-    "revision": "7fd3f226e4a50fcd9f93",
-    "url": "/test/js/reviews.74a160e6.js"
+    "revision": "fea1d0ecdb840f5eeb1e",
+    "url": "/test/js/reviews.2c72f8b8.js"
   },
   {
-    "revision": "70b8086d6dba6128cdcf",
-    "url": "/test/js/userForm.edbdd641.js"
+    "revision": "22d50fa19ae6aac867dc",
+    "url": "/test/js/userForm.01494630.js"
   },
   {
     "revision": "41d719318fb9fb2901aab8951684759e",
@@ -518,9 +526,5 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "8633a26c079544a29df27aa1bb8b885b",
     "url": "/test/site.webmanifest"
-  },
-  {
-    "revision": "f551c5cd06ff6c5b92d140b5e1db5ca2",
-    "url": "/test/testimonials/testimonials.json"
   }
 ]);
