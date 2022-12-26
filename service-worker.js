@@ -11,13 +11,9 @@
  * See https://goo.gl/2aRDsh
  */
 
-/* eslint-disable */
-
-const CACHE_NAME = `live.pineapple.net.au-${(new Date()).toISOString().slice(0, 10)}`
-
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js')
 
-importScripts('/test/precache-manifest.1e2b0f8a234aaae20f8bc02cf1ab1be6.js')
+importScripts('/test/precache-manifest.970442ff271905a98550f6a06238deba.js')
 
 workbox.core.setCacheNameDetails({ prefix: 'live.pineapple.net.au' })
 
@@ -26,22 +22,6 @@ self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting()
   }
-})
-
-self.addEventListener('activate', function (event) {
-  console.log('ACTIVATE\n', event)
-  event.waitUntil(
-    caches.keys().then(function (cacheNames) {
-      return Promise.all(
-        cacheNames.map(function (cacheName) {
-          console.log('CASH NAME: ', cacheName)
-          if (CACHE_NAME !== cacheName && cacheName.startsWith('live.pineapple.net.au')) {
-            return caches.delete(cacheName)
-          }
-        })
-      )
-    })
-  )
 })
 
 /**

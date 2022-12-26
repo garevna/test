@@ -1,9 +1,5 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f551c5cd06ff6c5b92d140b5e1db5ca2",
-    "url": "/test/___testimonials/testimonials.json"
-  },
-  {
     "revision": "d6bec297eeb4cf05165238dbe46f7e54",
     "url": "/test/android-chrome-192x192.png"
   },
@@ -24,7 +20,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/browserconfig.xml"
   },
   {
-    "revision": "48df78d4bdec09088111",
+    "revision": "cb5c4abf41f47da71ee5",
     "url": "/test/css/app.06bda4bb.css"
   },
   {
@@ -380,72 +376,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/fonts/materialdesignicons-webfont.f5111234.ttf"
   },
   {
-    "revision": "64427e15ac5261f4a52128d53350bc94",
-    "url": "/test/img/___testimonials/1.jpg"
-  },
-  {
-    "revision": "b12f1b44479fe1aa0a45e59394180d63",
-    "url": "/test/img/___testimonials/10.png"
-  },
-  {
-    "revision": "5e31a29026b1e8afa447ee141802ff73",
-    "url": "/test/img/___testimonials/11.png"
-  },
-  {
-    "revision": "50cd42dfecce77f1862fe03dfe99f4ff",
-    "url": "/test/img/___testimonials/12.png"
-  },
-  {
-    "revision": "bde2502306971300e34b8d39ad8adca3",
-    "url": "/test/img/___testimonials/13.png"
-  },
-  {
-    "revision": "7b5a4655e9a28a9bca66df0032e7ba28",
-    "url": "/test/img/___testimonials/14.png"
-  },
-  {
-    "revision": "76c49b31dde860cc48a06e785c9aed1e",
-    "url": "/test/img/___testimonials/15.png"
-  },
-  {
-    "revision": "a7055035c5a5ac52b3705e1c650cbc43",
-    "url": "/test/img/___testimonials/2.jpg"
-  },
-  {
-    "revision": "e37a57d692b876c600a673e561b05c6d",
-    "url": "/test/img/___testimonials/3.jpg"
-  },
-  {
-    "revision": "0327ed81812baf95bbda07b71b81a12e",
-    "url": "/test/img/___testimonials/4.png"
-  },
-  {
-    "revision": "ca51aba41cbcf0e31ab7f55c2625af74",
-    "url": "/test/img/___testimonials/5.png"
-  },
-  {
-    "revision": "f634a0bacf523e74cab3e67419602783",
-    "url": "/test/img/___testimonials/6.png"
-  },
-  {
-    "revision": "867d82adf3b6c09b5f9d1b3246f1c814",
-    "url": "/test/img/___testimonials/7.png"
-  },
-  {
-    "revision": "bb68f71d86ff786d01e710fa628eb44c",
-    "url": "/test/img/___testimonials/8.png"
-  },
-  {
-    "revision": "38da7e779b5d3d6642b479f4bd3a15e7",
-    "url": "/test/img/___testimonials/9.png"
-  },
-  {
-    "revision": "64f3a7dd82f399db86d0911b3fe9c057",
-    "url": "/test/img/___testimonials/default.png"
+    "revision": "9d8d0dcee543446ec841cba9c91497b6",
+    "url": "/test/img/christmas.9d8d0dce.webp"
   },
   {
     "revision": "9d8d0dcee543446ec841cba9c91497b6",
-    "url": "/test/img/christmas.9d8d0dce.webp"
+    "url": "/test/img/christmas.webp"
   },
   {
     "revision": "0f6246a959f5e411fc59e31a1ddc3010",
@@ -460,12 +396,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/img/dgtek-logo.png"
   },
   {
-    "revision": "662bc65eeaefc7c68ef797301acd1b15",
+    "revision": "133e56280328937d343bbedb7d666054",
     "url": "/test/index.html"
   },
   {
-    "revision": "48df78d4bdec09088111",
-    "url": "/test/js/app.e742b8df.js"
+    "revision": "cb5c4abf41f47da71ee5",
+    "url": "/test/js/app.b86fb4d1.js"
   },
   {
     "revision": "422e78bc6440551eb84c",
