@@ -2,39 +2,34 @@
 
 import { register } from 'register-service-worker'
 
-const CACHE_NAME = `live.pineapple.net.au-${(new Date()).toISOString().slice(0, 10)}`
-
-self.addEventListener('activate', function (event) {
-  console.log(event)
-  event.waitUntil(
-    caches.keys().then(function (cacheNames) {
-      return Promise.all(
-        cacheNames.map(function (cacheName) {
-          console.log(cacheName)
-          if (CACHE_NAME !== cacheName && cacheName.startsWith('live.pineapple.net.au')) {
-            return caches.delete(cacheName)
-          }
-        })
-      )
-    })
-  )
-})
+console.log(process.env.BASE_URL)
 
 register(`${process.env.BASE_URL}service-worker.js`, {
-  ready (arg) {
-    console.log('App is being served from cache by a service worker.\nFor more details, visit https://goo.gl/AFskqB\n', arg)
+  ready (event) {
+    // console.log('App is being served from cache by a service worker.\nFor more details, visit https://goo.gl/AFskqB\n', arg)
+    console.log('READY SERVICE WORKER:\n', event.active)
   },
-  registered (arg) {
-    console.log('Service worker has been registered.\n', arg)
+  registered (event) {
+    // console.log('Service worker has been registered.')
+    console.log('REGISTERED SERVICE WORKER STATE:\n', event.active.state)
+    event.active.onstatechange = function (ev) {
+      console.log(this.status)
+      console.log(this)
+      console.log(ev)
+    }
   },
-  cached (arg) {
-    console.log('Content has been cached for offline use.\n', arg)
+  cached (event) {
+    console.log('Content has been cached for offline use.')
+    console.log('event\n', event)
   },
-  updatefound (arg) {
-    console.log('New content is downloading.\n', arg)
+  updatefound (event) {
+    console.log('New content is downloading.')
+    console.log('event\n', event)
   },
-  updated (arg) {
-    console.log('New content is available; please refresh.\n', arg)
+  updated (event) {
+    console.log('New content is available; please refresh.')
+    console.log('event\n', event)
+    console.log('this\n', this)
   },
   offline () {
     console.log('No internet connection found. App is running in offline mode.')
