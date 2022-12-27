@@ -20,19 +20,19 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/browserconfig.xml"
   },
   {
-    "revision": "d2b9afea1e6e75603563",
+    "revision": "f8df18f03dd54e96705d",
     "url": "/test/css/app.06bda4bb.css"
   },
   {
-    "revision": "422e78bc6440551eb84c",
+    "revision": "0dab81c8a818546488de",
     "url": "/test/css/blackfriday.a5ae6596.css"
   },
   {
-    "revision": "177b1884c3fef2a06005",
+    "revision": "65c52b854f33c0e43848",
     "url": "/test/css/blackfriday.home.not-found.page.7246f01c.css"
   },
   {
-    "revision": "f6142c7b8147e061744d",
+    "revision": "e4f0eee83fd0b19ad17a",
     "url": "/test/css/chunk-vendors.29dbbaea.css"
   },
   {
@@ -40,11 +40,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/css/faqs.170d32b0.css"
   },
   {
-    "revision": "84eb78492a615d098daf",
+    "revision": "09305bc526744ec1af7a",
     "url": "/test/css/footer-component.315aa0a1.css"
   },
   {
-    "revision": "7898e96b00a30a827a86",
+    "revision": "47808aa3420d8d26e6d2",
     "url": "/test/css/home.f1ee91e4.css"
   },
   {
@@ -56,7 +56,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/css/not-found.11c29232.css"
   },
   {
-    "revision": "61ac1efb91099627e166",
+    "revision": "f569a86c96c22493900c",
     "url": "/test/css/page.73565f75.css"
   },
   {
@@ -64,7 +64,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/css/reviews.49d0453c.css"
   },
   {
-    "revision": "22d50fa19ae6aac867dc",
+    "revision": "cae791641a2b630179c5",
     "url": "/test/css/userForm.6d87831d.css"
   },
   {
@@ -396,36 +396,36 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/img/dgtek-logo.png"
   },
   {
-    "revision": "39003acb2d161a6a50125a06c5213e7f",
+    "revision": "43e37d2d2b8e35f99b7b4fefda3ea9c0",
     "url": "/test/index.html"
   },
   {
-    "revision": "d2b9afea1e6e75603563",
-    "url": "/test/js/app.cfe6db43.js"
+    "revision": "f8df18f03dd54e96705d",
+    "url": "/test/js/app.bc28d44d.js"
   },
   {
-    "revision": "422e78bc6440551eb84c",
-    "url": "/test/js/blackfriday.dc09f3f8.js"
+    "revision": "0dab81c8a818546488de",
+    "url": "/test/js/blackfriday.8ffbab11.js"
   },
   {
-    "revision": "177b1884c3fef2a06005",
-    "url": "/test/js/blackfriday.home.not-found.page.aba732bf.js"
+    "revision": "65c52b854f33c0e43848",
+    "url": "/test/js/blackfriday.home.not-found.page.4ca14715.js"
   },
   {
-    "revision": "f6142c7b8147e061744d",
-    "url": "/test/js/chunk-vendors.292674f4.js"
+    "revision": "e4f0eee83fd0b19ad17a",
+    "url": "/test/js/chunk-vendors.4c04c9ad.js"
   },
   {
     "revision": "496fa77dfd423eea122e",
     "url": "/test/js/faqs.b85b6150.js"
   },
   {
-    "revision": "84eb78492a615d098daf",
-    "url": "/test/js/footer-component.dc22e40b.js"
+    "revision": "09305bc526744ec1af7a",
+    "url": "/test/js/footer-component.094155da.js"
   },
   {
-    "revision": "7898e96b00a30a827a86",
-    "url": "/test/js/home.b5ef3a97.js"
+    "revision": "47808aa3420d8d26e6d2",
+    "url": "/test/js/home.d097e744.js"
   },
   {
     "revision": "36a09fd03e0116edd5b0",
@@ -436,16 +436,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/js/not-found.b944b106.js"
   },
   {
-    "revision": "61ac1efb91099627e166",
-    "url": "/test/js/page.0f84404a.js"
+    "revision": "f569a86c96c22493900c",
+    "url": "/test/js/page.92975108.js"
   },
   {
     "revision": "fea1d0ecdb840f5eeb1e",
     "url": "/test/js/reviews.2c72f8b8.js"
   },
   {
-    "revision": "22d50fa19ae6aac867dc",
-    "url": "/test/js/userForm.01494630.js"
+    "revision": "cae791641a2b630179c5",
+    "url": "/test/js/userForm.74c34482.js"
   },
   {
     "revision": "41d719318fb9fb2901aab8951684759e",

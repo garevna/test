@@ -11,26 +11,24 @@
  * See https://goo.gl/2aRDsh
  */
 
-/* eslint-disable no-undef */
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js')
+importScripts(
+  "/test/precache-manifest.2e6645d396a54e6e55b1ee1cbd1fc015.js"
+);
 
-importScripts('/test/precache-manifest.9cd8c1930b90e2ebc2940d7dc7b8b87d.js')
-
-workbox.core.setCacheNameDetails({ prefix: 'live.pineapple.net.au' })
+workbox.core.setCacheNameDetails({prefix: "live.pineapple.net.au"});
 
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting()
+    self.skipWaiting();
   }
-})
-
-self.addEventListener('push', () => event.waitUntil(fetch('/updates').then(() => self.registration.showNotification('New updates'))))
+});
 
 /**
  * The workboxSW.precacheAndRoute() method efficiently caches and responds to
  * requests for URLs in the manifest.
  * See https://goo.gl/S9QRab
  */
-self.__precacheManifest = [].concat(self.__precacheManifest || [])
-workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
+self.__precacheManifest = [].concat(self.__precacheManifest || []);
+workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
