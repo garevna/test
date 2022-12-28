@@ -15,6 +15,19 @@
     </v-container>
     <!-- ============================= FOOTER ============================= -->
     <FooterComponent />
+    <div style="position: fixed; bottom: 0; left: 0; height: 32px; width: 100%; background: transparent; text-align: right; padding-right: 16px;">
+      <v-img
+        v-if="christmas"
+        src="@/assets/christmas.webp"
+        height="32"
+        width="48"
+        contain
+        style="position: fixed; bottom: 0; left: 0;"
+      />
+      <small>
+        <sub style="color: #fff3 !important"> Release {{ gitTagNumber }} / {{ releaseDate }} </sub>
+      </small>
+    </div>
   </v-app>
 </template>
 
@@ -42,18 +55,27 @@ export default {
     // MainMenu: () => import(/* webpackChunkName: "reviews" */ '@/components/packages/MainMenu.vue'),
     FooterComponent: () => import(/* webpackChunkName: "footer-component" */ '@/components/packages/FooterComponent.vue')
   },
+
   data () {
     return {
+      gitTagNumber: process.env.VUE_APP_GIT_TAG,
+      releaseDate: document.documentElement.dataset.buildTimestampUtc,
       ready: false,
       pageContentReady: false,
       page: null,
       routesNames: []
     }
   },
+
   computed: {
-    ...mapState(['pages', 'mainContentHeight', 'footerHeight'])
-    // ...mapState('content', ['footer', 'top'])
+    ...mapState(['pages', 'mainContentHeight', 'footerHeight']),
+    // ...mapState('content', ['footer', 'top']),
+    christmas () {
+      const date = new Date()
+      return date.getMonth() === 11 && date.getDate() > 22
+    }
   },
+
   methods: {
     ...mapActions({
       getGeneralInfo: 'GET_GENERAL_INFO',
@@ -93,24 +115,28 @@ export default {
     }
   },
 
+  created () {
+    this.gitTagNumber = process.env.VUE_APP_GIT_TAG
+  },
+
   beforeMount () {
     this.getReady()
       .then((response) => {
         document.title = response
         this.pageContentReady = true
       })
-  },
-
-  mounted () {
-    // this.onResize()
-    // window.addEventListener('resize', this.onResize, { passive: true })
-  },
-
-  beforeDestroy () {
-    // if (typeof window !== 'undefined') {
-    //   window.removeEventListener('resize', this.onResize, { passive: true })
-    // }
   }
+
+  // mounted () {
+  //   this.onResize()
+  //   window.addEventListener('resize', this.onResize, { passive: true })
+  // },
+
+  // beforeDestroy () {
+  //   if (typeof window !== 'undefined') {
+  //     window.removeEventListener('resize', this.onResize, { passive: true })
+  //   }
+  // }
 }
 </script>
 

@@ -1,10 +1,7 @@
 const fs = require('fs')
 const webpack = require('webpack')
 
-const packageJson = fs.readFileSync('./package.json')
-const { version, tag, remote } = JSON.parse(packageJson)
-
-console.log(remote)
+const { version, tag, remote } = JSON.parse(fs.readFileSync('./package.json'))
 
 module.exports = {
   transpileDependencies: [
@@ -16,9 +13,9 @@ module.exports = {
     plugins: [
       new webpack.DefinePlugin({
         'process.env': {
-          GIT_TAG: `"${tag}"`,
-          DEVELOPMENT_RELEASE_VERSION: `"${version}"`,
-          PRODUCTION_RELEASE_VERSION: `"${tag}"`
+          VUE_APP_GIT_TAG: `"${tag}"`,
+          VUE_APP_DEVELOPMENT_RELEASE_VERSION: `"${version}"`,
+          VUE_APP_PRODUCTION_RELEASE_VERSION: `"${tag}"`
         }
       })
     ],
@@ -33,5 +30,5 @@ module.exports = {
     msTileColor: '#FAFAFA'
   },
   runtimeCompiler: true,
-  publicPath: remote === 'gh-pages' ? '/test/' : '/'
+  publicPath: remote === 'test' ? '/test/' : '/'
 }

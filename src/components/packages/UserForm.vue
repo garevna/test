@@ -7,11 +7,6 @@
           class="user-contact transparent mx-auto pa-0"
           style="margin-bottom: 80px"
         >
-          <v-img
-            v-if="christmas"
-            src="@/assets/christmas.webp"
-            width="80"
-          />
           <UserContact
             v-if="userForm"
             :address="addressString"
@@ -35,15 +30,12 @@ import 'pineapple-contact-form/dist/pineapple-contact-form.css'
 
 export default {
   name: 'UserForm',
+
   props: ['address'],
+
   computed: {
     ...mapState(['mailEndpoint', 'emailSubject', 'emailText', 'emailTarget']),
     ...mapState('content', ['userForm']),
-    christmas () {
-      const date = new Date().toISOString().slice(5, 10)
-      console.log(date)
-      return date === '12-23' || date === '12-24' || date === '12-25'
-    },
     addressString () {
       const addr = ['streetNumber', 'streetName', 'city', 'state', 'postcode'].map(item => this.address[item]).join(' ')
       const formatted = this.address.formatted ? `${this.address.formatted}<br>` : ''

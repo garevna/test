@@ -18,10 +18,13 @@ import { mapState } from 'vuex'
 
 export default {
   name: 'FooterComponent',
+
   props: ['goto'],
+
   computed: {
     ...mapState(['viewportWidth', 'mailEndpoint', 'emailSubject', 'emailText', 'mainContentHeight', 'footerHeight'])
   },
+
   methods: {
     footerMutationHandler (mutations) {
       const footer = document.querySelector('.footer')

@@ -1,14 +1,13 @@
 {
   "name": "live.pineapple.net.au",
-  "version": "1.4.0",
+  "version": "1.4.5",
+  "tag": "1.4.5",
   "private": true,
-  "remote": "gh-pages",
+  "remote": "prod",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "clear-for-origin": "yarn remove dist && git rm dist -r",
-    "dist": "vue-cli-service build && git add dist && git commit -m 'Github pages: dist to deploy on branch gh-pages'",
-    "deploy": "git subtree push --prefix dist test gh-pages",
+    "deploy-test": "bash test.sh",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
