@@ -28,6 +28,8 @@ self.addEventListener('message', (event) => {
 
 self.addEventListener('push', () => event.waitUntil(fetch('/updates').then(() => self.registration.showNotification('New updates'))))
 
+self.postMessage('SERVICE WORKER HERE!!!')
+
 /**
  * The workboxSW.precacheAndRoute() method efficiently caches and responds to
  * requests for URLs in the manifest.
