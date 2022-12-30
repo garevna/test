@@ -25,7 +25,7 @@
         style="position: fixed; bottom: 0; left: 0;"
       />
       <small>
-        <sub style="color: #fff3 !important"> Release {{ gitTagNumber }} / {{ releaseDate }} </sub>
+        <sub style="color: #fff3 !important"> Release <b>{{ gitTagNumber }}</b> / {{ releaseDate }} </sub>
       </small>
     </div>
   </v-app>
@@ -52,7 +52,7 @@ export default {
   components: {
     Faqs: () => import(/* webpackChunkName: "faqs" */ '@/components/packages/Faq.vue'),
     // Reviews: () => import(/* webpackChunkName: "reviews" */ '@/components/packages/Reviews.vue'),
-    // MainMenu: () => import(/* webpackChunkName: "reviews" */ '@/components/packages/MainMenu.vue'),
+    // MainMenu: () => import(/* webpackChunkName: "main-menu" */ '@/components/packages/MainMenu.vue'),
     FooterComponent: () => import(/* webpackChunkName: "footer-component" */ '@/components/packages/FooterComponent.vue')
   },
 

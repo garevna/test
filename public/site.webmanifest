@@ -1,6 +1,7 @@
 {
     "name": "Pineapple NET",
     "short_name": "Pineapple",
+    "permissions": ["contextMenus"],
     "icons": [
         {
             "src": "android-chrome-192x192.png",

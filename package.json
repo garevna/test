@@ -1,13 +1,14 @@
 {
   "name": "live.pineapple.net.au",
-  "version": "1.4.5",
-  "tag": "1.4.5",
+  "version": "1.4.7",
+  "tag": "1.4.7",
   "private": true,
   "remote": "prod",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "deploy-test": "bash test.sh",
+    "glitch": "git subtree push --prefix dist glitch gh-pages",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
