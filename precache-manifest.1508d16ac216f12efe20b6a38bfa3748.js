@@ -20,11 +20,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/browserconfig.xml"
   },
   {
-    "revision": "65af1a68174459f12031",
+    "revision": "9228dd42ba4568d115d2",
     "url": "/test/css/app.06bda4bb.css"
   },
   {
-    "revision": "bc026115e6dfd93dc493",
+    "revision": "5f9db571bf3cc2ad4386",
     "url": "/test/css/blackfriday.a5ae6596.css"
   },
   {
@@ -36,35 +36,35 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/css/chunk-vendors.8229cbb0.css"
   },
   {
-    "revision": "1e8857d8119255403595",
+    "revision": "2d2427f820983337722a",
     "url": "/test/css/faqs.170d32b0.css"
   },
   {
-    "revision": "2e29bf506b987dba3a1c",
+    "revision": "618fc69b772926c51992",
     "url": "/test/css/footer-component.315aa0a1.css"
   },
   {
-    "revision": "ba24738d2a21eecf610d",
+    "revision": "e57c891c1e70f553abd1",
     "url": "/test/css/home.f1ee91e4.css"
   },
   {
-    "revision": "6a0e62c2217fa1f86b5c",
+    "revision": "b000535b46856f7787aa",
     "url": "/test/css/main-menu.f091c936.css"
   },
   {
-    "revision": "c150c43e89fe50aca751",
+    "revision": "49e24fd98a70cd1c7767",
     "url": "/test/css/not-found.11c29232.css"
   },
   {
-    "revision": "f9fe1b98d226bdcb8fa0",
+    "revision": "24cd57603f46e7e989f4",
     "url": "/test/css/page.73565f75.css"
   },
   {
-    "revision": "b9a6cad1258db2ef6802",
+    "revision": "b1155741a0701eef142c",
     "url": "/test/css/reviews.49d0453c.css"
   },
   {
-    "revision": "15fe8423c249e9df0b92",
+    "revision": "a777987ea3ea21dcb440",
     "url": "/test/css/userForm.6d87831d.css"
   },
   {
@@ -396,16 +396,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/img/dgtek-logo.png"
   },
   {
-    "revision": "49f4592ee4585f48af3de7d27ac62c9b",
+    "revision": "952f5f7a598dd67658b8c7ba276b6f4f",
     "url": "/test/index.html"
   },
   {
-    "revision": "65af1a68174459f12031",
-    "url": "/test/js/app.45674511.js"
+    "revision": "9228dd42ba4568d115d2",
+    "url": "/test/js/app.7615a404.js"
   },
   {
-    "revision": "bc026115e6dfd93dc493",
-    "url": "/test/js/blackfriday.d1b5b00d.js"
+    "revision": "5f9db571bf3cc2ad4386",
+    "url": "/test/js/blackfriday.808fd954.js"
   },
   {
     "revision": "65c52b854f33c0e43848",
@@ -416,36 +416,36 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/js/chunk-vendors.4c04c9ad.js"
   },
   {
-    "revision": "1e8857d8119255403595",
-    "url": "/test/js/faqs.3e55e041.js"
+    "revision": "2d2427f820983337722a",
+    "url": "/test/js/faqs.e9d6f426.js"
   },
   {
-    "revision": "2e29bf506b987dba3a1c",
-    "url": "/test/js/footer-component.3411203a.js"
+    "revision": "618fc69b772926c51992",
+    "url": "/test/js/footer-component.e94eaf46.js"
   },
   {
-    "revision": "ba24738d2a21eecf610d",
-    "url": "/test/js/home.2d0cfc4b.js"
+    "revision": "e57c891c1e70f553abd1",
+    "url": "/test/js/home.9224d6fa.js"
   },
   {
-    "revision": "6a0e62c2217fa1f86b5c",
-    "url": "/test/js/main-menu.bb70e05f.js"
+    "revision": "b000535b46856f7787aa",
+    "url": "/test/js/main-menu.4498cec1.js"
   },
   {
-    "revision": "c150c43e89fe50aca751",
-    "url": "/test/js/not-found.ff02474a.js"
+    "revision": "49e24fd98a70cd1c7767",
+    "url": "/test/js/not-found.a4d969ab.js"
   },
   {
-    "revision": "f9fe1b98d226bdcb8fa0",
-    "url": "/test/js/page.4e726a69.js"
+    "revision": "24cd57603f46e7e989f4",
+    "url": "/test/js/page.db42a816.js"
   },
   {
-    "revision": "b9a6cad1258db2ef6802",
-    "url": "/test/js/reviews.aef6987d.js"
+    "revision": "b1155741a0701eef142c",
+    "url": "/test/js/reviews.cef812bf.js"
   },
   {
-    "revision": "15fe8423c249e9df0b92",
-    "url": "/test/js/userForm.72170fb9.js"
+    "revision": "a777987ea3ea21dcb440",
+    "url": "/test/js/userForm.3c466df2.js"
   },
   {
     "revision": "41d719318fb9fb2901aab8951684759e",
@@ -460,7 +460,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/robots.txt"
   },
   {
-    "revision": "8633a26c079544a29df27aa1bb8b885b",
+    "revision": "549f867fbc9179b3df46da06c3da273f",
     "url": "/test/site.webmanifest"
   }
 ]);
