@@ -1,4 +1,4 @@
-export function notification () {
+function notification () {
   const notification = Object.assign(document.body.appendChild(document.createElement('figure')), {
     style: `
       position: fixed;
