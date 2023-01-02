@@ -11,7 +11,8 @@ export function notification () {
       background: #fbfbfb;
       color: #090;
       padding: 4px 48px;
-      font-family: Arial;
+      font-family: Gilroy, Arial;
+      z-index: 99999;
     `
   })
 
