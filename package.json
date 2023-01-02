@@ -1,7 +1,7 @@
 {
   "name": "live.pineapple.net.au",
-  "version": "1.4.7",
-  "tag": "1.4.7",
+  "version": "1.4.8",
+  "tag": "1.4.8",
   "private": true,
   "remote": "prod",
   "scripts": {

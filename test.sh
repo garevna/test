@@ -23,6 +23,8 @@ echo 'Project directory changed:'
 
 pwd
 
+git status
+
 echo 'Start commiting...'
 git add .
 

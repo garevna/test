@@ -24,6 +24,14 @@
         contain
         style="position: fixed; bottom: 0; left: 0;"
       />
+      <!-- <v-img
+        v-if="christmas"
+        src="@/assets/christmas.png"
+        height="40"
+        width="40"
+        contain
+        style="position: fixed; bottom: 0; left: 0;"
+      /> -->
       <small>
         <sub style="color: #fff3 !important"> Release <b>{{ gitTagNumber }}</b> / {{ releaseDate }} </sub>
       </small>
@@ -70,9 +78,10 @@ export default {
   computed: {
     ...mapState(['pages', 'mainContentHeight', 'footerHeight']),
     // ...mapState('content', ['footer', 'top']),
+
     christmas () {
       const date = new Date()
-      return date.getMonth() === 11 && date.getDate() > 22
+      return (date.getMonth() === 11 && date.getDate() > 22) || (date.getMonth() === 0 && date.getDate() < 5)
     }
   },
 
@@ -81,9 +90,11 @@ export default {
       getGeneralInfo: 'GET_GENERAL_INFO',
       getPages: 'GET_PAGES'
     }),
+
     ...mapActions('content', {
       getPageContent: 'GET_PAGE_CONTENT'
     }),
+
     async getReady () {
       const response = await Promise.all([
         this.getGeneralInfo(),
@@ -92,9 +103,11 @@ export default {
       ])
       return response[2] ? response[1] : 'Pineapple NET'
     },
+
     beforeLeave (element) {
       this.prevHeight = getComputedStyle(element).height
     },
+
     enter (element) {
       const { height } = getComputedStyle(element)
       element.style.height = this.prevHeight
@@ -103,13 +116,16 @@ export default {
         element.style.height = height
       })
     },
+
     afterEnter (element) {
       element.style.height = 'auto'
     },
+
     mutationHandler (mutations) {
       this.$store.commit('UPDATE_MAIN_CONTENT_HEIGHT', this.$el.offsetHeight)
       document.body.style.height = this.mainContentHeight + this.footerHeight - 36 + 'px'
     },
+
     onResize () {
       this.$store.commit('CHANGE_VIEWPORT')
     }
