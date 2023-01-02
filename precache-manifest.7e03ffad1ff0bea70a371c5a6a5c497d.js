@@ -396,7 +396,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/img/dgtek-logo.png"
   },
   {
-    "revision": "a671b0dd8063ed4400ba779a80decee4",
+    "revision": "38beb95b760881b60b29646cc24aebf2",
     "url": "/test/index.html"
   },
   {
