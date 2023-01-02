@@ -33,10 +33,6 @@ window.onerror = function(message, source, lineno, colno, error) {
   console.warn(message, '\n', source, '\n', lineno, colno, '\n', error)
 }
 
-console.log('window.navigator.serviceWorker:\n', window.navigator.serviceWorker)
-
-// if (window.navigator.serviceWorker) serviceWorkerConfig()
-
 const vue = new Vue({
   store,
   router,

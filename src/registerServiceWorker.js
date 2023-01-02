@@ -2,20 +2,7 @@
 
 import { register } from 'register-service-worker'
 
-import { /* serviceWorkerConfig, */ notification } from './helpers'
-
-// function showWorkers (title, registration) {
-//   console.group(title)
-//   const { active, waiting } = registration
-//   if (title === 'REGISTERED') console.log('REGISTRATION OBJECT:\n', registration)
-//   console.table([
-//     { name: active.name, state: active.state },
-//     { name: waiting ? waiting.name : null, state: waiting ? waiting.state : null }
-//   ])
-//   // console.log('ACTIVE SERVICE WORKER:\n', registration.active)
-//   // console.log('WAITING SERVICE WORKER:\n', registration.waiting)
-//   console.groupEnd(title)
-// }
+import { /* serviceWorkerConfig, showWorkers, */ notification } from './helpers'
 
 register(`${process.env.BASE_URL}service-worker.js`, {
   ready (registration) {
