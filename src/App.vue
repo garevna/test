@@ -16,14 +16,14 @@
     <!-- ============================= FOOTER ============================= -->
     <FooterComponent />
     <div style="position: fixed; bottom: 0; left: 0; height: 32px; width: 100%; background: transparent; text-align: right; padding-right: 16px;">
-      <!-- <v-img
+      <v-img
         v-if="christmas"
         src="@/assets/christmas.webp"
         height="32"
         width="48"
         contain
         style="position: fixed; bottom: 0; left: 0;"
-      /> -->
+      />
       <!-- <v-img
         v-if="christmas"
         src="@/assets/christmas.png"
