@@ -20,7 +20,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/browserconfig.xml"
   },
   {
-    "revision": "36233f875ca2b5f5eb0b",
+    "revision": "1e1904a64806a9b0eb03",
     "url": "/test/css/app.06bda4bb.css"
   },
   {
@@ -376,8 +376,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/fonts/materialdesignicons-webfont.f5111234.ttf"
   },
   {
-    "revision": "9d8d0dcee543446ec841cba9c91497b6",
-    "url": "/test/img/christmas.9d8d0dce.webp"
+    "revision": "aaba1fc40d60c09fd7da973acc147b07",
+    "url": "/test/img/christmas.aaba1fc4.png"
   },
   {
     "revision": "9d8d0dcee543446ec841cba9c91497b6",
@@ -396,12 +396,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/img/dgtek-logo.png"
   },
   {
-    "revision": "d639131a926620c0569327a9031dbacf",
+    "revision": "bd7ad80d5b080d81e6158486b049bc75",
     "url": "/test/index.html"
   },
   {
-    "revision": "36233f875ca2b5f5eb0b",
-    "url": "/test/js/app.e2087db8.js"
+    "revision": "1e1904a64806a9b0eb03",
+    "url": "/test/js/app.1f5213c8.js"
   },
   {
     "revision": "bc026115e6dfd93dc493",
