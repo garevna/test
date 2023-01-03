@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 function notification () {
   const notification = Object.assign(document.body.appendChild(document.createElement('figure')), {
     style: `
