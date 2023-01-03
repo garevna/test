@@ -14,6 +14,7 @@ const notification = Object.assign(document.createElement('figure'), {
     padding: 4px 48px;
     font-family: Gilroy, Arial;
     z-index: 99999;
+    box-shadow: 4px 4px 8px #0005;
   `
 })
 
