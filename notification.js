@@ -52,10 +52,10 @@ async function showNotification () {
   if ((controller && !prev.controller) || (active && !prev.active) || (waiting && !prev.active) || (installing && !prev.installing)) {
     Object.assign({ controller, active, waiting, installing })
     console.table([
-      { title: 'Controller', name: controller.name, state: controller.state },
+      { title: 'Controller', name: controller? controller.name : '', state: controller ? controller.state : '' },
       { title: 'Active SW', name: active.name, state: active.state },
-      { title: 'Waiting SW', name: waiting ? waiting.name : null, state: waiting ? waiting.state : null },
-      { title: 'Installing SW', name: installing ? installing.name : null, state: installing ? installing.state : null }
+      { title: 'Waiting SW', name: waiting ? waiting.name : '', state: waiting ? waiting.state : '' },
+      { title: 'Installing SW', name: installing ? installing.name : '', state: installing ? installing.state : '' }
     ])
   }
 

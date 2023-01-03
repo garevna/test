@@ -456,7 +456,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/mstile-150x150.png"
   },
   {
-    "revision": "488680779dede92a0b0e4fa6612546b2",
+    "revision": "9ecf20596d76f18d25cd4943e671a90a",
     "url": "/test/notification.js"
   },
   {
