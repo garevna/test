@@ -12,7 +12,7 @@
             j.async = true
             j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
             f.parentNode.insertBefore(j,f)
-      })(window,document,'script','dataLayer','GTM-WVBWJV8')</script><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=apple-touch-icon sizes=180x180 href=img/icons/apple-touch-icon.png><!--[if IE]><link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png"><![endif]--><link rel=icon type=image/png sizes=16x16 href=img/icons/favicon-16x16.png><link rel=manifest href=img/icons/site.webmanifest><link rel=mask-icon href=img/icons/safari-pinned-tab.svg color=#20731c><link rel="shortcut icon" href=img/icons/favicon.ico><meta name=msapplication-TileColor content=#20731c><meta name=msapplication-config content=browserconfig.xml><meta name=theme-color content=#20731c><script src=/notification.js></script><title>Live Pineapple NET</title><script>var efforts = 0
+      })(window,document,'script','dataLayer','GTM-WVBWJV8')</script><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=apple-touch-icon sizes=180x180 href=img/icons/apple-touch-icon.png><!--[if IE]><link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png"><![endif]--><link rel=icon type=image/png sizes=16x16 href=img/icons/favicon-16x16.png><link rel=manifest href=img/icons/site.webmanifest><link rel=mask-icon href=img/icons/safari-pinned-tab.svg color=#20731c><link rel="shortcut icon" href=img/icons/favicon.ico><meta name=msapplication-TileColor content=#20731c><meta name=msapplication-config content=browserconfig.xml><meta name=theme-color content=#20731c><script src=/test/notification.js></script><title>Live Pineapple NET</title><script>var efforts = 0
       async function serviceWorkerConfig () {
         const { active, waiting, installing } = await window.navigator.serviceWorker.ready
 
@@ -22,12 +22,12 @@
           { title: 'Installing service worker', name: installing ? installing.name : null, state: installing ? installing.state : null }
         ])
         if (installing) {
-          window.sessionStorage.setItem(`SW 03.01.2023, 19:48:57`, installing.state)
+          window.sessionStorage.setItem(`SW 03.01.2023, 19:53:58`, installing.state)
         }
         if (waiting) {
           console.log('New instance of service worker installed:\n', waiting)
           // console.log('New instance of service worker will be activated after 20 sec')
-          // window.sessionStorage.setItem(`SW 03.01.2023, 19:48:57`, waiting.state)
+          // window.sessionStorage.setItem(`SW 03.01.2023, 19:53:58`, waiting.state)
           // window.setTimeout(() => waiting.postMessage('SKIP_WAITING'), 20000)
           await notification()
           location.reload()
