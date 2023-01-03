@@ -50,10 +50,10 @@ async function showNotification () {
   const { controller, active, waiting, installing } = await window.navigator.serviceWorker.ready
 
   if ((controller && !prev.controller) || (active && !prev.active) || (waiting && !prev.active) || (installing && !prev.installing)) {
-    Object.assign({ controller, active, waiting, installing })
+    Object.assign(prev, { controller, active, waiting, installing })
     console.table([
       { title: 'Controller', name: controller? controller.name : '', state: controller ? controller.state : '' },
-      { title: 'Active SW', name: active.name, state: active.state },
+      { title: 'Active SW', name: active.name || '', state: active.state },
       { title: 'Waiting SW', name: waiting ? waiting.name : '', state: waiting ? waiting.state : '' },
       { title: 'Installing SW', name: installing ? installing.name : '', state: installing ? installing.state : '' }
     ])
