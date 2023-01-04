@@ -60,7 +60,7 @@ async function showNotification () {
     ])
   }
 
-  if (waiting) document.body.appendChild(notification)
+  if (waiting) return document.body.appendChild(notification)
 
-  if (!controller) return window.requestAnimationFrame(showNotification)
+  if (!controller) window.requestAnimationFrame(showNotification)
 }
