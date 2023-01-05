@@ -48,7 +48,8 @@ const button = Object.assign(notification.appendChild(document.createElement('p'
 let prev = { controller: null, active: null, waiting: null, installing: null }
 
 async function showNotification () {
-  const { controller, active, waiting, installing } = await window.navigator.serviceWorker.ready
+  const { controller: tmp, active, waiting, installing } = await window.navigator.serviceWorker.ready
+  const controller = window.navigator.serviceWorker.controller || tmp
 
   if ((controller && !prev.controller) || (active && !prev.active) || (waiting && !prev.active) || (installing && !prev.installing)) {
     Object.assign(prev, { controller, active, waiting, installing })
