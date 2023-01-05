@@ -45,9 +45,11 @@ const button = Object.assign(notification.appendChild(document.createElement('p'
   }
 })
 
-let prev = { controller: null, active: null, waiting: null, installing: null }
+const prev = { controller: null, active: null, waiting: null, installing: null }
 
 async function showNotification () {
+  const elem = document.getElementById('indication-of-request-animation-frame')
+  if (elem) { elem.innerText += '.' }
   const { controller: tmp, active, waiting, installing } = await window.navigator.serviceWorker.ready
   const controller = window.navigator.serviceWorker.controller || tmp
 
@@ -61,7 +63,12 @@ async function showNotification () {
     ])
   }
 
-  if (waiting) return document.body.appendChild(notification)
+  if (waiting) {
+    console.log(waiting)
+    document.body.appendChild(notification)
+    return
+  }
 
-  if (!controller) window.requestAnimationFrame(showNotification)
+  if (controller) console.log('CONTROLLER:\n', controller)
+  else window.requestAnimationFrame(showNotification)
 }
