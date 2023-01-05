@@ -20,11 +20,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/browserconfig.xml"
   },
   {
-    "revision": "6b65098154c4eb4f245d",
+    "revision": "e0a93b667a5b7c036145",
     "url": "/test/css/app.06bda4bb.css"
   },
   {
-    "revision": "361fd935b8480cea6bbc",
+    "revision": "35d5336b77fcd5fb98ec",
     "url": "/test/css/blackfriday.a5ae6596.css"
   },
   {
@@ -36,35 +36,35 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/css/chunk-vendors.8229cbb0.css"
   },
   {
-    "revision": "d84b696fec2d666416ce",
+    "revision": "865911311983bd770989",
     "url": "/test/css/faqs.170d32b0.css"
   },
   {
-    "revision": "6372b664ebdce8dc0a1c",
+    "revision": "8844749a5aedd2e0e793",
     "url": "/test/css/footer-component.315aa0a1.css"
   },
   {
-    "revision": "50f514f4b016e53012c4",
+    "revision": "8aeec9cfd969d5f1959c",
     "url": "/test/css/home.f1ee91e4.css"
   },
   {
-    "revision": "54c38b14334a8ea87efc",
+    "revision": "7118dd511e0b7e86b258",
     "url": "/test/css/main-menu.f091c936.css"
   },
   {
-    "revision": "2480235865e467089514",
+    "revision": "609b3eaeddd356a9a94b",
     "url": "/test/css/not-found.11c29232.css"
   },
   {
-    "revision": "2157149ffce1dab505fd",
+    "revision": "7c1ac02ed8b400be8530",
     "url": "/test/css/page.73565f75.css"
   },
   {
-    "revision": "410550de835b102f88b2",
+    "revision": "27ac1efe82bfb8848005",
     "url": "/test/css/reviews.49d0453c.css"
   },
   {
-    "revision": "7aad121f480d7acc2968",
+    "revision": "16a5f0ebbc25a13af375",
     "url": "/test/css/userForm.6d87831d.css"
   },
   {
@@ -376,8 +376,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/fonts/materialdesignicons-webfont.f5111234.ttf"
   },
   {
-    "revision": "9d8d0dcee543446ec841cba9c91497b6",
-    "url": "/test/img/christmas.9d8d0dce.webp"
+    "revision": "aaba1fc40d60c09fd7da973acc147b07",
+    "url": "/test/img/christmas.aaba1fc4.png"
   },
   {
     "revision": "9d8d0dcee543446ec841cba9c91497b6",
@@ -396,16 +396,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/img/dgtek-logo.png"
   },
   {
-    "revision": "ba49741e119bb0b713969370a5d0b1de",
+    "revision": "f022fc96a6d524928df9684ce76f2f82",
     "url": "/test/index.html"
   },
   {
-    "revision": "6b65098154c4eb4f245d",
-    "url": "/test/js/app.74908b00.js"
+    "revision": "e0a93b667a5b7c036145",
+    "url": "/test/js/app.1288cf74.js"
   },
   {
-    "revision": "361fd935b8480cea6bbc",
-    "url": "/test/js/blackfriday.a7ddf55c.js"
+    "revision": "35d5336b77fcd5fb98ec",
+    "url": "/test/js/blackfriday.cdb05371.js"
   },
   {
     "revision": "65c52b854f33c0e43848",
@@ -416,36 +416,36 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/js/chunk-vendors.4c04c9ad.js"
   },
   {
-    "revision": "d84b696fec2d666416ce",
-    "url": "/test/js/faqs.3dced690.js"
+    "revision": "865911311983bd770989",
+    "url": "/test/js/faqs.e49730b0.js"
   },
   {
-    "revision": "6372b664ebdce8dc0a1c",
-    "url": "/test/js/footer-component.fe5663b1.js"
+    "revision": "8844749a5aedd2e0e793",
+    "url": "/test/js/footer-component.df57d3b2.js"
   },
   {
-    "revision": "50f514f4b016e53012c4",
-    "url": "/test/js/home.a2f2aab6.js"
+    "revision": "8aeec9cfd969d5f1959c",
+    "url": "/test/js/home.7a0d8c11.js"
   },
   {
-    "revision": "54c38b14334a8ea87efc",
-    "url": "/test/js/main-menu.997fc038.js"
+    "revision": "7118dd511e0b7e86b258",
+    "url": "/test/js/main-menu.781fb4cd.js"
   },
   {
-    "revision": "2480235865e467089514",
-    "url": "/test/js/not-found.69cc9fd8.js"
+    "revision": "609b3eaeddd356a9a94b",
+    "url": "/test/js/not-found.f7e5440b.js"
   },
   {
-    "revision": "2157149ffce1dab505fd",
-    "url": "/test/js/page.1c96ad71.js"
+    "revision": "7c1ac02ed8b400be8530",
+    "url": "/test/js/page.07991e3e.js"
   },
   {
-    "revision": "410550de835b102f88b2",
-    "url": "/test/js/reviews.e12165a7.js"
+    "revision": "27ac1efe82bfb8848005",
+    "url": "/test/js/reviews.ce18eea5.js"
   },
   {
-    "revision": "7aad121f480d7acc2968",
-    "url": "/test/js/userForm.d2c449cd.js"
+    "revision": "16a5f0ebbc25a13af375",
+    "url": "/test/js/userForm.2fd32a48.js"
   },
   {
     "revision": "41d719318fb9fb2901aab8951684759e",
