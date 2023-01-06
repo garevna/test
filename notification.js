@@ -48,8 +48,12 @@ const button = Object.assign(notification.appendChild(document.createElement('p'
 const prev = { controller: null, active: null, waiting: null, installing: null }
 
 async function showNotification () {
-  const elem = document.getElementById('indication-of-request-animation-frame')
-  if (elem) { elem.innerText += '.' }
+  Object.assign(document.getElementById('indication-of-request-animation-frame'), {
+    innerText: new Date().toLocaleTimeString()
+  })
+
+  window.navigator.serviceWorker.installing && console.log('Installing:\n', window.navigator.serviceWorker.installing)
+
   const { controller: tmp, active, waiting, installing } = await window.navigator.serviceWorker.ready
   const controller = window.navigator.serviceWorker.controller || tmp
 
@@ -64,7 +68,7 @@ async function showNotification () {
   }
 
   if (waiting) {
-    console.log(waiting)
+    console.log('', waiting)
     document.body.appendChild(notification)
     return
   }
