@@ -46,14 +46,18 @@ Object.assign(notification.appendChild(document.createElement('p')), {
 })
 
 function showNotification () {
-  navigator.serviceWorker.ready
+  window.navigator.serviceWorker.ready
     .then(registration => {
       if (registration.waiting) {
-        console.log('Waiting!!!!')
+        console.log('Waiting\n', registration.waiting)
         window.document.body.appendChild(notification)
       } else {
-        console.log('requestAnimationFrame!')
-        window.requestAnimationFrame(showNotification)
+        if (!window.navigator.serviceWorker.controller) {
+          console.log('requestAnimationFrame!')
+          window.requestAnimationFrame(showNotification)
+        } else {
+          console.log(window.navigator.serviceWorker.controller)
+        }
       }
     })
 }
