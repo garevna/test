@@ -60,13 +60,16 @@ const showNotification = function (counter) {
       if (registration.waiting) {
         console.log('Waiting\n', registration.waiting)
         document.cookie = `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}=waiting`
+        window.sessionStorage.putItem(`${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`, 'waiting')
         window.document.body.appendChild(notification)
       } else {
         if (!window.navigator.serviceWorker.controller && !registration.active) {
           document.cookie = `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}=not_controller_&_not_active`
+          window.sessionStorage.putItem(`${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`, 'Controller and active SW not exist')
           window.requestAnimationFrame(showNotification.bind(null, counter))
         } else {
           console.group('There is no updates for SW')
+          window.sessionStorage.putItem(`${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`, 'There is no updates for SW')
           console.log(new Date().toLocaleTimeString())
           console.log('Controller:\n', window.navigator.serviceWorker.controller)
           console.log('Active:\n', registration.active)
