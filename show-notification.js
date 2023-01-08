@@ -11,11 +11,13 @@ const showNotification = function (counter) {
         window.sessionStorage.setItem('waiting', `${getTime()}`)
 
         document.getElementById('service-worker-notification').style.display = 'block'
+        console.log(document.getElementById('service-worker-notification').style.display)
       } else {
         if (!window.navigator.serviceWorker.controller && !registration.active) {
           document.cookie = `controller_does_not_exist=${getTime()}`
           window.sessionStorage.setItem('controller_does_not_exist', `${getTime()}`, 'Controller and active SW not exist')
           window.requestAnimationFrame(showNotification.bind(null, counter))
+          console.log(document.getElementById('service-worker-notification').style.display)
         } else {
           console.group('There is no updates for SW')
           window.sessionStorage.setItem('updates_not_found', `${getTime()}`)
@@ -23,6 +25,7 @@ const showNotification = function (counter) {
           console.log('Controller:\n', window.navigator.serviceWorker.controller)
           console.log('Active:\n', registration.active)
           console.groupEnd('There is no updates for SW')
+          console.log(document.getElementById('service-worker-notification').style.display)
         }
       }
     })
