@@ -20,7 +20,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/browserconfig.xml"
   },
   {
-    "revision": "f2e5438284c8de849952",
+    "revision": "9a6b538ee3b44f4afbcc",
     "url": "/test/css/app.06bda4bb.css"
   },
   {
@@ -32,7 +32,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/css/blackfriday.home.not-found.page.7246f01c.css"
   },
   {
-    "revision": "e4f0eee83fd0b19ad17a",
+    "revision": "52dbe94a0fee35b2e057",
     "url": "/test/css/chunk-vendors.29dbbaea.css"
   },
   {
@@ -392,12 +392,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/img/dgtek-logo.png"
   },
   {
-    "revision": "02b26e8e241aaec046691f6c91a44c7c",
+    "revision": "fcd45742e085633ca008b8fb782950cb",
     "url": "/test/index.html"
   },
   {
-    "revision": "f2e5438284c8de849952",
-    "url": "/test/js/app.b448004f.js"
+    "revision": "9a6b538ee3b44f4afbcc",
+    "url": "/test/js/app.49653524.js"
   },
   {
     "revision": "b3b08c13df48189cd037",
@@ -408,8 +408,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/js/blackfriday.home.not-found.page.4ca14715.js"
   },
   {
-    "revision": "e4f0eee83fd0b19ad17a",
-    "url": "/test/js/chunk-vendors.4c04c9ad.js"
+    "revision": "52dbe94a0fee35b2e057",
+    "url": "/test/js/chunk-vendors.2e25db49.js"
   },
   {
     "revision": "b7bf392908cbc8f58793",
@@ -460,7 +460,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/robots.txt"
   },
   {
-    "revision": "506b828ba34bedec3b620d762f741d52",
+    "revision": "05e2b1a78b8f89f4a5aa787a06e07ec6",
     "url": "/test/show-notification.js"
   },
   {

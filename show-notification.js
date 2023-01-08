@@ -54,7 +54,7 @@ Object.assign(notification.appendChild(document.createElement('p')), {
   }
 })
 
-const getTime = () => `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`
+const getTime = () => `${('' + new Date().getHours()).padStart(2, '0')}:${('' + new Date().getMinutes()).padStart(2, '0')}:${('' + new Date().getSeconds()).padStart(2, '0')}`
 
 const showNotification = function (counter) {
   window.navigator.serviceWorker.ready
