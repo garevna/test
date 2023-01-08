@@ -1,9 +1,8 @@
 /* eslint-disable */
 
-const doc = window.document
+const notification = document.getElementById('service-worker-notification')
 
-const notification = Object.assign(doc.body.appendChild(doc.createElement('figure')), {
-  id: 'service-worker-notification',
+Object.assign(notification, {
   style: `
     position: fixed;
     bottom: 0;
