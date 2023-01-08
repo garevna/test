@@ -1,13 +1,11 @@
 const targetNode = document.getElementById('service-worker-notification')
-const config = { attributes: true, childList: true, subtree: true }
+const config = { attributes: true, childList: false, subtree: false }
 
 const callback = (mutationList, observer) => {
   for (const mutation of mutationList) {
     console.log('MUTATION:\n', mutation)
-    if (mutation.type === 'childList') {
-      console.log('A child node has been added or removed.')
-    } else if (mutation.type === 'attributes') {
-      console.log(`The ${mutation.attributeName} attribute was modified.`)
+    if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+      console.log(`Style changed: ${targetNode.style.display}`)
     }
   }
 }
