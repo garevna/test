@@ -54,22 +54,24 @@ Object.assign(notification.appendChild(document.createElement('p')), {
   }
 })
 
+const getTime = () => `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`
+
 const showNotification = function (counter) {
   window.navigator.serviceWorker.ready
     .then(registration => {
       if (registration.waiting) {
         console.log('Waiting\n', registration.waiting)
-        document.cookie = `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}=waiting`
-        window.sessionStorage.setItem(`${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`, 'waiting')
+        document.cookie = `waiting=${getTime}`
+        window.sessionStorage.setItem('waiting', `${getTime()}`)
         window.document.body.appendChild(notification)
       } else {
         if (!window.navigator.serviceWorker.controller && !registration.active) {
-          document.cookie = `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}=not_controller_&_not_active`
-          window.sessionStorage.setItem(`${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`, 'Controller and active SW not exist')
+          document.cookie = `controller_does_not_exist=${getTime()}`
+          window.sessionStorage.setItem('controller_does_not_exist', `${getTime()}`, 'Controller and active SW not exist')
           window.requestAnimationFrame(showNotification.bind(null, counter))
         } else {
           console.group('There is no updates for SW')
-          window.sessionStorage.setItem(`${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`, 'There is no updates for SW')
+          window.sessionStorage.setItem('updates_not_found', `${getTime()}`)
           console.log(new Date().toLocaleTimeString())
           console.log('Controller:\n', window.navigator.serviceWorker.controller)
           console.log('Active:\n', registration.active)

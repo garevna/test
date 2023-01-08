@@ -1,8 +1,10 @@
 /* eslint-disable */
 
-const notification = Object.assign(document.createElement('figure'), {
+const notification = Object.assign(document.body.appendChild(document.createElement('figure')), {
+  id: 'service-worker-notification',
   style: `
     position: fixed;
+    display: none;
     bottom: 0;
     right: 0;
     width: 320px;
@@ -69,7 +71,8 @@ async function showNotification () {
 
   if (waiting) {
     console.log('Waiting:\n', waiting)
-    document.body.appendChild(notification)
+    // document.body.appendChild(notification)
+    notification.style.display = 'block'
     return
   }
 
