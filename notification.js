@@ -68,7 +68,7 @@ async function showNotification () {
   }
 
   if (waiting) {
-    console.log('', waiting)
+    console.log('Waiting:\n', waiting)
     document.body.appendChild(notification)
     return
   }

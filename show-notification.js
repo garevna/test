@@ -3,7 +3,7 @@
 const notification = Object.assign(document.createElement('figure'), {
   style: `
     position: fixed;
-    top: 0;
+    bottom: 0;
     right: 0;
     width: 320px;
     height: 120px;
@@ -45,7 +45,7 @@ Object.assign(notification.appendChild(document.createElement('p')), {
   }
 })
 
-function showNotification () {
+const showNotification = function (counter) {
   window.navigator.serviceWorker.ready
     .then(registration => {
       if (registration.waiting) {
@@ -53,11 +53,12 @@ function showNotification () {
         window.document.body.appendChild(notification)
       } else {
         if (!window.navigator.serviceWorker.controller) {
-          console.log('requestAnimationFrame!')
+          console.log(counter++)
           window.requestAnimationFrame(showNotification)
         } else {
+          console.log(new Date().toLocaleTimeString(), )
           console.log(window.navigator.serviceWorker.controller)
         }
       }
     })
-}
+}.bind(null, 0)
