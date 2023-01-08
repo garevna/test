@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-const notification = Object.assign(document.createElement('figure'), {
+const notification = Object.assign(document.body.appendChild(document.createElement('figure')), {
   style: `
     position: fixed;
     bottom: 0;
