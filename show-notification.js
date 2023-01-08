@@ -61,12 +61,15 @@ const showNotification = function (counter) {
         console.log('Waiting\n', registration.waiting)
         window.document.body.appendChild(notification)
       } else {
-        if (!window.navigator.serviceWorker.controller) {
-          console.log(counter++)
-          window.requestAnimationFrame(showNotification)
+        if (!window.navigator.serviceWorker.controller && !registration.active) {
+          console.log('Installing ', counter++)
+          window.requestAnimationFrame(showNotification.bind(null, counter))
         } else {
-          console.log(new Date().toLocaleTimeString(), )
-          console.log(window.navigator.serviceWorker.controller)
+          console.group('There is no updates for SW')
+          console.log(new Date().toLocaleTimeString())
+          console.log('Controller:\n', window.navigator.serviceWorker.controller)
+          console.log('Active:\n', registration.active)
+          console.groupEnd('There is no updates for SW')
         }
       }
     })
