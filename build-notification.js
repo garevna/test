@@ -42,6 +42,7 @@ Object.assign(notification.appendChild(document.createElement('p')), {
     cursor: pointer;
   `,
   onclick: function (event) {
-    window.location.reload()
+    window.sessionStorage.setItem('click', new Date().toLocaleTimeString())
+    // window.location.reload()
   }
 })
