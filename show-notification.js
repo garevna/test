@@ -59,10 +59,11 @@ const showNotification = function (counter) {
     .then(registration => {
       if (registration.waiting) {
         console.log('Waiting\n', registration.waiting)
+        document.cookie = `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}=waiting`
         window.document.body.appendChild(notification)
       } else {
         if (!window.navigator.serviceWorker.controller && !registration.active) {
-          console.log('Installing ', counter++)
+          document.cookie = `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}=not_controller_&_not_active`
           window.requestAnimationFrame(showNotification.bind(null, counter))
         } else {
           console.group('There is no updates for SW')
