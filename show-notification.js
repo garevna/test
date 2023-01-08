@@ -1,7 +1,5 @@
 /* eslint-disable */
 
-const notification = document.getElementById('service-worker-notification')
-
 const getTime = () => `${('' + new Date().getHours()).padStart(2, '0')}:${('' + new Date().getMinutes()).padStart(2, '0')}:${('' + new Date().getSeconds()).padStart(2, '0')}`
 
 const showNotification = function (counter) {
@@ -11,7 +9,8 @@ const showNotification = function (counter) {
         console.log('UPDATES FOUND! Waiting\n', registration.waiting)
         document.cookie = `waiting=${getTime}`
         window.sessionStorage.setItem('waiting', `${getTime()}`)
-        window.document.body.appendChild(notification)
+
+        document.getElementById('service-worker-notification').style.display = 'block'
       } else {
         if (!window.navigator.serviceWorker.controller && !registration.active) {
           document.cookie = `controller_does_not_exist=${getTime()}`
