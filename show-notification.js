@@ -47,8 +47,7 @@ const sw_button = Object.assign(sw_notification.appendChild(document.createEleme
 function showNotification (registrationObject) {
   document.body.appendChild(sw_notification)
   sw_button.onclick = function (registrationObject, e) {
-    alert('skipWaiting')
+    console.log('skipWaiting')
     registrationObject.waiting.postMessage({ type: 'SKIP_WAITING' })
-    console.log(registrationObject)
   }.bind(null, registrationObject)
 }

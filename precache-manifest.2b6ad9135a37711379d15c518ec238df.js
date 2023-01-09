@@ -20,7 +20,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/browserconfig.xml"
   },
   {
-    "revision": "69da8842af91825b2466",
+    "revision": "9bb9abd7275134194eb9",
     "url": "/test/css/app.06bda4bb.css"
   },
   {
@@ -44,7 +44,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/css/footer-component.315aa0a1.css"
   },
   {
-    "revision": "ed597e5cade5ead9aa4c",
+    "revision": "50f514f4b016e53012c4",
     "url": "/test/css/home.f1ee91e4.css"
   },
   {
@@ -400,12 +400,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/img/dgtek-logo.png"
   },
   {
-    "revision": "ec6e22c4b43813158152f185395cbf45",
+    "revision": "fe9c40ce1ba04e1acab1611937516c56",
     "url": "/test/index.html"
   },
   {
-    "revision": "69da8842af91825b2466",
-    "url": "/test/js/app.6d362450.js"
+    "revision": "9bb9abd7275134194eb9",
+    "url": "/test/js/app.17bbbd8c.js"
   },
   {
     "revision": "361fd935b8480cea6bbc",
@@ -428,8 +428,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/js/footer-component.fe5663b1.js"
   },
   {
-    "revision": "ed597e5cade5ead9aa4c",
-    "url": "/test/js/home.e2637db3.js"
+    "revision": "50f514f4b016e53012c4",
+    "url": "/test/js/home.a2f2aab6.js"
   },
   {
     "revision": "54c38b14334a8ea87efc",
@@ -468,7 +468,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/service-worker-listener.js"
   },
   {
-    "revision": "59f9e54f97e3256f15ef13dd84a98644",
+    "revision": "52bf223ce9e8116bc681c8f9df66ce51",
     "url": "/test/show-notification.js"
   },
   {
