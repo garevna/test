@@ -20,11 +20,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/browserconfig.xml"
   },
   {
-    "revision": "e61a9e1fadde2090f20b",
+    "revision": "b41e234529a1f9190e8c",
     "url": "/test/css/app.06bda4bb.css"
   },
   {
-    "revision": "361fd935b8480cea6bbc",
+    "revision": "bc026115e6dfd93dc493",
     "url": "/test/css/blackfriday.a5ae6596.css"
   },
   {
@@ -36,35 +36,35 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/css/chunk-vendors.8229cbb0.css"
   },
   {
-    "revision": "d84b696fec2d666416ce",
+    "revision": "1e8857d8119255403595",
     "url": "/test/css/faqs.170d32b0.css"
   },
   {
-    "revision": "6372b664ebdce8dc0a1c",
+    "revision": "2e29bf506b987dba3a1c",
     "url": "/test/css/footer-component.315aa0a1.css"
   },
   {
-    "revision": "50f514f4b016e53012c4",
+    "revision": "ba24738d2a21eecf610d",
     "url": "/test/css/home.f1ee91e4.css"
   },
   {
-    "revision": "54c38b14334a8ea87efc",
+    "revision": "6a0e62c2217fa1f86b5c",
     "url": "/test/css/main-menu.f091c936.css"
   },
   {
-    "revision": "2480235865e467089514",
+    "revision": "c150c43e89fe50aca751",
     "url": "/test/css/not-found.11c29232.css"
   },
   {
-    "revision": "2157149ffce1dab505fd",
+    "revision": "f9fe1b98d226bdcb8fa0",
     "url": "/test/css/page.73565f75.css"
   },
   {
-    "revision": "410550de835b102f88b2",
+    "revision": "b9a6cad1258db2ef6802",
     "url": "/test/css/reviews.49d0453c.css"
   },
   {
-    "revision": "7aad121f480d7acc2968",
+    "revision": "15fe8423c249e9df0b92",
     "url": "/test/css/userForm.6d87831d.css"
   },
   {
@@ -400,16 +400,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/img/dgtek-logo.png"
   },
   {
-    "revision": "0fa75f693cb87c27733abced3d68f874",
+    "revision": "71b1f3929c950c700ea5689c609453d3",
     "url": "/test/index.html"
   },
   {
-    "revision": "e61a9e1fadde2090f20b",
-    "url": "/test/js/app.95ab4f9c.js"
+    "revision": "b41e234529a1f9190e8c",
+    "url": "/test/js/app.a4a184ae.js"
   },
   {
-    "revision": "361fd935b8480cea6bbc",
-    "url": "/test/js/blackfriday.a7ddf55c.js"
+    "revision": "bc026115e6dfd93dc493",
+    "url": "/test/js/blackfriday.d1b5b00d.js"
   },
   {
     "revision": "65c52b854f33c0e43848",
@@ -420,36 +420,36 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/js/chunk-vendors.4c04c9ad.js"
   },
   {
-    "revision": "d84b696fec2d666416ce",
-    "url": "/test/js/faqs.3dced690.js"
+    "revision": "1e8857d8119255403595",
+    "url": "/test/js/faqs.3e55e041.js"
   },
   {
-    "revision": "6372b664ebdce8dc0a1c",
-    "url": "/test/js/footer-component.fe5663b1.js"
+    "revision": "2e29bf506b987dba3a1c",
+    "url": "/test/js/footer-component.3411203a.js"
   },
   {
-    "revision": "50f514f4b016e53012c4",
-    "url": "/test/js/home.a2f2aab6.js"
+    "revision": "ba24738d2a21eecf610d",
+    "url": "/test/js/home.2d0cfc4b.js"
   },
   {
-    "revision": "54c38b14334a8ea87efc",
-    "url": "/test/js/main-menu.997fc038.js"
+    "revision": "6a0e62c2217fa1f86b5c",
+    "url": "/test/js/main-menu.bb70e05f.js"
   },
   {
-    "revision": "2480235865e467089514",
-    "url": "/test/js/not-found.69cc9fd8.js"
+    "revision": "c150c43e89fe50aca751",
+    "url": "/test/js/not-found.ff02474a.js"
   },
   {
-    "revision": "2157149ffce1dab505fd",
-    "url": "/test/js/page.1c96ad71.js"
+    "revision": "f9fe1b98d226bdcb8fa0",
+    "url": "/test/js/page.4e726a69.js"
   },
   {
-    "revision": "410550de835b102f88b2",
-    "url": "/test/js/reviews.e12165a7.js"
+    "revision": "b9a6cad1258db2ef6802",
+    "url": "/test/js/reviews.aef6987d.js"
   },
   {
-    "revision": "7aad121f480d7acc2968",
-    "url": "/test/js/userForm.d2c449cd.js"
+    "revision": "15fe8423c249e9df0b92",
+    "url": "/test/js/userForm.72170fb9.js"
   },
   {
     "revision": "41d719318fb9fb2901aab8951684759e",
@@ -464,11 +464,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/robots.txt"
   },
   {
-    "revision": "20dbd73b3ea61e3e3b0aabd28e8b4697",
+    "revision": "293fe4ea55ff270f4c42a20c0ba14800",
     "url": "/test/service-worker-listener.js"
   },
   {
-    "revision": "c117871fe1e9d68e2db93f427ae8f341",
+    "revision": "59f9e54f97e3256f15ef13dd84a98644",
     "url": "/test/show-notification.js"
   },
   {

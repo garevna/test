@@ -3,8 +3,6 @@
 function serviceWorkerListener (callback) {
   navigator.serviceWorker.getRegistration()
     .then(reg => {
-      console.log('SW registration object:\n', reg)
-
       function awaitStateChange () {
         reg.installing.addEventListener('statechange', function (event) {
           alert(`INSTALLING SW STATE CHANGED! ${this.state} (${event.target.state})`)

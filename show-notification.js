@@ -49,6 +49,6 @@ function showNotification (registrationObject) {
   sw_button.onclick = function (registrationObject, e) {
     alert('skipWaiting')
     registrationObject.waiting.postMessage({ type: 'SKIP_WAITING' })
-    alert('see new SW')
+    console.log(registrationObject)
   }.bind(null, registrationObject)
 }
