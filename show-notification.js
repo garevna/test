@@ -51,7 +51,7 @@ function showNotification (registrationObject) {
   document.body.appendChild(sw_notification)
   sw_button.onclick = function (e) {
     alert('skipWaiting')
-    registrationObject.waiting.postMessage('skipWaiting')
+    registrationObject.waiting.postMessage({ type: 'SKIP_WAITING' })
     alert('see new SW')
   }.bind(null, registrationObject)
 }
