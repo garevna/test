@@ -46,35 +46,9 @@ const sw_button = Object.assign(sw_notification.appendChild(document.createEleme
 
 function showNotification (registrationObject) {
   document.body.appendChild(sw_notification)
-  sw_button.onclick = function (e) {
+  sw_button.onclick = function (registrationObject, e) {
     alert('skipWaiting')
     registrationObject.waiting.postMessage({ type: 'SKIP_WAITING' })
     alert('see new SW')
   }.bind(null, registrationObject)
 }
-
-// const showNotification = function (counter) {
-//   window.navigator.serviceWorker.ready
-//     .then(registration => {
-//       if (registration.waiting) {
-//         console.log('UPDATES FOUND! Waiting\n', registration.waiting)
-//         window.sessionStorage.setItem('waiting', `${getTime()}`)
-//
-//         document.body.appendChild(window[Symbol.for('SW.notification')])
-//
-//         alert('UPDATES FOUND!')
-//       } else {
-//         if (!window.navigator.serviceWorker.controller && !registration.active) {
-//           window.sessionStorage.setItem('controller_does_not_exist', `${getTime()}`)
-//           window.requestAnimationFrame(showNotification)
-//         } else {
-//           console.group('There is no updates for SW')
-//           window.sessionStorage.setItem('updates_not_found', `${getTime()}`)
-//           console.log(new Date().toLocaleTimeString())
-//           console.log('Controller:\n', window.navigator.serviceWorker.controller)
-//           console.log('Active:\n', registration.active)
-//           console.groupEnd('There is no updates for SW')
-//         }
-//       }
-//     })
-// }
