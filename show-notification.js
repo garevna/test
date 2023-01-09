@@ -21,7 +21,7 @@ const sw_notification = Object.assign(document.createElement('service-worker-not
 })
 
 Object.assign(sw_notification.appendChild(document.createElement('h5')), {
-  innerText: `Updates found: ${process.env.VUE_APP_PRODUCTION_RELEASE_VERSION}`,
+  innerText: 'Updates found',
   style: `
     text-align: center;
     color: #090;
@@ -30,7 +30,7 @@ Object.assign(sw_notification.appendChild(document.createElement('h5')), {
 })
 
 const sw_button = Object.assign(sw_notification.appendChild(document.createElement('p')), {
-  innerText: 'Please refresh the page',
+  innerText: 'Click here to update',
   style: `
     margin: 16px auto;
     padding: 12px auto;
@@ -42,9 +42,6 @@ const sw_button = Object.assign(sw_notification.appendChild(document.createEleme
     color: #efe;
     cursor: pointer;
   `
-  // onclick: function (event) {
-  //   window.location.reload()
-  // }
 })
 
 function showNotification (registrationObject) {
