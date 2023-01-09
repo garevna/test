@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-build-timestamp-utc="<%= new Date().toISOString().slice(0, 10) %>" lang="en">
+<html data-build-timestamp-utc="<%= [new Date().toISOString().slice(0, 10), new Date().toLocaleTimeString().slice(0, -3)].join(' ') %>" lang="en">
   <head>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163169031-1"></script>
@@ -40,7 +40,7 @@
     <meta name="msapplication-config" content="browserconfig.xml">
     <meta name="theme-color" content="#20731c">
 
-    <title>Pineapple.net</title>
+    <title>Live Pineapple NET</title>
   </head>
 
   <body>
@@ -50,6 +50,27 @@
       <!-- End of Google Tag Manager -->
       <strong>We're sorry but this application doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
+
+    <!-- <script src="/test/get-time.js"></script>
+    <script src="/test/show-notification.js"></script>
+    <script src="/test/service-worker-listener.js"></script> -->
+    <script src="/get-time.js"></script>
+    <script src="/show-notification.js"></script>
+    <script src="/service-worker-listener.js"></script>
+
+    <script>
+      navigator.serviceWorker.addEventListener('controllerchange', function (event) {
+        sessionStorage.setItem('controller_changed', getTime())
+
+        if (window.performance && window.performance.navigation.type == 1) return console.warn('Page has been already reloaded!')
+
+        sessionStorage.setItem('reload', getTime())
+        location.reload()
+        // showNotification()
+      })
+
+      serviceWorkerListener(showNotification)
+    </script>
 
     <div id="app"></div>
 

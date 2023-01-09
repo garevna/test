@@ -25,7 +25,6 @@
         style="position: fixed; bottom: 0; left: 0;"
       />
       <!-- <v-img
-        v-if="christmas"
         src="@/assets/christmas.png"
         height="40"
         width="40"

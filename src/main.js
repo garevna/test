@@ -12,16 +12,14 @@ import 'pineapple-styles/css/variables.scss'
 
 import {
   getAddressBarStringByPageId,
-  getPageIdByAddressBarString,
-  serviceWorkerConfig
+  getPageIdByAddressBarString
 } from './helpers'
 
 Vue.config.productionTip = false
 
 Object.assign(Vue.prototype, {
   getAddressBarStringByPageId,
-  getPageIdByAddressBarString,
-  serviceWorkerConfig
+  getPageIdByAddressBarString
 })
 
 Vue.config.errorHandler = (err, component, info) => {
