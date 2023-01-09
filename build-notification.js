@@ -1,6 +1,6 @@
 console.log(process.env.VUE_APP_PRODUCTION_RELEASE_VERSION)
 
-window[Symbol.for('SW.notification')] = Object.assign(document.createEle('service-worker-notification'), {
+window[Symbol.for('SW.notification')] = Object.assign(document.createElement('service-worker-notification'), {
   style: `
     position: fixed;
     bottom: 0;
