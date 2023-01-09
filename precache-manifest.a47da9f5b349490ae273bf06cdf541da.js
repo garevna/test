@@ -24,7 +24,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/build-notification.js"
   },
   {
-    "revision": "569f656a47acf3faabd6",
+    "revision": "55bfed2a272b9f783075",
     "url": "/test/css/app.06bda4bb.css"
   },
   {
@@ -400,12 +400,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/img/dgtek-logo.png"
   },
   {
-    "revision": "32840db640565fd7b31d15162e92f799",
+    "revision": "1830cab5a0680345af96e969ae717552",
     "url": "/test/index.html"
   },
   {
-    "revision": "569f656a47acf3faabd6",
-    "url": "/test/js/app.99573908.js"
+    "revision": "55bfed2a272b9f783075",
+    "url": "/test/js/app.d088c864.js"
   },
   {
     "revision": "8a0cb5828dfec02734cd",
