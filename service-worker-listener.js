@@ -7,7 +7,8 @@ function serviceWorkerListener (callback) {
 
       function awaitStateChange () {
         reg.installing.addEventListener('statechange', function () {
-          alert('INSTALLING SW STATE CHANGED!\n', this)
+          alert('INSTALLING SW STATE CHANGED!', reg.installing.state)
+          console.log('INSTALLING SW STATE CHANGED! THIS:\n', this)
           if (this.state === 'installed') callback(reg)
         })
       }

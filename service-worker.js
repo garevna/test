@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/test/precache-manifest.e2e07be397f08003f6380432c3096b9c.js"
+  "/test/precache-manifest.13f3587ca1c1952fa30ed98388d0c5c2.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "live.pineapple.net.au"});
