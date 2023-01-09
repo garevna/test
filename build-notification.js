@@ -1,9 +1,8 @@
-const notification = document.getElementById('service-worker-notification')
+console.log(process.env.VUE_APP_PRODUCTION_RELEASE_VERSION)
 
-Object.assign(notification, {
+window[Symbol.for('SW.notification')] = Object.assign(document.createEle('service-worker-notification'), {
   style: `
     position: fixed;
-    display: none;
     bottom: 0;
     right: 0;
     width: 320px;
@@ -19,8 +18,8 @@ Object.assign(notification, {
   `
 })
 
-Object.assign(notification.appendChild(document.createElement('h5')), {
-  innerText: 'Updates found',
+Object.assign(window[Symbol.for('SW.notification')].appendChild(document.createElement('h5')), {
+  innerText: `Updates found: ${process.env.VUE_APP_PRODUCTION_RELEASE_VERSION}`,
   style: `
     text-align: center;
     color: #090;
@@ -28,7 +27,7 @@ Object.assign(notification.appendChild(document.createElement('h5')), {
   `
 })
 
-Object.assign(notification.appendChild(document.createElement('p')), {
+Object.assign(window[Symbol.for('SW.notification')].appendChild(document.createElement('p')), {
   innerText: 'Please refresh the page',
   style: `
     margin: 16px auto;
@@ -42,7 +41,6 @@ Object.assign(notification.appendChild(document.createElement('p')), {
     cursor: pointer;
   `,
   onclick: function (event) {
-    window.sessionStorage.setItem('click', new Date().toLocaleTimeString())
-    // window.location.reload()
+    window.location.reload()
   }
 })

@@ -1,23 +1,21 @@
 /* eslint-disable */
 
-const getTime = () => `${('' + new Date().getHours()).padStart(2, '0')}:${('' + new Date().getMinutes()).padStart(2, '0')}:${('' + new Date().getSeconds()).padStart(2, '0')}`
+const getTime = () => `${new Date().toISOString().slice(0, 10)} ${new Date().toLocaleTimeString().slice(0, -3)}`
 
 const showNotification = function (counter) {
   window.navigator.serviceWorker.ready
     .then(registration => {
       if (registration.waiting) {
         console.log('UPDATES FOUND! Waiting\n', registration.waiting)
-        document.cookie = `waiting=${getTime}`
         window.sessionStorage.setItem('waiting', `${getTime()}`)
 
-        document.getElementById('service-worker-notification').style.display = 'block'
-        console.log(document.getElementById('service-worker-notification').style.display)
+        document.body.appendChild(window[Symbol.for('SW.notification')])
+
+        alert('UPDATES FOUND!')
       } else {
         if (!window.navigator.serviceWorker.controller && !registration.active) {
-          document.cookie = `controller_does_not_exist=${getTime()}`
-          window.sessionStorage.setItem('controller_does_not_exist', `${getTime()}`, 'Controller and active SW not exist')
-          window.requestAnimationFrame(showNotification.bind(null, counter))
-          console.log(document.getElementById('service-worker-notification').style.display)
+          window.sessionStorage.setItem('controller_does_not_exist', `${getTime()}`)
+          window.requestAnimationFrame(showNotification)
         } else {
           console.group('There is no updates for SW')
           window.sessionStorage.setItem('updates_not_found', `${getTime()}`)
@@ -25,8 +23,7 @@ const showNotification = function (counter) {
           console.log('Controller:\n', window.navigator.serviceWorker.controller)
           console.log('Active:\n', registration.active)
           console.groupEnd('There is no updates for SW')
-          console.log(document.getElementById('service-worker-notification').style.display)
         }
       }
     })
-}.bind(null, 0)
+}

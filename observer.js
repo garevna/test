@@ -1,4 +1,4 @@
-const getTime = () => `${('' + new Date().getHours()).padStart(2, '0')}:${('' + new Date().getMinutes()).padStart(2, '0')}:${('' + new Date().getSeconds()).padStart(2, '0')}`
+const getTime = () => `${new Date().toISOString().slice(0, 10)} ${new Date().toLocaleTimeString().slice(0, -3)}`
 
 const targetNode = document.getElementById('service-worker-notification')
 const config = { attributes: true, childList: false, subtree: false }
