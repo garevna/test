@@ -20,11 +20,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/browserconfig.xml"
   },
   {
-    "revision": "9bb9abd7275134194eb9",
+    "revision": "e95d02695e752a8881c0",
     "url": "/test/css/app.06bda4bb.css"
   },
   {
-    "revision": "361fd935b8480cea6bbc",
+    "revision": "02cd95bba0a6bf463ade",
     "url": "/test/css/blackfriday.a5ae6596.css"
   },
   {
@@ -36,35 +36,35 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/css/chunk-vendors.8229cbb0.css"
   },
   {
-    "revision": "d84b696fec2d666416ce",
+    "revision": "5af19cd63e74d58a87cb",
     "url": "/test/css/faqs.170d32b0.css"
   },
   {
-    "revision": "6372b664ebdce8dc0a1c",
+    "revision": "9f66c7cdbb4567b5c41d",
     "url": "/test/css/footer-component.315aa0a1.css"
   },
   {
-    "revision": "50f514f4b016e53012c4",
+    "revision": "e56d0aae29fe695b6ebe",
     "url": "/test/css/home.f1ee91e4.css"
   },
   {
-    "revision": "54c38b14334a8ea87efc",
+    "revision": "252f1e2e9b54ca935683",
     "url": "/test/css/main-menu.f091c936.css"
   },
   {
-    "revision": "2480235865e467089514",
+    "revision": "a5829b874f3d52a34b56",
     "url": "/test/css/not-found.11c29232.css"
   },
   {
-    "revision": "2157149ffce1dab505fd",
+    "revision": "37cf6585cad5ad3884d9",
     "url": "/test/css/page.73565f75.css"
   },
   {
-    "revision": "410550de835b102f88b2",
+    "revision": "681a2cfee6386ba2a3fa",
     "url": "/test/css/reviews.49d0453c.css"
   },
   {
-    "revision": "7aad121f480d7acc2968",
+    "revision": "2e1186fcf1c09101f0bd",
     "url": "/test/css/userForm.6d87831d.css"
   },
   {
@@ -384,6 +384,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/img/christmas.9d8d0dce.webp"
   },
   {
+    "revision": "aaba1fc40d60c09fd7da973acc147b07",
+    "url": "/test/img/christmas.aaba1fc4.png"
+  },
+  {
     "revision": "9d8d0dcee543446ec841cba9c91497b6",
     "url": "/test/img/christmas.webp"
   },
@@ -400,16 +404,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/img/dgtek-logo.png"
   },
   {
-    "revision": "fe9c40ce1ba04e1acab1611937516c56",
+    "revision": "272ac5397da546dd964f495fc658b7ca",
     "url": "/test/index.html"
   },
   {
-    "revision": "9bb9abd7275134194eb9",
-    "url": "/test/js/app.17bbbd8c.js"
+    "revision": "e95d02695e752a8881c0",
+    "url": "/test/js/app.2fd88bb6.js"
   },
   {
-    "revision": "361fd935b8480cea6bbc",
-    "url": "/test/js/blackfriday.a7ddf55c.js"
+    "revision": "02cd95bba0a6bf463ade",
+    "url": "/test/js/blackfriday.a8f50f59.js"
   },
   {
     "revision": "65c52b854f33c0e43848",
@@ -420,36 +424,36 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test/js/chunk-vendors.4c04c9ad.js"
   },
   {
-    "revision": "d84b696fec2d666416ce",
-    "url": "/test/js/faqs.3dced690.js"
+    "revision": "5af19cd63e74d58a87cb",
+    "url": "/test/js/faqs.fc2b0ee1.js"
   },
   {
-    "revision": "6372b664ebdce8dc0a1c",
-    "url": "/test/js/footer-component.fe5663b1.js"
+    "revision": "9f66c7cdbb4567b5c41d",
+    "url": "/test/js/footer-component.c0f7a079.js"
   },
   {
-    "revision": "50f514f4b016e53012c4",
-    "url": "/test/js/home.a2f2aab6.js"
+    "revision": "e56d0aae29fe695b6ebe",
+    "url": "/test/js/home.c9c13746.js"
   },
   {
-    "revision": "54c38b14334a8ea87efc",
-    "url": "/test/js/main-menu.997fc038.js"
+    "revision": "252f1e2e9b54ca935683",
+    "url": "/test/js/main-menu.87ab19d0.js"
   },
   {
-    "revision": "2480235865e467089514",
-    "url": "/test/js/not-found.69cc9fd8.js"
+    "revision": "a5829b874f3d52a34b56",
+    "url": "/test/js/not-found.24783a71.js"
   },
   {
-    "revision": "2157149ffce1dab505fd",
-    "url": "/test/js/page.1c96ad71.js"
+    "revision": "37cf6585cad5ad3884d9",
+    "url": "/test/js/page.e38e000e.js"
   },
   {
-    "revision": "410550de835b102f88b2",
-    "url": "/test/js/reviews.e12165a7.js"
+    "revision": "681a2cfee6386ba2a3fa",
+    "url": "/test/js/reviews.774e0343.js"
   },
   {
-    "revision": "7aad121f480d7acc2968",
-    "url": "/test/js/userForm.d2c449cd.js"
+    "revision": "2e1186fcf1c09101f0bd",
+    "url": "/test/js/userForm.021c8282.js"
   },
   {
     "revision": "41d719318fb9fb2901aab8951684759e",
