@@ -24,13 +24,6 @@
         contain
         style="position: fixed; bottom: 0; left: 0;"
       />
-      <!-- <v-img
-        src="@/assets/christmas.png"
-        height="40"
-        width="40"
-        contain
-        style="position: fixed; bottom: 0; left: 0;"
-      /> -->
       <small>
         <sub style="color: #fff3 !important"> Release <b>{{ gitTagNumber }}</b> / {{ releaseDate }} </sub>
       </small>

@@ -29,9 +29,9 @@
         </v-card-text>
         <v-card-text>
           <h5
-                v-for="(item, index) in info.offer"
-                :key="index"
-                style="margin-bottom: 16px"
+            v-for="(item, index) in info.offer"
+            :key="index"
+            style="margin-bottom: 16px"
           >
             <strong style="color: #72BF44; margin-right: 8px;">{{ item.greenText }}</strong>{{ item.blackText }}
           </h5>

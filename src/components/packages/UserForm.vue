@@ -8,7 +8,7 @@
           style="margin-bottom: 80px"
         >
           <UserContact
-            v-if="userForm"
+            v-if="userForm && showUserForm"
             :address="addressString"
             :userForm="userForm"
             :emailSubject="emailSubject"
@@ -16,6 +16,9 @@
             :emailEndpoint="mailEndpoint"
             :emailTarget="emailTarget"
           />
+          <div v-else style="border: solid 1px #ddd; border-radius: 4px; padding-bottom: 320px" class="mt-12 pt-12 px-auto">
+            <h5 style="color: #999; text-align: center">User contact form is not available</h5>
+          </div>
       </v-card>
     </div>
   </section>
@@ -33,6 +36,10 @@ export default {
 
   props: ['address'],
 
+  data: () => ({
+    showUserForm: true
+  }),
+
   computed: {
     ...mapState(['mailEndpoint', 'emailSubject', 'emailText', 'emailTarget']),
     ...mapState('content', ['userForm']),
@@ -44,6 +51,10 @@ export default {
     textForMail () {
       return `${this.emailText}<br></br>${this.addressString}`
     }
+  },
+
+  beforeMount () {
+    this.showUserForm = process.env.VUE_APP_TEST_SW !== 'test'
   }
 }
 </script>

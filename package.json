@@ -1,9 +1,9 @@
 {
   "name": "live.pineapple.net.au",
-  "version": "1.5.5",
-  "tag": "1.5.5",
+  "version": "1.5.7",
+  "tag": "1.5.7",
   "private": true,
-  "remote": "prod",
+  "remote": "test",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
